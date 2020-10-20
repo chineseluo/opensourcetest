@@ -1,0 +1,36 @@
+description: 用户列表，用于用户的增删改查
+parameters:
+  - url: /xxx/xxxx
+    desc: 用户登录
+    method: post
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    }
+    params: {}
+    data:
+      client_id: 'xxxx'
+    json: {}
+
+  - url: /xxx/xxx/xxxx
+    desc: 获取用户列表
+    method: get
+    header: {
+      "Content-Type": "application/json"
+    }
+    params: {}
+    body: {}
+    data:
+      example: "example"
+    json: {
+      "example": "example"
+    }
+
+  - url: /xxx/xxx/xxx
+    desc: 创建用户
+    method: post
+    header: {
+      "Content-Type": "application/json"
+    }
+    params: {}
+    body: {}
+    data: {language: 1}

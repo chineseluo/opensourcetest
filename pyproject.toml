@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "opensourcetest"
+version = "0.1.0"
+description = "We need more free software interface testing."
+license = "Apache-2.0"
+readme = "README.md"
+authors = ["chineseluo <848257135@qq.com>"]
+
+homepage = "https://github.com/chineseluo/opensourcetest"
+repository = "https://github.com/chineseluo/opensourcetest"
+documentation = "https://docs.opensourcetest.org"
+
+keywords = ["HTTP", "http", "Http", "api", "interface", "test", "requests", "pytest", "allure", 'pytest-xdist']
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "License :: OSI Approved :: Apache Software License"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pytest = "^5.2"
+pytest-html = "^2.1.1"
+loguru = "0.5.3"
+requests = "2.24.0"
+PyYAML = "5.3.1"
+allure-pytest = {version = "^2.8.16", optional = true}
+mkdocs = "^1.1.2"
+mkdocs-material = "^6.0.2"
+
+[tool.poetry.extras]
+allure = ["allure-pytest"]
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+loguru = "0.5.3"
+requests = "2.24.0"
+PyYAML = "5.3.1"
+
+[tool.poetry.scripts]
+nw = "opensourcetest.cli:main"
+opensourcetest = "opensourcetest.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

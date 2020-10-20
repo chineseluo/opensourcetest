@@ -1,0 +1,47 @@
+# Project information
+site_name: OpenSourceTest V0.1.0 Docs
+site_description: OpenSourceTest V0.1.0 User Documention
+site_author: "chineseluo"
+# site_favicon need a picture path
+site_favicon: ""
+
+# Repository
+repo_name: OpenSourceTest
+repo_url: https://github.com/chineseluo/opensourcetest
+
+# Copyright
+copyright: 'Copyright &copy; 2020 - 2020 chineseluo'
+
+# Configuration
+theme:
+    name: 'material'
+    language: 'zh'
+    palette:
+        primary: 'indigo'
+        accent: 'indigo'
+    font:
+        text: 'Roboto'
+        code: 'Roboto Mono'
+
+# Google Analytics
+google_analytics: ['UA-36723568-3', 'auto']
+
+# Markdown syntax extensions,mkdocs-plugin
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+nav:
+    - Introduction: index.md
+    - User Guide:
+          - Scaffold: user/scaffold.md
+          - Record & Generate testcase: user/gen_tests.md
+          - Write Testcase: user/write_testcase.md
+          - Run Testcase: user/run_testcase.md
+          - Testing Report: user/testing_report.md
+          - Run load test: user/run_loadtest.md
+    - Sponsors: sponsors.md
+    - Changelog: changelog.md

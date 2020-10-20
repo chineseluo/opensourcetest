@@ -1,0 +1,6 @@
+server_info:
+  base_url: xxxx
+  protocol: http
+  username: xxxx
+  password: 123456
+  verify: false
