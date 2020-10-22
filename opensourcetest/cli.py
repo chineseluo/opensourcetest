@@ -35,18 +35,20 @@ def main():
     subparsers = parser.add_subparsers(help="Night walker sub-command help")
     sub_scaffold_parser = init_scaffold_parser(subparsers)
 
-    nw_argv = sys.argv
-    print(nw_argv)
-    if len(nw_argv) == 1:
+    ost_argv = sys.argv
+    print(ost_argv)
+    if len(ost_argv) == 1:
         parser.print_help()
         sys.exit()
-    elif len(nw_argv) == 2:
-        if nw_argv[1] in ["-V", "-v", "--Version", "--version"]:
+    elif len(ost_argv) == 2:
+        if ost_argv[1] in ["-V", "-v", "--Version", "--version"]:
             print(f"The Night Walker version is {__version__}")
-        elif nw_argv[1] in ["-h", "-H", "--help", "--Help"]:
+        elif ost_argv[1] in ["-h", "-H", "--help", "--Help"]:
             parser.print_help()
-        elif nw_argv[1] == "startproject":
+        elif ost_argv[1] == "startproject":
             sub_scaffold_parser.print_help()
+        elif ost_argv[1] == "onlinedocs":
+            print("start web help docs")
         else:
             print("Please use nm - h to view help information")
         sys.exit(0)

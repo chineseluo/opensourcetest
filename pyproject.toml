@@ -47,7 +47,9 @@ requests = "2.24.0"
 PyYAML = "5.3.1"
 
 [tool.poetry.scripts]
-nw = "opensourcetest.cli:main"
+OST = "opensourcetest.cli:main"
+Ost = "opensourcetest.cli:main"
+Opensourcetest = "opensourcetest.cli:main"
 opensourcetest = "opensourcetest.cli:main"
 
 [build-system]
