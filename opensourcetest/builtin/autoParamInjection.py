@@ -23,6 +23,7 @@ class AutoInjection:
     """Automatic yaml object injection.
     Assign the basic attribute to the subclass by inheriting autoinjection.
     """
+
     def __init__(self, *args):
         self.interface_info = []
         self.__read_yaml(*args)
@@ -37,10 +38,20 @@ class AutoInjection:
         :return:
         """
         if len(args) == 1:
-            yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[0] + ".yml")
+            if os.path.dirname(__file__).find("opensourcetest") == -1:
+                yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[0] + ".yml")
+            else:
+                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
+                yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "model/Parameter", args[0],
+                                         args[0] + ".yml")
             self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         elif len(args) == 2:
-            yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[1] + ".yml")
+            if os.path.dirname(__file__).find("opensourcetest") == -1:
+                yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[1] + ".yml")
+            else:
+                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
+                yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "model/Parameter", args[0],
+                                         args[1] + ".yml")
             self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         else:
             logging.error("Parameter transfer error. Only two parameters can be received")
@@ -64,4 +75,5 @@ class AutoInjection:
 
 
 if __name__ == '__main__':
-    ...
+    if os.path.dirname(__file__).find("opensourcetest") != -1:
+        logging.info(os.path.dirname(__file__).find("opensourcetest"))
