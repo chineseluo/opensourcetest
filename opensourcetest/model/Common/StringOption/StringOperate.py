@@ -3,7 +3,7 @@
 
 """
 ------------------------------------
-@Project : opensourcetest
+@Project : interface_auto_frame
 @Time    : 2020/8/25 16:17
 @Auth    : chineseluo
 @Email   : 848257135@qq.com
@@ -19,7 +19,7 @@ class String:
     @staticmethod
     def transfer_md5(msg: str):
         """
-        对字符串进行md5加密
+        MD5 encryption of string
         :param msg:
         :return:
         """

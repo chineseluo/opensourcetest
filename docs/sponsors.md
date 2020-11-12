@@ -1,11 +1,11 @@
-# Sponsor
-**OpenSourceTest is maintained by a team of volunteers from all around the world in their free time. While we work on OpenSourceTest because we love the project and use it daily at our daily jobs, monetary compensation when possible is welcome to justify time away from friends, family and personal time.**
+# 赞助者
+​	**OpenSourceTest由来自世界各地的志愿者在空闲时间维护。虽然我们致力于OpenSourceTest，因为我们热爱这个项目，并且每天都在日常工作中使用它，但是如果可能的话，我们欢迎给予金钱赞助，以证明远离朋友、家人和牺牲个人时间的合理性。**
 
-**Money is also used to fund local sprints, merchandising (stickers to distribute in conferences for example) and every few years a large sprint involving all members.**
+​	**这些钱也将被用来维护框架，以及直播，展会等活动**
 
-**Thank you for your sponsorship of the OpenSourceTest program**
+**感谢您对OpenSourceTest计划的赞助**
 
-**赞助个人成员名单**
+**赞助者个人名单**
 
 - 毛毛（夜行者-自动化测试社区）
 

@@ -3,3 +3,5 @@ __pycache__
 .idea/*
 examples/Report/*
 testfile
+opensourcetest/model/Report
+opensourcetest/model/.pytest_cache

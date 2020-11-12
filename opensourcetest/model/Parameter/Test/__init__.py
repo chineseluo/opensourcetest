@@ -4,19 +4,10 @@
 """
 ------------------------------------
 @Project : interface_auto_frame
-@Time    : 2020/8/25 16:07
+@Time    : 2020/8/25 16:40
 @Auth    : chineseluo
 @Email   : 848257135@qq.com
-@File    : conftest.py
+@File    : __init__.py
 @IDE     : PyCharm
 ------------------------------------
 """
-import allure
-import pytest
-
-
-@pytest.fixture()
-def function_fixture():
-    print("Run before function")
-    yield
-    print("Run after function")

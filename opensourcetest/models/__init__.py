@@ -4,9 +4,9 @@
 """
 ------------------------------------
 @Project : interface_auto_frame
-@Time    : 2020/8/25 16:11
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
+@Time    : 2020/10/23 17:01
+@Auth    : luozhongwen
+@Email   : luozw@inhand.com.cn
 @File    : __init__.py
 @IDE     : PyCharm
 ------------------------------------

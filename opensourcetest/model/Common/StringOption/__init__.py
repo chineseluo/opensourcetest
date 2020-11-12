@@ -3,10 +3,10 @@
 
 """
 ------------------------------------
-@Project : opensourcetest
+@Project : interface_auto_frame
 @Time    : 2020/10/12 9:35
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
+@Auth    : luozhongwen
+@Email   : luozw@inhand.com.cn
 @File    : __init__.py
 @IDE     : PyCharm
 ------------------------------------

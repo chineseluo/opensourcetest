@@ -20,5 +20,4 @@ class Login(AutoInjection):
 
 
 if __name__ == '__main__':
-    t = Login()
-    print(t.interface_info)
+    ...

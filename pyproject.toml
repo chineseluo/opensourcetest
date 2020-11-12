@@ -33,12 +33,12 @@ pytest-html = "^2.1.1"
 loguru = "0.5.3"
 requests = "2.24.0"
 PyYAML = "5.3.1"
-allure-pytest = {version = "^2.8.16", optional = true}
 mkdocs = "^1.1.2"
 mkdocs-material = "^6.0.2"
+jmespath = "^0.10.0"
+pydantic = "^1.6.1"
+allure-pytest = "^2.8.19"
 
-[tool.poetry.extras]
-allure = ["allure-pytest"]
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

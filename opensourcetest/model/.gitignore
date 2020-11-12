@@ -1,0 +1,6 @@
+test.py
+.pytest_cache/*
+Report/*
+.pytest_cache
+.idea
+.idea/*

@@ -1,6 +1,6 @@
 server_info:
-  base_url: xxxx
-  protocol: http
-  username: xxxx
-  password: 123456
+  base_url: www.cnblogs.com
+  protocol: https
+  username: xxxxxxxx
+  password: xxxxxxxx
   verify: false
