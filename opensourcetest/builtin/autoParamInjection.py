@@ -11,11 +11,9 @@
 @IDE     : PyCharm
 ------------------------------------
 """
-import yaml
 import os
-
+import inspect
 import logging
-from opensourcetest.Common.comFileOption import get_roots_dirs_files_list
 from opensourcetest.Common.yamlOption import YamlFileOption
 
 
@@ -37,6 +35,9 @@ class AutoInjection:
         :param args:
         :return:
         """
+        # 待优化项：支持读取Parameter下新建模块和文件，以及直接创建文件
+        logging.warning(f"输出类文件的位置：{inspect.getfile(self.__class__)}")
+        logging.warning(os.path.dirname(__file__))
         if len(args) == 1:
             if os.path.dirname(__file__).find("opensourcetest") == -1:
                 yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[0] + ".yml")

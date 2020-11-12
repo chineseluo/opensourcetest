@@ -5,3 +5,4 @@ examples/Report/*
 testfile
 opensourcetest/model/Report
 opensourcetest/model/.pytest_cache
+tests/.pytest_cache

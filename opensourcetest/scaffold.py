@@ -26,7 +26,7 @@ def create_scaffold(project_name):
         logger.warning(f"Project name {project_name} conflicts with existed file, please specify a new one.")
         return 1
 
-    logger.info(f"Night Walker start creating new project: {project_name}")
+    logger.info(f"OpenSourceTest start creating new project: {project_name}")
     logger.info(f"Project Root Dir: {os.path.join(os.getcwd(), project_name)}\n")
 
     def create_folder(path):
