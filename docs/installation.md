@@ -25,24 +25,27 @@ pip install -U git+https://github.com/chineseluo/opensourcetest.git@master
 
 ## 检查安装
 
-安装OpenSourceTest后，系统将添加三个命令。
+安装OpenSourceTest后，系统将添加三个命令。在OpenSourceTest中OST命令等价于Ost、Opensourcetest、opensourcetest，
 
-- 1
-- 2
-- 3
+- 1、OST -V：查看OpenSourceTest版本号（使用时：[-V|-v|--Version|--version"]等价）
+- 2、OST -h：查看OpenSourceTest帮助说明（使用时：[-h|-H|--help|--Help]等价）
+- 3、OST onlinedocs：查看OpenSourceTest在线文档地址
+- 4、OST startproject -h：查看创建项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
+- 5、OST startproject [project_name]：创建接口自动化项目，[project_name]自定义
 
 检查OpenSourceTest版本：
 
 ~~~bash
-opensourcetest -V #OST -V
-0.1.0
+OST -V
 ~~~
+
+![version010](D:\TestScriptDir\opensourcetest\docs\images\installation\version010.png)
 
 查看可用选项，请运行：
 
 ~~~bash
-opensource -h
+OST -h
 ~~~
 
-
+![help](./images/installation/help.jpg)
 

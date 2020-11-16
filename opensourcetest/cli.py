@@ -14,7 +14,6 @@
 import os
 from loguru import logger
 import sys
-import pytest
 import argparse
 from .scaffold import create_scaffold
 from opensourcetest import __version__, __description__
@@ -49,7 +48,7 @@ def main():
              | O | | p | | e | | n | | S | | o | | u | | r | | c | | e | | T | | e | | s | | t |
              +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +++ +-+ +++ +-+ +++ +-+ +++ +-+
             """)
-            logger.info(f"The Night Walker version is {__version__}")
+            logger.info(f"The OpenSourceTest version is {__version__}")
         elif ost_argv[1] in ["-h", "-H", "--help", "--Help"]:
             parser.print_help()
         elif ost_argv[1] == "startproject":
@@ -60,7 +59,7 @@ def main():
             print("Please use nm - h to view help information")
         sys.exit(0)
     elif len(sys.argv) == 3 and sys.argv[1] == "startproject" and sys.argv[2] in ["-h", "-H", "--help", "--Help"]:
-        pytest.main(["-h"])
+        logger.info("Please follow OST startproject with the project file name!")
         sys.exit(0)
     elif len(sys.argv) == 3 and sys.argv[1] == "startproject":
         create_scaffold(sys.argv[2])
@@ -73,4 +72,4 @@ if __name__ == "__main__":
                 | O | | p | | e | | n | | S | | o | | u | | r | | c | | e | | T | | e | | s | | t |
                 +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +++ +-+ +++ +-+ +++ +-+ +++ +-+
                """)
-    logger.info(f"The Night Walker version is {__version__}")
+    logger.info(f"The OpenSourceTest version is {__version__}")
