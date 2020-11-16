@@ -16,6 +16,7 @@ from loguru import logger
 import sys
 import pytest
 import argparse
+from .scaffold import create_scaffold
 from opensourcetest import __version__, __description__
 
 
@@ -60,6 +61,9 @@ def main():
         sys.exit(0)
     elif len(sys.argv) == 3 and sys.argv[1] == "startproject" and sys.argv[2] in ["-h", "-H", "--help", "--Help"]:
         pytest.main(["-h"])
+        sys.exit(0)
+    elif len(sys.argv) == 3 and sys.argv[1] == "startproject":
+        create_scaffold(sys.argv[2])
         sys.exit(0)
 
 

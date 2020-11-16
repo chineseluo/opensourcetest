@@ -17,7 +17,7 @@ import requests
 import logging
 from opensourcetest.models.consolelog import log_output
 from opensourcetest.models.models import OSTRespData, OSTReqData, OSTReqRespData, MethodEnum, OSTReqArgv
-from opensourcetest.Common.yamlOption import YamlFileOption
+from opensourcetest.common.yamlOption import YamlFileOption
 
 # 读取Conf下的conf.yml全局配置文件
 conf_yaml_path = os.path.join(os.path.dirname(__file__).split("Base")[0], "Conf/conf.yml")

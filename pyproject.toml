@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opensourcetest"
-version = "0.1.0"
+version = "0.1.7"
 description = "We need more free software interface testing."
 license = "Apache-2.0"
 readme = "README.md"
@@ -30,15 +30,14 @@ classifiers = [
 python = "^3.6"
 pytest = "^5.2"
 pytest-html = "^2.1.1"
-loguru = "0.5.3"
-requests = "2.24.0"
-PyYAML = "5.3.1"
+loguru = "^0.5.3"
+requests = "^2.22.0"
+PyYAML = "^5.1.2"
 mkdocs = "^1.1.2"
 mkdocs-material = "^6.0.2"
-jmespath = "^0.10.0"
-pydantic = "^1.6.1"
+jmespath = "^0.9.5"
+pydantic = "^1.4"
 allure-pytest = "^2.8.19"
-
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

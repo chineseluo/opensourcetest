@@ -13,7 +13,7 @@
 """
 import os
 import shutil
-import loguru as logger
+from loguru import logger
 
 
 def create_scaffold(project_name):
@@ -33,8 +33,8 @@ def create_scaffold(project_name):
         os.makedirs(path)
         logger.info(msg=f"created folder:{path}")
 
-    def copy_allfiles(target_path):
-        source_path = "../model"
+    def copy_allfiles(source_path, target_path):
+        logger.info(f"source_path:{source_path}")
         if not os.path.exists(target_path):  # If the destination directory does not exist, the directory is created
             os.makedirs(target_path)
         files = os.listdir(source_path)  # Get the list of files and directories in the folder
@@ -44,8 +44,9 @@ def create_scaffold(project_name):
             else:
                 shutil.copy(source_path + '/' + f, target_path + '/' + f)  # copy file
 
+    source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "model")
     create_folder(project_name)
-    copy_allfiles(project_name)
+    copy_allfiles(source_path, project_name)
 
 
 if __name__ == "__main__":

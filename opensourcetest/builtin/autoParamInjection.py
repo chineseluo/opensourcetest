@@ -14,7 +14,7 @@
 import os
 import inspect
 import logging
-from opensourcetest.Common.yamlOption import YamlFileOption
+from opensourcetest.common.yamlOption import YamlFileOption
 
 
 class AutoInjection:
@@ -36,7 +36,7 @@ class AutoInjection:
         :return:
         """
         # 待优化项：支持读取Parameter下新建模块和文件，以及直接创建文件
-        logging.warning(f"输出类文件的位置：{inspect.getfile(self.__class__)}")
+        logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
         logging.warning(os.path.dirname(__file__))
         if len(args) == 1:
             if os.path.dirname(__file__).find("opensourcetest") == -1:
