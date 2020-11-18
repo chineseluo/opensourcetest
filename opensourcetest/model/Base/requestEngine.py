@@ -31,11 +31,12 @@ def check_assertion(res, checker):
     if isinstance(checker[0], (List, Tuple)):
         for assert_item in checker:
             extract_resp = jmespath.search(assert_item[0], res.dict())
-            if assert_item[1]:
+            if assert_item[1] is not None:
                 try:
                     assert extract_resp == assert_item[1]
                 except AssertionError:
-                    logging.error(f"Assert Fail,Expected Value：{assert_item[1]},Response Data：{res}")
+                    logging.error(f"Assert Fail,Expected Value：{assert_item[1]},Response Data：{extract_resp}")
+                    raise AssertionError
             else:
                 logging.error(f"Assert Fail,Get Assert Object Fail：{assert_item}")
                 raise AssertionError
@@ -103,13 +104,13 @@ def start_run_case(params_object, params_mark, checker=None, session_connection=
         **kwargs
     )
     logging.info(ost_req_argv)
-    ost_rep_resp = req.send_request(part_url=part_url, method=params_dict['method'].upper(),
+    ost_req_resp = req.send_request(part_url=part_url, method=params_dict['method'].upper(),
                                     send_params=None, send_data=params_dict['data'],
                                     send_json=params_dict['json'], headers=params_dict['headers'], **kwargs)
     if checker:
         # According to jmespath_rule and contrast value are used to judge, which needs to support multiple judgments
-        check_assertion(ost_rep_resp.response, checker)
-    return ost_rep_resp
+        check_assertion(ost_req_resp.response, checker)
+    return ost_req_resp
 
 
 if __name__ == "__main__":

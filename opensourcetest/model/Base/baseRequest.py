@@ -110,12 +110,12 @@ class BaseRequest:
             body=result.content
         )
         log_output(ost_resp, "response")
-        ost_rep_resp = OSTReqRespData(
+        ost_req_resp = OSTReqRespData(
             request=ost_req,
             response=ost_resp
         )
         logging.info(f"Output object:{ost_rep_resp}")
-        return ost_rep_resp
+        return ost_req_resp
 
 
 if __name__ == '__main__':
