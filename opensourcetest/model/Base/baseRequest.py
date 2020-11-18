@@ -114,7 +114,7 @@ class BaseRequest:
             request=ost_req,
             response=ost_resp
         )
-        logging.info(f"Output object:{ost_rep_resp}")
+        logging.info(f"Output object:{ost_req_resp}")
         return ost_req_resp
 
 
