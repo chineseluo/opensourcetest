@@ -11,7 +11,6 @@
 @IDE     : PyCharm
 ------------------------------------
 """
-from loguru import logger
 import logging
 import re
 from typing import Text, List, Dict, Tuple

@@ -12,7 +12,9 @@
 ------------------------------------
 """
 import json
+import sys
 from loguru import logger
+import logging
 
 
 def log_output(ost_model, ost_type):
@@ -26,9 +28,8 @@ def log_output(ost_model, ost_type):
     for key, value in ost_model.dict().items():
         if isinstance(value, dict):
             value = json.dumps(value, indent=4)
-
         msg += "{:<8} : {}\n".format(key, value)
-    logger.debug(msg)
+    logging.debug(msg)
 
 
 class OSTConsoleLog(object):

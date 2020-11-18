@@ -12,7 +12,6 @@
 ------------------------------------
 """
 import os
-from loguru import logger
 import jmespath
 import requests
 import logging
