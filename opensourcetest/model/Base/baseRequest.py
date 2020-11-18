@@ -12,6 +12,7 @@
 ------------------------------------
 """
 import os
+from loguru import logger
 import jmespath
 import requests
 import logging
@@ -101,13 +102,21 @@ class BaseRequest:
             body=result.request.body
         )
         log_output(ost_req, "request")
+        if result.headers["Content-Type"].find("json") != -1:
+            ost_rep_body = result.json()
+        elif result.headers["Content-Type"].find("xml") != -1 \
+                or result.headers["Content-Type"].find("html") != -1 \
+                or result.headers["Content-Type"].find("text") != -1:
+            ost_rep_body = result.text
+        else:
+            ost_rep_body = result.content
         ost_resp = OSTRespData(
             status_code=result.status_code,
             cookies=result.cookies,
             encoding=result.encoding,
             headers=result.headers,
             content_type=result.headers.get("content-type"),
-            body=result.content
+            body=ost_rep_body
         )
         log_output(ost_resp, "response")
         ost_req_resp = OSTReqRespData(

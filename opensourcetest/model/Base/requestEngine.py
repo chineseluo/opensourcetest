@@ -33,7 +33,7 @@ def check_assertion(res, checker):
             extract_resp = jmespath.search(assert_item[0], res.dict())
             if assert_item[1] is not None:
                 try:
-                    assert extract_resp == assert_item[1]
+                    assert Text(extract_resp) == Text(assert_item[1])
                 except AssertionError:
                     logging.error(f"Assert Fail,Expected Value：{assert_item[1]},Response Data：{extract_resp}")
                     raise AssertionError
@@ -52,7 +52,7 @@ def check_assertion(res, checker):
                       f"is：{checker}")
 
 
-def url_replace(url: Text, url_converter) -> Text:
+def url_replace(url: Text, url_converter: Text) -> Text:
     """
     Used to convert the & parameter in the URL
     :param url:

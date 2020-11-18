@@ -27,5 +27,5 @@ class TestLogin:
         headers = {
             "Transfer-Encoding": "chunked"
         }
-        result = start_run_case(Login, "用户权限", [("encoding", "utf-8"), ("status_code", "201")])
+        result = start_run_case(Login, "用户权限", [("encoding", "utf-8"), ("status_code", "200")])
         logging.info(result)
