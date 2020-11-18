@@ -11,6 +11,7 @@
 @IDE     : PyCharm
 ------------------------------------
 """
+from loguru import logger
 import logging
 import re
 from typing import Text, List, Dict, Tuple
@@ -26,9 +27,10 @@ def check_assertion(res, checker):
     :param checker:
     :return:
     """
+
     if isinstance(checker[0], (List, Tuple)):
         for assert_item in checker:
-            extract_resp = jmespath.search(res, assert_item[0])
+            extract_resp = jmespath.search(assert_item[0], res.dict())
             if assert_item[1]:
                 try:
                     assert extract_resp == assert_item[1]
@@ -37,12 +39,12 @@ def check_assertion(res, checker):
             else:
                 logging.error(f"Assert Fail,Get Assert Object Fail：{assert_item}")
                 raise AssertionError
-    elif isinstance(checker, Text):
-        extract_resp = jmespath.search(res, checker[0])
+    elif isinstance(checker[0], Text):
+        extract_resp = jmespath.search(checker[0], res.dict())
         try:
             assert extract_resp == checker[1]
         except AssertionError:
-            logging.error(f"Assert Fail,Expected Value：{checker[1]}，response data：{res}")
+            logging.error(f"Assert Fail,Expected Value：{checker[1]}，response data：{extract_resp}")
             raise AssertionError
     else:
         logging.error(f"Please enter the correct checker parameters, only supported list or tuple，The error parameter "
@@ -68,7 +70,7 @@ def url_replace(url: Text, url_converter) -> Text:
     return replace_url
 
 
-def start_run_case(params_object, params_mark, session_connection=None, checker=None, params=None, data=None,
+def start_run_case(params_object, params_mark, checker=None, session_connection=None, params=None, data=None,
                    json=None, files=None, url_converter=None, **kwargs) -> OSTReqRespData:
     # 注入请求对象
     params_obj = params_object()
@@ -77,7 +79,7 @@ def start_run_case(params_object, params_mark, session_connection=None, checker=
     logging.info(params_dict)
     # 注入请求数据
     if session_connection:
-        params_dict['header'].update(session_connection)
+        params_dict['headers'].update(session_connection)
     if url_converter:
         part_url = url_replace(params_dict['url'], url_converter)
     else:

@@ -24,5 +24,8 @@ class TestLogin:
     @allure.story("Test Login")
     @allure.title("test login")
     def test_login(self):
-        result = start_run_case(Login, "用户权限")
+        headers = {
+            "Transfer-Encoding": "chunked"
+        }
+        result = start_run_case(Login, "用户权限", [("encoding", "utf-8"), ("status_code", "200")], session_connection=headers)
         logging.info(result)

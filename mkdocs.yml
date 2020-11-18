@@ -36,12 +36,11 @@ markdown_extensions:
 
 nav:
     - Introduction: index.md
+    - Installation: installation.md
     - User Guide:
-          - Scaffold: user/scaffold.md
-          - Record & Generate testcase: user/gen_tests.md
-          - Write Testcase: user/write_testcase.md
-          - Run Testcase: user/run_testcase.md
-          - Testing Report: user/testing_report.md
-          - Run load test: user/run_loadtest.md
+          - Scaffold: userguide/scaffold.md
+          - Write Testcase: userguide/write_testcase.md
+          - Run Testcase: userguide/run_testcase.md
+          - Testing Report: userguide/testing_report.md
     - Sponsors: sponsors.md
     - Changelog: changelog.md
