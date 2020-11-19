@@ -40,6 +40,7 @@ nav:
     - User Guide:
           - Scaffold: userguide/scaffold.md
           - Write Testcase: userguide/write_testcase.md
+          - Ost Source: userguide/ost_source.md
           - Run Testcase: userguide/run_testcase.md
           - Testing Report: userguide/testing_report.md
     - Sponsors: sponsors.md
