@@ -1,7 +1,7 @@
 description: 获取blog权限接口信息
 parameters:
   - url: /chineseluo/ajax/blogSubscription
-    desc: 用户权限
+    desc: 88
     method: get
     headers: {
       "Content-Type": "application/json; charset=utf-8"

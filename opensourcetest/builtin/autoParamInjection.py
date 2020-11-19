@@ -3,7 +3,7 @@
 
 """
 ------------------------------------
-@Project : interface_auto_frame
+@Project : opensourcetest
 @Time    : 2020/8/25 16:17
 @Auth    : chineseluo
 @Email   : 848257135@qq.com
@@ -14,6 +14,7 @@
 import os
 import inspect
 import logging
+from typing import Text, Dict
 from opensourcetest.common.yamlOption import YamlFileOption
 
 
@@ -57,18 +58,21 @@ class AutoInjection:
         else:
             logging.error("Parameter transfer error. Only two parameters can be received")
 
-    def get_param_by_yaml(self, params_mark) -> dict:
+    def get_param_by_yaml(self, params_mark) -> Dict:
         param_dict = {}
-        if isinstance(params_mark, str):
+        if isinstance(params_mark, Text):
             for item in self.interface_info:
-                if item["desc"] == params_mark:
+                if Text(item["desc"]) == params_mark:
                     param_dict = item
                     return param_dict
-                else:
-                    logging.error(f"Failed to get interface parameters from yaml file. Please check the corresponding "
-                                  f"relationship of yaml file. The error parameter is：{params_mark}")
+            if not param_dict:
+                logging.error(f"Failed to get interface parameters from yaml file by desc. Please check the "
+                              f"corresponding relationship of yaml file. The error parameter is：{params_mark}")
         elif isinstance(params_mark, int):
             param_dict = self.interface_info[params_mark]
+            if not param_dict:
+                logging.error(f"Failed to get interface parameters from yaml file by index. Please check the "
+                              f"corresponding relationship of yaml file. The error parameter is：{params_mark}")
         else:
             logging.error(f"Parameter passing error. Only integer and string types are supported. The error parameter "
                           f"is：{params_mark}")
