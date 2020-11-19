@@ -12,7 +12,8 @@
 ------------------------------------
 """
 from enum import Enum
-from pydantic import BaseModel, HttpUrl, Field
+from pydantic import BaseModel, HttpUrl, Field, PyObject
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 from typing import Any, Dict, Text, Union, Callable, List, Tuple, Optional
 
 Name = Text
@@ -23,6 +24,7 @@ FunctionsMapping = Dict[Text, Callable]
 Headers = Dict[Text, Text]
 Cookies = Dict[Text, Text]
 Verify = bool
+checker_item = Union[List, Tuple, Text]
 
 
 class MethodEnum(Text, Enum):
@@ -53,6 +55,19 @@ class OSTReqArgv(BaseModel):
     verify: Verify = False
     stream: bool = True
     cert: Union[Text, Tuple[Text, Text], None]
+
+
+# class OSTAddArgv(BaseModel):
+#     """OST add custom argv"""
+#     params_object: PyObject
+#     params_mark: Union[Text, int]
+#     checker: Union[List, tuple, Dict[Text, Any], Tuple[Text, Any]]
+
+
+# class OSTHttpArgv(BaseModel):
+#     """OST test case argv"""
+#     addArgv: OSTAddArgv
+#     originalArgv: OSTReqArgv
 
 
 class OSTReqData(BaseModel):

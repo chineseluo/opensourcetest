@@ -102,9 +102,9 @@ def start_run_case(params_object, params_mark, checker=None, session_connection=
         headers=params_dict['headers'],
         **kwargs
     )
-    logging.info(ost_req_argv)
+    logging.info(f"测试请求模型：{ost_req_argv}")
     ost_req_resp = req.send_request(part_url=part_url, method=params_dict['method'].upper(),
-                                    send_params=None, send_data=params_dict['data'],
+                                    send_params=params_dict['params'], send_data=params_dict['data'],
                                     send_json=params_dict['json'], headers=params_dict['headers'], **kwargs)
     if checker:
         # According to jmespath_rule and contrast value are used to judge, which needs to support multiple judgments
