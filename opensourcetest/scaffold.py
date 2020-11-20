@@ -31,7 +31,7 @@ def create_scaffold(project_name):
 
     def create_folder(path):
         os.makedirs(path)
-        logger.info(msg=f"created folder:{path}")
+        logger.info(f"created folder:{path}")
 
     def copy_allfiles(source_path, target_path):
         logger.info(f"source_path:{source_path}")
