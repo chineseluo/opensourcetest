@@ -9,9 +9,9 @@ from opensourcetest.builtin.check import check_assertion
 from opensourcetest.builtin.models import OSTReqRespData, OSTReqArgv
 from opensourcetest.builtin.baseRequest import BaseRequest
 
-# 读取Conf下的conf.yml全局配置文件
+# Read the conf.yml Global profile
 conf_yaml_path = os.path.join(os.path.dirname(__file__).split("Base")[0], "Conf/conf.yml")
-# 根据读取的conf.yml中的配置信息获取测试的网址服务等信息
+# According to the read conf.yml To obtain the testing website service and other information
 conf_server_info = YamlFileOption.read_yaml(conf_yaml_path)["server_info"]
 
 base_url = conf_server_info["protocol"] + '://' + conf_server_info["base_url"]
@@ -20,12 +20,12 @@ verify = conf_server_info["verify"]
 
 def start_run_case(params_object, params_mark: Union[Text, int], checker=None, session_connection=None, params=None,
                    data=None, json=None, files=None, url_converter=None, **kwargs) -> OSTReqRespData:
-    # 注入请求对象
+    # Inject yaml request object
     params_obj = params_object()
     params_dict = params_obj.get_param_by_yaml(params_mark)
     req = BaseRequest()
     logging.info(params_dict)
-    # 注入请求数据
+    # Injection request data
     if session_connection:
         params_dict['headers'].update(session_connection)
     if url_converter:
