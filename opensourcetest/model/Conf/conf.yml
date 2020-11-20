@@ -3,4 +3,4 @@ server_info:
   protocol: https
   username: xxxxxxxx
   password: xxxxxxxx
-  verify: false
+  verify: True

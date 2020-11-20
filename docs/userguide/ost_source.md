@@ -1,94 +1,100 @@
-# 编写测试用例
+# OpenSourceTest 请求响应资源
 
-OpenSourceTest v0.1.0通过yaml接口对象注入的方式，整个框架分为三层，Base层、Parameter层、TestCase层，采用传统的互联网的垂直架构模式。
-
-
-
-## yaml编写
-
-在Parameter下Login模块新建一个页面元素yaml文件，Login.yaml，yaml内容如下：
-
-~~~yaml
-description: 获取blog权限接口信息
-parameters:
-  - url: /chineseluo/ajax/blogSubscription
-    desc: 用户权限
-    method: get
-    headers: {
-      "Content-Type": "application/json; charset=utf-8"
-    }
-    params: {}
-    data: {}
-    json: {}
-~~~
-
-yaml格式说明：
-
-   - description：yaml文件说明
-   - parameters：参数说明
-       - url：接口地址（不含host,host在conf.yml单独配置）
-       - desc：接口描述
-       - method：请求方法
-       - headers: 请求头
-       - params: 请求拼接参数
-       - data: data数据
-       - json： json数据
+这一部分介绍OpenSourceTest的几个资源对象，便于大家集成，或者二次开发。
 
 
 
-## yaml对象注入
+## OSTReqRespData
 
+底层封装了两个model:
 
+- OSTReqData：响应request
+- OSTRespData：响应response
 
-在Parameter模块下的yamlChoice.py文件中进行Login.yaml注册，继承AutoInjection，生成一个yaml文件对象，初始化传递两个参数，一个是模块名，一个是yaml配置文件名。
+OSTReqData对象：
 
 ~~~python
-from opensourcetest.builtin.autoParamInjection import AutoInjection
-
-
-class Login(AutoInjection):
-    def __init__(self):
-        super(Login, self).__init__(self.__class__.__name__)
+class OSTReqData(BaseModel):
+    """OST Response.Request Model"""
+    method: MethodEnum = MethodEnum.GET
+    url: Url
+    headers: Headers = {}
+    cookies: Cookies = {}
+    body: Union[Text, bytes, Dict, List, None] = {}
 ~~~
 
 
 
-## 编写测试用例
-
-在TestCases下面创建一个test_login.py，导入Base.requestEngine.start_run_case方法，用于用例执行
+OSTRespData对象：
 
 ~~~python
-# coding:utf-8
-import pytest
-import allure
-from Base.requestEngine import start_run_case
-from Common.StringOption.StringOperate import String
-from Parameter.yamlChoice import Login
+class OSTRespData(BaseModel):
+    """OST Response.Response Model"""
+    status_code: int
+    headers: Dict
+    cookies: Cookies = {}
+    encoding: Union[Text, None] = None
+    content_type: Text
+    body: Union[Dict, Text, bytes]
+~~~
 
+调用方式：
 
-@allure.feature("Login")
-class TestLoginPageCase:
+在Base包下的requestEngine.py中提供了start_run_case方法，返回了一个请求响应对象ost_req_resp，可以根据自己的需要对返回值进行处理。返回示例如下：
 
- @allure.story("Login")
-    @allure.severity("normal")
-    @allure.description("测试登录")
-    @allure.link("https://www.baidu.com", name="连接跳转百度")
-    @allure.testcase("https://www.sina.com", name="测试用例位置")
-    @allure.title("执行测试用例用于登录模块")
-    def test_login(self, login_page_class_load, function_driver):
-        result = start_run_case(Login, "用户权限")
-        print(result)
+~~~json
+================== OSTReqData details ==================
+method   : GET
+url      : https://www.cnblogs.com/chineseluo/ajax/blogSubscription
+headers  : {
+    "User-Agent": "python-requests/2.22.0",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "Content-Type": "application/json; charset=utf-8"
+}
+cookies  : {}
+body     : None
+================== OSTRespData details ==================
+status_code : 200
+headers  : {
+    "Date": "Fri, 20 Nov 2020 09:39:04 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Strict-Transport-Security": "max-age=2592000; includeSubDomains; preload"
+}
+cookies  : {}
+encoding : utf-8
+content_type : application/json; charset=utf-8
+body     : {
+    "isAuthenticated": false
+}
 ~~~
 
 
 
-## 执行用例
+## OSTReqArgv
 
+requests请求参数对象model，预留一个model在start_run_case中，按需取用:
 
-
-执行用例可以通过两种常用的方法进行
-
-1. pycharm中配置`test runner`为`pytest`，配置路径为`settings->Tools->Python Integrated Tools->Testing`；配置完成后就能够在打开测试用例文件后看到可执行的按钮了
-
-2. 运行在根目录下的`run.py`文件
+~~~python
+class OSTReqArgv(BaseModel):
+    """OST Request model"""
+    method: MethodEnum = MethodEnum.GET
+    part_url: Url
+    params: Dict[Text, Text] = {}
+    req_json: Union[Dict, List, Text] = Field(None, alias="json")
+    req_data: Union[Text, Dict[Text, Any]] = Field(None, alias="data")
+    headers: Headers = {}
+    cookies: Cookies = {}
+    upload: Dict = Field({}, alias="files")
+    auth: Optional[Tuple[Text]]
+    timeout: float = 1200
+    allow_redirects: bool = True
+    proxies: Dict = None
+    verify: Verify = False
+    stream: bool = True
+    cert: Union[Text, Tuple[Text, Text], None]
+~~~
 

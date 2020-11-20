@@ -50,9 +50,12 @@ def start_run_case(params_object, params_mark: Union[Text, int], checker=None, s
         headers=params_dict['headers'],
         **kwargs
     )
-    ost_req_resp = req.send_request(url=base_url+part_url, method=params_dict['method'].upper(),
+    logging.error(ost_req_argv)
+
+    ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
                                     send_params=params_dict['params'], send_data=params_dict['data'],
-                                    send_json=params_dict['json'], headers=params_dict['headers'],verify=verify, **kwargs)
+                                    send_json=params_dict['json'], headers=params_dict['headers'], verify=verify,
+                                    **kwargs)
     if checker:
         # According to jmespath_rule and contrast value are used to judge, which needs to support multiple judgments
         check_assertion(ost_req_resp.response, checker)

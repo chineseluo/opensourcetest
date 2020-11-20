@@ -23,7 +23,7 @@ VariablesMapping = Dict[Text, Any]
 FunctionsMapping = Dict[Text, Callable]
 Headers = Dict[Text, Text]
 Cookies = Dict[Text, Text]
-Verify = bool
+Verify = Optional[bool]
 checker_item = Union[List, Tuple, Text]
 
 
@@ -52,7 +52,7 @@ class OSTReqArgv(BaseModel):
     timeout: float = 1200
     allow_redirects: bool = True
     proxies: Dict = None
-    verify: Verify = False
+    verify: Verify = None
     stream: bool = True
     cert: Union[Text, Tuple[Text, Text], None]
 

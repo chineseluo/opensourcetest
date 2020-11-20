@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import allure
 import logging
-from opensourcetest.model.Base.requestEngine import start_run_case
+from Base.requestEngine import start_run_case
 from Parameter.yamlChoice import Login
 
 
