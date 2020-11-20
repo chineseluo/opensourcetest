@@ -54,7 +54,7 @@ def main():
         elif ost_argv[1] == "startproject":
             sub_scaffold_parser.print_help()
         elif ost_argv[1] == "onlinedocs":
-            logger.info("start web help docs")
+            logger.info("Welcome to the online documentation:120.79.66.108")
         else:
             print("Please use nm - h to view help information")
         sys.exit(0)

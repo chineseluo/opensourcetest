@@ -1,16 +1,5 @@
 #!/user/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-------------------------------------
-@Project : interface_auto_frame
-@Time    : 2020/10/12 11:28
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
-@File    : requestEngine.py
-@IDE     : PyCharm
-------------------------------------
-"""
 import os
 import logging
 from typing import Text, Union

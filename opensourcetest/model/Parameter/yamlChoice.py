@@ -1,16 +1,5 @@
 #!/user/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-------------------------------------
-@Project : interface_auto_frame
-@Time    : 2020/10/12 16:30
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
-@File    : yamlChoice.py
-@IDE     : PyCharm
-------------------------------------
-"""
 from opensourcetest.builtin.autoParamInjection import AutoInjection
 
 

@@ -1,16 +1,5 @@
 #!/user/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-------------------------------------
-@Project : interface_auto_frame
-@Time    : 2020/10/12 16:46
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
-@File    : test_login.py
-@IDE     : PyCharm
-------------------------------------
-"""
 import allure
 import logging
 from opensourcetest.model.Base.requestEngine import start_run_case

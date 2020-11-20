@@ -5,8 +5,8 @@
 ------------------------------------
 @Project : opensourcetest
 @Time    : 2020/11/20 16:12
-@Auth    : luozhongwen
-@Email   : luozw@inhand.com.cn
+@Auth    : chineseluo
+@Email   : 848257135@qq.com
 @File    : urlOperation.py
 @IDE     : PyCharm
 ------------------------------------
