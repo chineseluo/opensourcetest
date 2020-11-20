@@ -7,7 +7,7 @@
 @Time    : 2020/8/25 16:38
 @Auth    : chineseluo
 @Email   : 848257135@qq.com
-@File    : comFileOption.py
+@File    : comFileOperation.py
 @IDE     : PyCharm
 ------------------------------------
 """

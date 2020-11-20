@@ -15,7 +15,7 @@ import os
 import inspect
 import logging
 from typing import Text, Dict
-from opensourcetest.common.yamlOption import YamlFileOption
+from opensourcetest.common.yamlOperation import YamlFileOption
 
 
 class AutoInjection:

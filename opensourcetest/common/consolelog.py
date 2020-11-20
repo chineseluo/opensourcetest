@@ -12,8 +12,6 @@
 ------------------------------------
 """
 import json
-import sys
-from loguru import logger
 import logging
 
 
@@ -33,4 +31,4 @@ def log_output(ost_model, ost_type):
 
 
 class OSTConsoleLog(object):
-    pass
+    ...

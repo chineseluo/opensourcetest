@@ -15,12 +15,12 @@ import os
 import jmespath
 import requests
 import logging
-from opensourcetest.models.consolelog import log_output
-from opensourcetest.models.models import OSTRespData, OSTReqData, OSTReqRespData, MethodEnum, OSTReqArgv
-from opensourcetest.common.yamlOption import YamlFileOption
+from opensourcetest.common.consolelog import log_output
+from opensourcetest.builtin.models import OSTRespData, OSTReqData, OSTReqRespData, MethodEnum
+from opensourcetest.common.yamlOperation import YamlFileOption
 
 # 读取Conf下的conf.yml全局配置文件
-conf_yaml_path = os.path.join(os.path.dirname(__file__).split("Base")[0], "Conf/conf.yml")
+conf_yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "model/Conf/conf.yml")
 # 根据读取的conf.yml中的配置信息获取测试的网址服务等信息
 conf_server_info = YamlFileOption.read_yaml(conf_yaml_path)["server_info"]
 
@@ -31,11 +31,6 @@ class BaseRequest:
     get / post / delete / put in yaml by providing a public method
     """
 
-    def __init__(self):
-        # get base_url
-        self.__base_url = conf_server_info["protocol"] + '://' + conf_server_info["base_url"]
-        # 是否开启SSL验证
-        self.__verify = conf_server_info["verify"]
 
     @staticmethod
     def __get(url, params=None, jmespath_rule=None, **kwargs):
@@ -69,11 +64,11 @@ class BaseRequest:
             post_result = requests.post(url=url, data=data, json=json, **kwargs)
         return post_result
 
-    def send_request(self, part_url, method, send_params=None, send_data=None, send_json=None,
+    def send_request(self, url, method, send_params=None, send_data=None, send_json=None,
                      **kwargs) -> OSTReqRespData:
         """
         Choose different processing logic according to the method of transfer
-        :param part_url:
+        :param url:
         :param method:
         :param send_params:
         :param send_data:
@@ -83,14 +78,14 @@ class BaseRequest:
         """
         result = None
         if method == MethodEnum.GET:
-            result = self.__get(params=send_params, url=self.__base_url + part_url, verify=self.__verify, **kwargs)
+            result = self.__get(params=send_params, url=url, **kwargs)
         elif method == MethodEnum.POST:
-            result = self.__post(data=send_data, json=send_json, url=self.__base_url + part_url, verify=self.__verify,
+            result = self.__post(data=send_data, json=send_json, url=url,
                                  **kwargs)
         elif method == MethodEnum.DELETE:
-            result = self.__delete(url=self.__base_url + part_url, verify=self.__verify, **kwargs)
+            result = self.__delete(url=url, **kwargs)
         elif method == MethodEnum.PUT:
-            result = self.__put(data=send_data, url=self.__base_url + part_url, verify=self.__verify, **kwargs)
+            result = self.__put(data=send_data, url=url, **kwargs)
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
         ost_req = OSTReqData(

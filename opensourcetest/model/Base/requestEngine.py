@@ -11,67 +11,26 @@
 @IDE     : PyCharm
 ------------------------------------
 """
+import os
 import logging
-import re
-from typing import Text, List, Dict, Tuple
-import jmespath
-from opensourcetest.models.models import OSTReqRespData, OSTReqArgv
-from .baseRequest import BaseRequest
+from typing import Text, Union
+from opensourcetest.common.yamlOperation import YamlFileOption
+from opensourcetest.common.urlOperation import url_replace
+from opensourcetest.builtin.check import check_assertion
+from opensourcetest.builtin.models import OSTReqRespData, OSTReqArgv
+from opensourcetest.builtin.baseRequest import BaseRequest
+
+# 读取Conf下的conf.yml全局配置文件
+conf_yaml_path = os.path.join(os.path.dirname(__file__).split("Base")[0], "Conf/conf.yml")
+# 根据读取的conf.yml中的配置信息获取测试的网址服务等信息
+conf_server_info = YamlFileOption.read_yaml(conf_yaml_path)["server_info"]
+
+base_url = conf_server_info["protocol"] + '://' + conf_server_info["base_url"]
+verify = conf_server_info["verify"]
 
 
-def check_assertion(res, checker):
-    """
-    The data is extracted according to the objects passed in by the checker. The checker may be a nested list or tuple
-    :param res:
-    :param checker:
-    :return:
-    """
-
-    if isinstance(checker[0], (List, Tuple)):
-        for assert_item in checker:
-            extract_resp = jmespath.search(assert_item[0], res.dict())
-            if assert_item[1] is not None:
-                try:
-                    assert Text(extract_resp) == Text(assert_item[1])
-                except AssertionError:
-                    logging.error(f"Assert Fail,Expected Value：{assert_item[1]},Response Data：{extract_resp}")
-                    raise AssertionError
-            else:
-                logging.error(f"Assert Fail,Get Assert Object Fail：{assert_item}")
-                raise AssertionError
-    elif isinstance(checker[0], Text):
-        extract_resp = jmespath.search(checker[0], res.dict())
-        try:
-            assert extract_resp == checker[1]
-        except AssertionError:
-            logging.error(f"Assert Fail,Expected Value：{checker[1]}，response data：{extract_resp}")
-            raise AssertionError
-    else:
-        logging.error(f"Please enter the correct checker parameters, only supported list or tuple，The error parameter "
-                      f"is：{checker}")
-
-
-def url_replace(url: Text, url_converter: Text) -> Text:
-    """
-    Used to convert the & parameter in the URL
-    :param url:
-    :param url_converter:
-    :return:
-    """
-    replace_url = url
-    if isinstance(url_converter, (List, Tuple)):
-        for item in url_converter:
-            replace_url = re.sub("[$]", item, replace_url, count=1)
-    elif isinstance(url_converter, Text):
-        replace_url = url.replace("$", url_converter)
-    else:
-        logging.error(f"Please enter the correct checker parameters, only supported list or tuple,The error parameter "
-                      f"is:{url_converter}")
-    return replace_url
-
-
-def start_run_case(params_object, params_mark, checker=None, session_connection=None, params=None, data=None,
-                   json=None, files=None, url_converter=None, **kwargs) -> OSTReqRespData:
+def start_run_case(params_object, params_mark: Union[Text, int], checker=None, session_connection=None, params=None,
+                   data=None, json=None, files=None, url_converter=None, **kwargs) -> OSTReqRespData:
     # 注入请求对象
     params_obj = params_object()
     params_dict = params_obj.get_param_by_yaml(params_mark)
@@ -102,10 +61,9 @@ def start_run_case(params_object, params_mark, checker=None, session_connection=
         headers=params_dict['headers'],
         **kwargs
     )
-    logging.info(f"测试请求模型：{ost_req_argv}")
-    ost_req_resp = req.send_request(part_url=part_url, method=params_dict['method'].upper(),
+    ost_req_resp = req.send_request(url=base_url+part_url, method=params_dict['method'].upper(),
                                     send_params=params_dict['params'], send_data=params_dict['data'],
-                                    send_json=params_dict['json'], headers=params_dict['headers'], **kwargs)
+                                    send_json=params_dict['json'], headers=params_dict['headers'],verify=verify, **kwargs)
     if checker:
         # According to jmespath_rule and contrast value are used to judge, which needs to support multiple judgments
         check_assertion(ost_req_resp.response, checker)
