@@ -27,7 +27,7 @@ def log_output(ost_model, ost_type):
         if isinstance(value, dict):
             value = json.dumps(value, indent=4)
         msg += "{:<8} : {}\n".format(key, value)
-    logging.debug(msg)
+    logging.info(msg)
 
 
 class OSTConsoleLog(object):

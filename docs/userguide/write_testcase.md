@@ -29,10 +29,10 @@ yaml格式说明：
        - url：接口地址（不含host,host在conf.yml单独配置）
        - desc：接口描述
        - method：请求方法
-       - headers: 请求头
-       - params: 请求拼接参数
-       - data: data数据
-       - json： json数据
+       - headers：请求头
+       - params：请求拼接参数
+       - data：data数据
+       - json：json数据
 
 
 

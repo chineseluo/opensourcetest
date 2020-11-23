@@ -29,13 +29,19 @@ def init_scaffold_parser(subparsers):
     return sub_scaffold_parser
 
 
+def init_docs_scaffold_parser(subparsers):
+    sub_docs_scaffold_parser = subparsers.add_parser(
+        "onlinedocs", help="Welcome to the online documentation:http://docs.opensourcetest.cn"
+    )
+    return sub_docs_scaffold_parser
+
 def main():
     # Generate subcommand object
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("-v", "-V", "--version", "--Version", dest="version", action="store_true", help="show version")
     subparsers = parser.add_subparsers(help="OpenSourceTest sub-command help")
     sub_scaffold_parser = init_scaffold_parser(subparsers)
-
+    sub_docs_scaffold_parser = init_docs_scaffold_parser(subparsers)
     ost_argv = sys.argv
     print(ost_argv)
     if len(ost_argv) == 1:
@@ -54,7 +60,7 @@ def main():
         elif ost_argv[1] == "startproject":
             sub_scaffold_parser.print_help()
         elif ost_argv[1] == "onlinedocs":
-            logger.info("Welcome to the online documentation:120.79.66.108")
+            logger.info("Welcome to the online documentation:http://docs.opensourcetest.cn")
         else:
             print("Please use nm - h to view help information")
         sys.exit(0)

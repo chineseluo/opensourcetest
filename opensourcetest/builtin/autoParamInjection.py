@@ -36,24 +36,25 @@ class AutoInjection:
         :param args:
         :return:
         """
-        # 待优化项：支持读取Parameter下新建模块和文件，以及直接创建文件
-        logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
-        logging.warning(os.path.dirname(__file__))
         if len(args) == 1:
-            if os.path.dirname(__file__).find("opensourcetest") == -1:
-                yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[0] + ".yml")
+            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest") == -1:
+                yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]), args[0], args[0] + ".yml")
             else:
-                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
                 yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "model/Parameter", args[0],
                                          args[0] + ".yml")
+                logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
+                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
+                logging.warning(f"Output {args[0]} yaml file address: {yaml_path}")
             self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         elif len(args) == 2:
-            if os.path.dirname(__file__).find("opensourcetest") == -1:
-                yaml_path = os.path.join(os.path.dirname(__file__), args[0], args[1] + ".yml")
+            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest") == -1:
+                yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]), args[0], args[1] + ".yml")
             else:
-                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
                 yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "model/Parameter", args[0],
                                          args[1] + ".yml")
+                logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
+                logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
+                logging.warning(f"Output {args[1]} yaml file address: {yaml_path}")
             self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         else:
             logging.error("Parameter transfer error. Only two parameters can be received")

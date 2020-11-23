@@ -13,7 +13,8 @@
 """
 import logging
 import jmespath
-from typing import List, Tuple, Text
+from typing import List, Tuple, Text, Dict
+from opensourcetest.builtin.exceptions import CheckerTypeError
 
 
 def check_assertion(res, checker):
@@ -23,7 +24,9 @@ def check_assertion(res, checker):
     :param checker:
     :return:
     """
-
+    if isinstance(checker, (int, Dict)):
+        logging.error("Inspector parameter type error")
+        raise CheckerTypeError
     if isinstance(checker[0], (List, Tuple)):
         for assert_item in checker:
             extract_resp = jmespath.search(assert_item[0], res.dict())

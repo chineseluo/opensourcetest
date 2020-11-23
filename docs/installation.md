@@ -39,7 +39,7 @@ pip install -U git+https://github.com/chineseluo/opensourcetest.git@master
 OST -V
 ~~~
 
-![version010](D:\TestScriptDir\opensourcetest\docs\images\installation\version010.png)
+![version010](.\images\installation\version010.png)
 
 查看可用选项，请运行：
 

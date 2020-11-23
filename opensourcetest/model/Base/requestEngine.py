@@ -50,7 +50,7 @@ def start_run_case(params_object, params_mark: Union[Text, int], checker=None, s
         headers=params_dict['headers'],
         **kwargs
     )
-    logging.error(ost_req_argv)
+    logging.info(ost_req_argv)
 
     ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
                                     send_params=params_dict['params'], send_data=params_dict['data'],

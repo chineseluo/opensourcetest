@@ -1,6 +1,6 @@
 # OpenSourceTest
 
-# [![pyversions](https://img.shields.io/pypi/pyversions/httprunner.svg)](https://pypi.python.org/pypi/httprunner)
+# [![pyversions](https://img.shields.io/badge/opensourcetest-v0.1.0-brightgreen)](https://pypi.org/project/opensourcetest-test-test/)[![pyversions](https://img.shields.io/badge/pypi-v0.1.0-orange)](https://pypi.org/project/opensourcetest-test-test/)[![pyversions](https://img.shields.io/badge/pytest-5.x-green)](https://docs.pytest.org)[![pyversions](https://img.shields.io/badge/requests-2.x-green)](http://docs.python-requests.org/en/master/ )[![pyversions](https://img.shields.io/badge/allure-2.x-green)](https://docs.qameta.io/allure/  )
 
 `OpenSourceTest`将为您创建更加自由的软件接口测试，不是为了简单而简单，而是为您提供更自由的扩展的，适用于不同功能场景的接口自动化测试框架。
 
@@ -21,11 +21,12 @@
 - 完美兼容[`allure`][allure]，您可以使用您想使用的任何[`allure`][allure]命令
 - 支持**CLI**命令，直接创建您所需要的项目架构
 
-## OpenSourceTest Community
+## OpenSourceTest 社区
 
 欢迎测试小伙伴加群，讨论测试框架技术！
 
 ![community](./images/community.jpg)
+
 [json]: http://json.com/
 [yaml]: http://www.yaml.org/
 [requests]: http://docs.python-requests.org/en/master/
