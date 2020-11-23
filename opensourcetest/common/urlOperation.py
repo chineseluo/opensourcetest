@@ -16,7 +16,7 @@ import logging
 from typing import Text, List, Tuple
 
 
-def url_replace(url: Text, url_converter: Text) -> Text:
+def url_replace(url: Text, url_converter) -> Text:
     """
     Used to convert the & parameter in the URL
     :param url:

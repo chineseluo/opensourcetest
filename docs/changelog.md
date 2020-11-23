@@ -5,7 +5,7 @@
 **项目创建**
 
 - 创建opensourcetest外部CLI框架
-- 创建核心interface_auto_frame框架
+- 创建核心opensourcetest框架
 - 修改响应模型
 - 优化接口数据处理
 

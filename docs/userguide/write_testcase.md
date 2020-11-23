@@ -40,22 +40,54 @@ yaml格式说明：
 
 
 
-在Parameter模块下的yamlChoice.py文件中进行Login.yaml注册，继承AutoInjection，生成一个yaml文件对象，初始化传递两个参数，一个是模块名，一个是yaml配置文件名。
+在Parameter模块下的yamlChoice.py文件中进行Login.yaml注册，继承AutoInjection，生成一个yaml文件对象，初始化传递参数规则举例：
 
-~~~python
-from opensourcetest.builtin.autoParamInjection import AutoInjection
+- 当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
+  ![1](..\images\testcase\1.png)
 
-class Login(AutoInjection):
-    def __init__(self):
-        super(Login, self).__init__(self.__class__.__name__)
-~~~
+  可以采用如下写法：
 
+  ~~~python
+  from opensourcetest.builtin.autoParamInjection import AutoInjection
+  
+  
+  class Login(AutoInjection):
+      def __init__(self):
+          super(Login, self).__init__("Login")
+  ~~~
 
+- 当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+
+  例如在yamlChoice.py中新添加一个类，Login，可以使用如下写法：
+
+  ~~~python
+  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
+  
+  
+  class Login(AutoInjection):
+      def __init__(self):
+          super(Login, self).__init__(self.__class__.__name__)
+  ~~~
+
+- 当你在Parameter文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+
+  ![2](../images/testcase/2.png)
+
+  ~~~python
+  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
+  
+  
+  class Register(AutoInjection):
+      def __init__(self):
+          super(Register, self).__init__("Register", "Login")
+  ~~~
+
+  
 
 ## 编写测试用例
 
-在TestCases下面创建一个test_login.py，导入Base.requestEngine.start_run_case方法，用于用例执行
+在TestCases下面创建一个test_login.py，导入Base.requestEngine.start_run_case方法，用于用例执行。获取接口对象方式，通过导入Parameter.yamlChoice中的接口yaml对象，可以通过desc定位到具体的接口，示例如下：
 
 ~~~python
 # coding:utf-8
@@ -76,8 +108,8 @@ class TestLoginPageCase:
     @allure.testcase("https://www.sina.com", name="测试用例位置")
     @allure.title("执行测试用例用于登录模块")
     def test_login(self, login_page_class_load, function_driver):
-        result = start_run_case(Login, "用户权限")
-        print(result)
+        result = start_run_case(Register, 0, [("encoding", "utf-8"), ("status_code", "200")])
+        logging.info(result)
 ~~~
 
 
