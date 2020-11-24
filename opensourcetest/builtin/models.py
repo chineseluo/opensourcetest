@@ -39,7 +39,7 @@ class MethodEnum(Text, Enum):
 
 
 class OSTReqArgv(BaseModel):
-    """OST Request model"""
+    """OST Request httpmodel"""
     method: MethodEnum = MethodEnum.GET
     part_url: Url
     params: Dict[Text, Text] = {}

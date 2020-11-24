@@ -1,0 +1,40 @@
+﻿selenium_config:
+  #配置selenium_hub_url，指定启用本地的selenium_hub还是远程docker容器的selenium_hub
+  selenium_hub_url: "http://127.0.0.1:4444/wd/hub"
+  docker_url: "tcp://10.5.16.224:2375"
+  docker_image:
+    hub:
+      image: "selenium/hub"
+      tag: "latest"
+      name: "hub"
+      port: "4444"
+    node-firefox:
+      image: "selenium/node-firefox"
+      tag: "latest"
+      name: "firefox"
+      port: "5556"
+    node-chrome:
+      image: "selenium/node-chrome"
+      tag: "latest"
+      name: "chrome"
+      port: "5555"
+    node-chrome-debug:
+      image: "selenium/node-chrome-debug"
+      tag: "latest"
+      name: "chrome-debug"
+      port: "5900"
+    node-firefox-debug:
+      image: "selenium/node-firefox-debug"
+      tag: "latest"
+      name: "firefox-debug"
+      port: "5901"
+    standalone-chrome-debug:
+      image: "selenium/standalone-chrome-debug"
+      tag: "latest"
+      name: "standalone-chrome-debug"
+      port: "5902"
+    standalone-firefox-debug:
+      image: "selenium/standalone-firefox-debug"
+      tag: "latest"
+      name: "standalone-firefox-debug"
+      port: "5903"

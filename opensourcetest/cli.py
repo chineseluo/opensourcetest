@@ -19,14 +19,24 @@ from .scaffold import create_scaffold
 from opensourcetest import __version__, __description__
 
 
-def init_scaffold_parser(subparsers):
-    sub_scaffold_parser = subparsers.add_parser(
-        "startproject", help="Create a new project with template structure."
+def init_http_scaffold_parser(subparsers):
+    sub__http_scaffold_parser = subparsers.add_parser(
+        "start_http_project", help="Create a new http interface project with template structure."
     )
-    sub_scaffold_parser.add_argument(
-        "project_name", type=str, nargs="?", help="Specify new project name."
+    sub__http_scaffold_parser.add_argument(
+        "project_name", type=str, nargs="?", help="Specify new http interface project name."
     )
-    return sub_scaffold_parser
+    return sub__http_scaffold_parser
+
+
+def init_ui_scaffold_parser(subparsers):
+    sub_ui_scaffold_parser = subparsers.add_parser(
+        "start_ui_project", help="Create a new ui project with template structure."
+    )
+    sub_ui_scaffold_parser.add_argument(
+        "project_name", type=str, nargs="?", help="Specify new ui project name."
+    )
+    return sub_ui_scaffold_parser
 
 
 def init_docs_scaffold_parser(subparsers):
@@ -35,12 +45,14 @@ def init_docs_scaffold_parser(subparsers):
     )
     return sub_docs_scaffold_parser
 
+
 def main():
     # Generate subcommand object
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("-v", "-V", "--version", "--Version", dest="version", action="store_true", help="show version")
     subparsers = parser.add_subparsers(help="OpenSourceTest sub-command help")
-    sub_scaffold_parser = init_scaffold_parser(subparsers)
+    sub_http_scaffold_parser = init_http_scaffold_parser(subparsers)
+    sub_ui_scaffold_parser = init_ui_scaffold_parser(subparsers)
     sub_docs_scaffold_parser = init_docs_scaffold_parser(subparsers)
     ost_argv = sys.argv
     print(ost_argv)
@@ -57,17 +69,23 @@ def main():
             logger.info(f"The OpenSourceTest version is {__version__}")
         elif ost_argv[1] in ["-h", "-H", "--help", "--Help"]:
             parser.print_help()
-        elif ost_argv[1] == "startproject":
-            sub_scaffold_parser.print_help()
+        elif ost_argv[1] == "start_http_project":
+            sub_http_scaffold_parser.print_help()
+        elif ost_argv[1] == "start_ui_project":
+            sub_ui_scaffold_parser.print_help()
         elif ost_argv[1] == "onlinedocs":
+            sub_docs_scaffold_parser.print_help()
             logger.info("Welcome to the online documentation:http://docs.opensourcetest.cn")
         else:
-            print("Please use nm - h to view help information")
+            print("Please use OST - h to view help information")
         sys.exit(0)
-    elif len(sys.argv) == 3 and sys.argv[1] == "startproject" and sys.argv[2] in ["-h", "-H", "--help", "--Help"]:
-        logger.info("Please follow OST startproject with the project file name!")
+    elif len(sys.argv) == 3 and sys.argv[1] == "start_http_project" and sys.argv[2] in ["-h", "-H", "--help", "--Help"]:
+        logger.info("Please follow OST start_http_project with the project file name!")
         sys.exit(0)
-    elif len(sys.argv) == 3 and sys.argv[1] == "startproject":
+    elif len(sys.argv) == 3 and sys.argv[1] == "start_ui_project" and sys.argv[2] in ["-h", "-H", "--help", "--Help"]:
+        logger.info("Please follow OST start_ui_project with the project file name!")
+        sys.exit(0)
+    elif len(sys.argv) == 3 and sys.argv[1] == "start_http_project":
         create_scaffold(sys.argv[2])
         sys.exit(0)
 

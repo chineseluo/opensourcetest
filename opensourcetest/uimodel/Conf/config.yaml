@@ -1,0 +1,8 @@
+﻿allure_environment:
+  URL: https://github.com/chineseluo/ui_auto_frame_v2
+  description: test description
+  username: 848257135@qq.com
+  version: V0.12.0
+
+test_info:
+  test_URL: https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage

@@ -16,7 +16,7 @@ import shutil
 from loguru import logger
 
 
-def create_scaffold(project_name):
+def create_scaffold(model_type, project_name):
     """create scaffold with specified project name.
     """
     if os.path.isdir(project_name):
@@ -43,10 +43,15 @@ def create_scaffold(project_name):
                 copy_allfiles(source_path + '/' + f, target_path + '/' + f)  # Call this function recursively
             else:
                 shutil.copy(source_path + '/' + f, target_path + '/' + f)  # copy file
-
-    source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "model")
+    if model_type == "start_ui_project":
+        source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "uimode")
+    elif model_type == "start_http_project":
+        source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "httpmodel")
+    else:
+        logger.error("Please input the correct type of template")
     create_folder(project_name)
     copy_allfiles(source_path, project_name)
+
 
 
 if __name__ == "__main__":

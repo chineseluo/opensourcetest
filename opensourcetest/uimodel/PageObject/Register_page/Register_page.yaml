@@ -1,0 +1,86 @@
+﻿#封装需要操作的元素对象
+desc: "注册页面元素操作对象"
+parameters:
+  - elem_name: "Username"
+    desc: "注册账号输入框"
+    data: {
+      method: "NAME",
+      value: "Username"
+    }
+
+  - elem_name: "Password"
+    desc: "注册密码输入框"
+    data: {
+      method: "NAME",
+      value: "Password"
+    }
+
+  - elem_name: "code"
+    desc: "验证码输入框"
+    data: {
+      method: "NAME",
+      value: "code"
+    }
+
+  - elem_name: "InputWarningA"
+    desc: "海外注册按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "InputWarningA"
+    }
+
+  - elem_name: "RegisterBtn"
+    desc: "注册按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "RegisterBtn"
+    }
+
+  - elem_name: "登录"
+    desc: "登录按钮"
+    data: {
+      method: "LINK_TEXT",
+      value: "登录"
+    }
+
+  - elem_name: "RegisterSendCode"
+    desc: "验证码按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "RegisterSendCode"
+    }
+
+  - elem_name: "海外用户注册"
+    desc: "海外用户注册登录按钮"
+    data: {
+      method: "LINK_TEXT",
+      value: "海外用户注册"
+    }
+
+  - elem_name: "country-code"
+    desc: "select元素"
+    data: {
+      method: "CLASS_NAME",
+      value: "country-code"
+    }
+
+  - elem_name: "InputTitleText"
+    desc: "登录页面的title"
+    data: {
+      method: "CLASS_NAME",
+      value: "InputTitleText"
+    }
+
+  - elem_name: "发送验证码"
+    desc: "发送验证码按钮"
+    data: {
+      method: "LINK_TEXT",
+      value: "发送验证码"
+    }
+
+  - elem_name: "error_return"
+    desc: "输入框输入错误的返回信息"
+    data: {
+      method: "XPATH",
+      value: "/html/body/div[2]/form/div[1]/span"
+    }

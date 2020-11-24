@@ -1,0 +1,52 @@
+#封装需要操作的元素对象
+description: "登录页面元素操作对象"
+parameters:
+  - elem_name: "Username"
+    desc: "用户输入框名称"
+    data: {
+      method: "NAME",
+      value: "Username"
+    }
+
+  - elem_name: "Password"
+    desc: "密码输入框名称"
+    data: {
+      method: "NAME",
+      value: "Password"
+    }
+
+  - elem_name: "GoResetPassword"
+    desc: "忘记密码按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "GoResetPassword"
+    }
+
+  - elem_name: "LoginBtn"
+    desc: "登录按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "LoginBtn"
+    }
+
+  - elem_name: "InputWarningA"
+    desc: "注册按钮"
+    data: {
+      method: "CLASS_NAME",
+      value: "InputWarningA"
+    }
+
+  - elem_name: "InputTitleText"
+    desc: "找回密码页面和注册页面的title"
+    data: {
+      method: "CLASS_NAME",
+      value: "InputTitleText"
+    }
+
+  - elem_name: "errorText"
+    desc: "获得输入框输入错误的返回信息"
+    data: {
+      method: "XPATH",
+      value: "/html/body/div[2]/form/div[1]/span"
+    }
+

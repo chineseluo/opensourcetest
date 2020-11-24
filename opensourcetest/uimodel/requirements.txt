@@ -1,0 +1,10 @@
+xlrd==1.2.0
+pytest==5.4.1
+allure_python_commons==2.8.13
+requests==2.22.0
+xeger==0.3.5
+selenium==3.141.0
+qrcode==6.1
+docker_py==1.10.6
+IPy==1.00
+PyYAML==5.3.1
