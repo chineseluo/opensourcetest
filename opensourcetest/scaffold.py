@@ -33,7 +33,7 @@ def create_scaffold(model_type, project_name):
         os.makedirs(path)
         logger.info(f"created folder:{path}")
 
-    def copy_allfiles(source_path, target_path):
+    def create_mode_files(source_path, target_path):
         logger.info(f"source_path:{source_path}")
         if not os.path.exists(target_path):  # If the destination directory does not exist, the directory is created
             os.makedirs(target_path)
@@ -44,13 +44,13 @@ def create_scaffold(model_type, project_name):
             else:
                 shutil.copy(source_path + '/' + f, target_path + '/' + f)  # copy file
     if model_type == "start_ui_project":
-        source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "uimode")
+        source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "uimodel")
     elif model_type == "start_http_project":
         source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "httpmodel")
     else:
         logger.error("Please input the correct type of template")
     create_folder(project_name)
-    copy_allfiles(source_path, project_name)
+    create_mode_files(source_path, project_name)
 
 
 

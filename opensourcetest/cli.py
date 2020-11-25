@@ -86,7 +86,10 @@ def main():
         logger.info("Please follow OST start_ui_project with the project file name!")
         sys.exit(0)
     elif len(sys.argv) == 3 and sys.argv[1] == "start_http_project":
-        create_scaffold(sys.argv[2])
+        create_scaffold(sys.argv[1], sys.argv[2])
+        sys.exit(0)
+    elif len(sys.argv) == 3 and sys.argv[1] == "start_ui_project":
+        create_scaffold(sys.argv[1], sys.argv[2])
         sys.exit(0)
 
 
