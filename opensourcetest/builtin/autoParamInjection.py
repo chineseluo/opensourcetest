@@ -38,7 +38,7 @@ class AutoInjection:
         :return:
         """
         if len(args) == 1:
-            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest_test_test") == -1:
+            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest") == -1:
                 yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]),
                                          args[0], args[0] + ".yaml")
             else:
@@ -54,7 +54,7 @@ class AutoInjection:
                 logging.warning(f"Output {args[0]} yaml file address: {yaml_path}")
             self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         elif len(args) == 2:
-            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest_test_test") == -1:
+            if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest") == -1:
                 yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]),
                                          args[0], args[1] + ".yaml")
             else:

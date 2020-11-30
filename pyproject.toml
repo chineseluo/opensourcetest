@@ -38,6 +38,8 @@ mkdocs-material = "^6.0.2"
 jmespath = "^0.9.5"
 pydantic = "^1.4"
 allure-pytest = "^2.8.19"
+selenium = "^3.141.0"
+docker = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

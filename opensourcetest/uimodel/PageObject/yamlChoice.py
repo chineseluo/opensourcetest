@@ -6,7 +6,7 @@
 # @File    : run.py
 # @Software: PyCharm
 
-from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 
 
 # 注册yaml文件对象
