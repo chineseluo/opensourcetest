@@ -30,8 +30,10 @@ pip install -U git+https://github.com/chineseluo/opensourcetest.git@master
 - 1、OST -V：查看OpenSourceTest版本号（使用时：[-V|-v|--Version|--version"]等价）
 - 2、OST -h：查看OpenSourceTest帮助说明（使用时：[-h|-H|--help|--Help]等价）
 - 3、OST onlinedocs：查看OpenSourceTest在线文档地址
-- 4、OST startproject -h：查看创建项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
-- 5、OST startproject [project_name]：创建接口自动化项目，[project_name]自定义
+- 4、OST start_ui_project -h：查看创建ui项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
+- 5、OST start_ui_project [project_name]：创建ui自动化项目，[project_name]自定义
+- 6、OST start_ui_project -h：查看创建接口项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
+- 7、OST start_ui_project [project_name]：创建接口自动化项目，[project_name]自定义
 
 检查OpenSourceTest版本：
 

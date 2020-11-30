@@ -40,9 +40,10 @@ def create_scaffold(model_type, project_name):
         files = os.listdir(source_path)  # Get the list of files and directories in the folder
         for f in files:
             if os.path.isdir(source_path + '/' + f):  # Determine whether it is a folder
-                copy_allfiles(source_path + '/' + f, target_path + '/' + f)  # Call this function recursively
+                create_mode_files(source_path + '/' + f, target_path + '/' + f)  # Call this function recursively
             else:
                 shutil.copy(source_path + '/' + f, target_path + '/' + f)  # copy file
+
     if model_type == "start_ui_project":
         source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "uimodel")
     elif model_type == "start_http_project":
@@ -51,7 +52,6 @@ def create_scaffold(model_type, project_name):
         logger.error("Please input the correct type of template")
     create_folder(project_name)
     create_mode_files(source_path, project_name)
-
 
 
 if __name__ == "__main__":

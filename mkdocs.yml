@@ -1,6 +1,6 @@
 # Project information
-site_name: OpenSourceTest V0.1.0 Docs
-site_description: OpenSourceTest V0.1.0 User Documention
+site_name: OpenSourceTest V0.2.0 Docs
+site_description: OpenSourceTest V0.2.0 User Documention
 site_author: "chineseluo"
 # site_favicon need a picture path
 site_favicon: ""
@@ -10,7 +10,7 @@ repo_name: OpenSourceTest
 repo_url: https://github.com/chineseluo/opensourcetest
 
 # Copyright
-copyright: 'Copyright &copy; 2020 - 2020 chineseluo'
+copyright: 'Copyright &copy; 2020 - 2021 chineseluo; 蜀ICP备2020034353号-1'
 
 # Configuration
 theme:
@@ -37,12 +37,19 @@ markdown_extensions:
 nav:
     - Introduction: index.md
     - Installation: installation.md
-    - User Guide:
-          - Scaffold: userguide/scaffold.md
-          - Write Testcase: userguide/write_testcase.md
-          - Ost Source: userguide/ost_source.md
-          - Ost Plugin: userguide/ost_plugin.md
-          - Run Testcase: userguide/run_testcase.md
-          - Testing Report: userguide/testing_report.md
+    - Http User Guide:
+          - Scaffold: httpuserguide/scaffold.md
+          - Write Testcase: httpuserguide/write_testcase.md
+          - Ost Source: httpuserguide/ost_source.md
+          - Ost Plugin: httpuserguide/ost_plugin.md
+          - Run Testcase: httpuserguide/run_testcase.md
+          - Testing Report: httpuserguide/testing_report.md
+    - UI User Guide:
+          - Scaffold: uiuserguide/scaffold.md
+          - Write Testcase: uiuserguide/write_testcase.md
+          - Ost Source: uiuserguide/ost_source.md
+          - Ost Plugin: uiuserguide/ost_plugin.md
+          - Run Testcase: uiuserguide/run_testcase.md
+          - Testing Report: uiuserguide/testing_report.md
     - Sponsors: sponsors.md
     - Changelog: changelog.md

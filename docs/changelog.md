@@ -20,4 +20,5 @@
 - 创建核心opensourcetest ui 框架
 - 优化ui操作模型
 - yaml文件对象注入优化
+- 修复截图断言功能
 
