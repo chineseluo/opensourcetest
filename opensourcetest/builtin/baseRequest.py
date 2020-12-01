@@ -19,11 +19,6 @@ from opensourcetest.common.consolelog import log_output
 from opensourcetest.builtin.models import OSTRespData, OSTReqData, OSTReqRespData, MethodEnum
 from opensourcetest.common.yamlOperation import YamlFileOption
 
-# 读取Conf下的conf.yml全局配置文件
-conf_yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "httpmodel/Conf/conf.yml")
-# 根据读取的conf.yml中的配置信息获取测试的网址服务等信息
-conf_server_info = YamlFileOption.read_yaml(conf_yaml_path)["server_info"]
-
 
 class BaseRequest:
     """
