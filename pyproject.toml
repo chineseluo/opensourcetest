@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opensourcetest"
-version = "0.2.0"
+version = "0.2.1"
 description = "We need more free software interface testing."
 license = "Apache-2.0"
 readme = "README.md"
