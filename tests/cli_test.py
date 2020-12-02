@@ -31,8 +31,14 @@ class TestCli(unittest.TestCase):
             main()
         self.assertEqual(cm.exception.code, 0)
 
-    def test_show_create_project(self):
-        sys.argv = ["OST", "startproject"]
+    def test_show_create_http_project(self):
+        sys.argv = ["OST", "start_http_project"]
+        with self.assertRaises(SystemExit) as cm:
+            main()
+        self.assertEqual(cm.exception.code, 0)
+
+    def test_show_create_ui_project(self):
+        sys.argv = ["OST", "start_ui_project"]
         with self.assertRaises(SystemExit) as cm:
             main()
         self.assertEqual(cm.exception.code, 0)

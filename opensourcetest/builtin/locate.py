@@ -46,4 +46,5 @@ def get_locator(page_elem_dict):
             elem_locator = (By.CSS_SELECTOR, value)
             return elem_locator
         else:
-            logging.error("元素名称：{}，此元素定位方式异常，定位元素值异常，请检查！！！".format(elem_name))
+            logging.error("This element positioning method is abnormal, positioning element value is abnormal, "
+                          "please check!!!")

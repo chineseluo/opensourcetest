@@ -44,9 +44,7 @@ def ost_ui_runner(browser, browser_opt, type_driver):
         logging.error('命令【{}】执行失败！'.format(cmd))
         sys.exit()
     # 打印url，方便直接访问
-    url = '本地报告链接：http://127.0.0.1:63342/{}/Report/{}/allure-report/index.html'.format(root_dir.split('/')[-1],
-                                                                                       browser.replace(" ", "_"))
-    logger.info(url)
+    return browser
 
 
 # 命令行参数运行
@@ -57,11 +55,20 @@ def ost_ui_cmd_runner():
         root_dir = root_dir.replace("\\", "/")
         if input_browser[1] == "chrome":
             ost_ui_runner(input_browser[1], input_browser[2], input_browser[3])
+            return input_browser[1]
         elif input_browser[1] == "firefox":
             ost_ui_runner(input_browser[1], input_browser[2], input_browser[3])
+            return input_browser[1]
         elif input_browser[1] == "ie":
             ost_ui_runner("ie", input_browser[2], input_browser[3])
+            return input_browser[1]
         else:
             logging.error("Parameter error, please re-enter！！！")
+            sys.exit(0)
     else:
         ost_ui_runner("chrome", "close", "local")
+        return "chrome"
+
+
+if __name__ == "__main__":
+    print(os.getcwd())

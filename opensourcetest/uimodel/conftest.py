@@ -4,9 +4,7 @@
 # @Email   : 848257135@qq.com
 # @File    : conftest.py
 # @Software: PyCharm
-import os
 import pytest
-import logging
 from opensourcetest.builtin.ostDriver import ost_driver, ost_option, ost_collection_modifyitems
 
 

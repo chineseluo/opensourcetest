@@ -44,7 +44,7 @@ nav:
           - Ost Plugin: httpuserguide/ost_plugin.md
           - Run Testcase: httpuserguide/run_testcase.md
           - Testing Report: httpuserguide/testing_report.md
-    - UI User Guide:
+    - UI User Guide(beta):
           - Scaffold: uiuserguide/scaffold.md
           - Write Testcase: uiuserguide/write_testcase.md
           - Ost Source: uiuserguide/ost_source.md

@@ -6,3 +6,7 @@
 
 test_info:
   test_URL: https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage
+
+selenium_config:
+  #配置selenium_hub_url，指定启用本地的selenium_hub还是远程docker容器的selenium_hub
+  selenium_hub_url: "http://127.0.0.1:4444/wd/hub"

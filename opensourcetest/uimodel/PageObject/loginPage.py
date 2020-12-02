@@ -1,17 +1,10 @@
 # !/user/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/5/12 21:11
-# @Author  : chineseluo
-# @Email   : 848257135@qq.com
-# @File    : run.py
-# @Software: PyCharm
 import importlib
 from Base.base import Base
-from selenium import webdriver
 from PageObject.yamlChoice import LoginPageElem
 
 
-# 封装速涡手游加速器登录页面操作对象操作方法
 class LoginPage(Base):
     def __init__(self, driver):
         # 初始化页面元素对象，即yaml文件对象

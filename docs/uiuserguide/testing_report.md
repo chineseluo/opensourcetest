@@ -6,6 +6,16 @@ OpenSourceTest完美兼容pytest本身，以及其第三方插件。这意味着
 
 allure-pytest是OpenSourceTest的必选依赖项，不需要单独安装插件。
 
+**如果使用OST默认的报告生成方式，请勿在pytest.ini中配置allure的报告生成等配置。OST会根据ost_ui_runner/ost_cmd_ui_runner传递的参数，生成不同浏览器的测试报告。**
+
+测试执行结束后，控制台会输出本地静态访问地址
+
+~~~verilog
+2020-12-02 15:26:06.981 | INFO     | __main__:<module>:10 - Local Test Report Address:http://127.0.0.1:63342/uimodel/Report/chrome/allure-report/index.html 
+~~~
+
+**如果是自定义脚本启动方式，不使用OST自带的脚本启动方式（ost_ui_runner/ost_cmd_ui_runner），请在pytest.ini中配置如下信息。**
+
 我们在pytest.ini文件中指定了alluredir的测试json文件生成地址
 
 ~~~ini
@@ -27,16 +37,21 @@ addopts = --clean-alluredir
 addopts = --allure-no-capture
 ~~~
 
-在框架的入口run.py中，指定了allure读取allure-result和生成allure-report的路径
+在框架的入口run.py的cmd参数中，指定了allure读取allure-result和生成allure-report的路径
 
-~~~ini
-cmd = 'allure generate Report/allure-results -o Report/allure-report -c'
-~~~
+~~~python
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
+import os
+import pytest
+from loguru import logger
 
-测试执行结束后，控制台会输出本地静态访问地址
-
-~~~verilog
-2020-11-17 20:15:23.664 | INFO     | __main__:<module>:23 - Local Test Report Address:http://127.0.0.1:63342/model/Report/allure-report/index.html
+if __name__ == '__main__':
+    pytest.main()
+    # Generate assure Report
+    cmd = 'allure generate Report/allure-results -o Report/allure-report -c'
+    os.system(cmd)
+    logger.info("Local Test Report Address:http://127.0.0.1:63342/" + os.getcwd().split("\\")[-1]+"/Report/allure"
 ~~~
 
 如果有其他allure测试报告的相关问题，请参考[`allure-pytest`](https://docs.qameta.io/allure/#_pytest)

@@ -1,17 +1,23 @@
 # OpenSourceTest 内置插件
 
-OpenSourceTest内置插件用于处理OST中的请求，断言检查，yaml文件定位等操作。
+OpenSourceTest内置插件用于处理OST的UI接口自动化中的driver，pytest新增控制台命令，用例优化，yaml文件定位等操作。在根目录的conftest.py中，导入了OST设置的三个方法ost_driver，ost_option，ost_collection_modifyitems
+
+##  ost_option
+
+用于将OST新增的pytest命令利用hook注入pytest脚手架中在ost_option中定义了三个参数：
+
+- --browser：指定运行的浏览器，默认为chrome，可选firefox or chrome or ie
+- --browser_opt：指定浏览器运行是否打开浏览器界面，默认为open，可选open or close
+- --type_driver：执行是本地driver还是远程driver，默认是本地，可选local or remote，如果启用本地分布式和远程分布式，需要指定参数为remote
 
 
 
-## start_run_case
+## ost_driver
 
-requestEngine的start_run_case参数说明：
+用于处理ost_option携带的参数请求，处理https不同浏览器证书校验，处理不同浏览器请求，本地或远程driver请求，返回driver对象
 
-- params_object：必填，yaml接口文件对象
-- params_mark：必填，yaml文件的定位方式，支持str和int两种定位方式，str定位根据yaml中的desc来进行，int根据yaml中的相同数据结构的索引进行（PS：索引从0开始）
-- checker：断言器，支持列表和元组，或者元组列表嵌套的方式
-- session_connection：用于保持客户端与服务端的连接，传递token/cookie，或者其他header，以字典的形式传入
-- url_converter：url转换器，用于替换接口中的$符号，可以通过在yaml的具体某个接口中使用$代替url中的某些需要通过动态获取的参数，然后使用url_converter在脚本中进行替换，支持str/tuple/list（PS：替换的参数必须和yaml中该接口的$个数一一对应）
 
-- 其他参数的传递通原始requests中的参数要求。
+
+## ost_collection_modifyitems
+
+使用pytest的hook，处理测试用例中的中文乱码问题优化。

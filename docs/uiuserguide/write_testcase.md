@@ -1,21 +1,5 @@
 # 编写测试用例
 
-~~~ mermaid
-graph TD
-	subgraph 模块调用过程
-    登录页面testcase(登录页面testcase)-->|调用|登录页面对象
-    登录页面对象-->base层
-    注册页面testcase(注册页面testcase)-->|调用|注册页面对象
-	注册页面对象-->base层
-    购买页面testcase(购买页面testcase)-->|调用|购买页面对象
-	购买页面对象-->base层
-    client5(模块测试case)-->|调用|PageObject层
-    PageObject层-->|调用|base层((base层:基础方法))
-    end
-~~~
-
-
-
 OpenSourceTest v0.2.0通过yaml元素对象注入的方式，整个框架分为三层，Base层、PageObject层、TestCase层，采用传统的互联网的垂直架构模式。
 
 - 元素公共操作方法封装存放在Base层
@@ -27,30 +11,33 @@ OpenSourceTest v0.2.0通过yaml元素对象注入的方式，整个框架分为�
 在Parameter下Login模块新建一个页面元素yaml文件，Login.yaml，yaml内容如下：
 
 ~~~yaml
-description: 获取blog权限接口信息
+#封装需要操作的元素对象
+description: "登录页面元素操作对象"
 parameters:
-  - url: /chineseluo/ajax/blogSubscription
-    desc: 用户权限
-    method: get
-    headers: {
-      "Content-Type": "application/json; charset=utf-8"
+  - elem_name: "Username"
+    desc: "用户输入框名称"
+    data: {
+      method: "NAME",
+      value: "Username"
     }
-    params: {}
-    data: {}
-    json: {}
+
+  - elem_name: "Password"
+    desc: "密码输入框名称"
+    data: {
+      method: "NAME",
+      value: "Password"
+    }
 ~~~
 
 yaml格式说明：
 
    - description：yaml文件说明
    - parameters：参数说明
-       - url：接口地址（不含host,host在conf.yml单独配置）
-       - desc：接口描述
-       - method：请求方法
-       - headers：请求头
-       - params：请求拼接参数
-       - data：data数据
-       - json：json数据
+       - desc：yaml文件说明
+       - parameters：参数说明
+       - elem_name：元素别名（你调用的时候需要使用）
+       - desc：元素描述（例如用户输入框的名称）
+       - data：里面是一个字典，元素定位方式，以及元素定位方式的取值
 
 
 
@@ -70,9 +57,15 @@ yaml格式说明：
   from opensourcetest.builtin.autoParamInjection import AutoInjection
   
   
-  class Login(AutoInjection):
+  # Register yaml file object
+  class LoginPageElem(AutoInjection):
       def __init__(self):
-          super(Login, self).__init__("Login")
+          super(LoginPageElem, self).__init__('Login_page', 'Login_page')
+  
+  
+  class BuyPageElem(AutoInjection):
+      def __init__(self):
+          super(BuyPageElem, self).__init__('Buy_page', 'Buy_page')
   ~~~
 
 - 当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
@@ -103,31 +96,89 @@ yaml格式说明：
 
   
 
-## 编写测试用例
+## 封装页面操作对象
 
-在TestCases下面创建一个test_login.py，导入Base.requestEngine.start_run_case方法，用于用例执行。获取接口对象方式，通过导入Parameter.yamlChoice中的接口yaml对象，可以通过desc定位到具体的接口，示例如下：
+在PageObject下Login_page模块创建一个login_page.py封装login页面操作元素，导入Login_page.yaml文件对象，初始化，然后获取yaml文件中封装的元素，底层通过传入locator定位器（元组），进行页面元素操作,示例如下：
 
 ~~~python
-# coding:utf-8
+# !/user/bin/env python
+# -*- coding: utf-8 -*-
+import importlib
+from Base.base import Base
+from PageObject.yamlChoice import LoginPageElem
+
+
+class LoginPage(Base):
+    def __init__(self, driver):
+        # 初始化页面元素对象，即yaml文件对象
+        self.elem_locator = LoginPageElem()
+        # 初始化driver
+        super().__init__(driver)
+
+    def login_by_config_url(self):
+        """
+            从配置文件config.yaml获取登录地址
+        @return: 登录地址
+        """
+        return super().login_by_config_url()
+
+    def get_username_attribute_value(self):
+        """
+            获得账号输入框的placeholder值
+        @return: 获得账号输入框的placeholder值
+        """
+        elem = self.elem_locator.get_elem_locator("Username")
+        return super().get_placeholder(elem)
+~~~
+
+## 编写测试用例
+
+在TestCases下面新建一个包，例如Login模块，测试登录页面，在Login下面创建一个conftest.py和test_login_page_case.py，conftest.py中指定需要加载的测试页面对象，使用scope级别为function
+
+~~~python
+# !/user/bin/env python
+# -*- coding: utf-8 -*-
+import pytest
+from PageObject.loginPage import LoginPage
+
+
+@pytest.fixture(scope="function")
+def login_page_class_load(function_driver):
+    """
+    注入登录页面对象
+    @param function_driver:
+    @return:
+    """
+    login_page = LoginPage(function_driver)
+    yield login_page
+~~~
+
+test_login_page_case.py中每个测试case需要调用页面模块conftest.py中的function，以及全局配置conftest.py中function_driver（或者function_remote_driver，分布式需要使用该参数)，断言使用Base模块中的assert_method的Assert_method，里面封装了断言方法，包含了allure断言失败截图等操作，根据不同的断言场景取用，或者自己再进行封装
+
+~~~python
+# !/user/bin/env python
+# -*- coding: utf-8 -*-
 import pytest
 import allure
-from Base.requestEngine import start_run_case
-from Common.StringOption.StringOperate import String
-from Parameter.yamlChoice import Login
+import inspect
+import logging
+from Base.assertMethod import AssertMethod
 
 
-@allure.feature("Login")
+@allure.feature("Login_page_case")
 class TestLoginPageCase:
 
- @allure.story("Login")
+    @allure.story("Login")
     @allure.severity("normal")
     @allure.description("测试登录")
     @allure.link("https://www.baidu.com", name="连接跳转百度")
     @allure.testcase("https://www.sina.com", name="测试用例位置")
     @allure.title("执行测试用例用于登录模块")
-    def test_login(self, login_page_class_load, function_driver):
-        result = start_run_case(Register, 0, [("encoding", "utf-8"), ("status_code", "200")])
-        logging.info(result)
+    def test_DLZC1(self, login_page_class_load, function_driver):
+        logging.info("Case number code:{}".format(inspect.stack()[0][3]))
+        login_page_class_load.login_by_config_url()
+        username_input_attribute_value = login_page_class_load.get_username_attribute_value()
+        AssertMethod.assert_equal_screen_shot(function_driver, (username_input_attribute_value, "手机号码"))
 ~~~
 
 

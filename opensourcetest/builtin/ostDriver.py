@@ -107,7 +107,7 @@ def ost_driver(request):
         return driver
     elif type_driver == "remote":
         # Read selenium distributed configuration file
-        selenium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "selenium_config.yaml")
+        selenium_config_path = os.path.join(os.getcwd(), "Conf", "config.yaml")
         selenium_config = FileOption.read_yaml(selenium_config_path)
         driver = Remote(command_executor=selenium_config["selenium_config"]["selenium_hub_url"],
                         desired_capabilities={'platform': 'ANY', 'browserName': browser, 'version': '',
@@ -115,3 +115,8 @@ def ost_driver(request):
         return driver
     else:
         logging.error(f"driver parameter transfer error, please check the parameter:{type_driver}")
+
+
+if __name__ == "__main__":
+    selenium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "selenium_config.yaml")
+    logger.info(selenium_config_path)
