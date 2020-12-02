@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opensourcetest"
-version = "0.1.0"
+version = "0.2.0"
 description = "We need more free software interface testing."
 license = "Apache-2.0"
 readme = "README.md"
@@ -10,7 +10,7 @@ homepage = "https://github.com/chineseluo/opensourcetest"
 repository = "https://github.com/chineseluo/opensourcetest"
 documentation = "https://docs.opensourcetest.org"
 
-keywords = ["HTTP", "http", "Http", "api", "interface", "test", "requests", "pytest", "allure", 'pytest-xdist']
+keywords = ["HTTP", "http", "Http", "api","ui","UI", "automated testing", "interface", "test", "requests", "pytest", "allure", 'pytest-xdist']
 
 classifiers = [
     "Development Status :: 4 - Beta",
