@@ -10,14 +10,13 @@ class FileOption:
     @staticmethod
     def file_mkdir(file_path):
         if not os.path.exists(file_path):
+            logging.info(f"Start creating file:{file_path}")
             os.mkdir(file_path)
-        else:
-            logging.warning(f"{file_path} The directory already exists and does not need to be created again.")
 
     @staticmethod
     def create_file(file_path):
         """
-        创建文件，当目录不存在时自动创建
+        Create a file, which is automatically created when the directory does not exist
         :param file_path:
         :return:
         """
@@ -31,7 +30,7 @@ class FileOption:
     @staticmethod
     def create_dirs(file_dir):
         """
-        创建文件路径,先判断目录是否存在
+        To create a file path, first determine whether the directory exists
         :param file_dir:
         :return:
         """
@@ -41,7 +40,7 @@ class FileOption:
     @staticmethod
     def read_yaml(file):
         """
-            读取yaml文件，返回文件对象
+        Read yaml file and return file object
         @param file:
         @return:
         """
@@ -51,5 +50,5 @@ class FileOption:
             fr.close()
             return yaml_info
         else:
-            logging.error(file, '文件不存在')
+            logging.error(file, 'File does not exist!')
             sys.exit()

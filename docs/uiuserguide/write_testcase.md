@@ -1,8 +1,26 @@
 # 编写测试用例
 
-OpenSourceTest v0.1.0通过yaml接口对象注入的方式，整个框架分为三层，Base层、Parameter层、TestCase层，采用传统的互联网的垂直架构模式。
+~~~ mermaid
+graph TD
+	subgraph 模块调用过程
+    登录页面testcase(登录页面testcase)-->|调用|登录页面对象
+    登录页面对象-->base层
+    注册页面testcase(注册页面testcase)-->|调用|注册页面对象
+	注册页面对象-->base层
+    购买页面testcase(购买页面testcase)-->|调用|购买页面对象
+	购买页面对象-->base层
+    client5(模块测试case)-->|调用|PageObject层
+    PageObject层-->|调用|base层((base层:基础方法))
+    end
+~~~
 
 
+
+OpenSourceTest v0.2.0通过yaml元素对象注入的方式，整个框架分为三层，Base层、PageObject层、TestCase层，采用传统的互联网的垂直架构模式。
+
+- 元素公共操作方法封装存放在Base层
+- 页面元素操作存放在第二层PageObject层，后面如果页面元素变化，直接在第二层相应的Page对象修改即可
+- 测试case存放在TestCases层，主要做断言等操作
 
 ## yaml编写
 

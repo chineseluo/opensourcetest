@@ -17,7 +17,7 @@ import random
 
 def random_string(strings=string.ascii_letters, length=15):
     """
-    获取随机字符串
+    Get random string
     @param strings:
     @param length:
     @return:

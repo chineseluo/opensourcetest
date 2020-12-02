@@ -9,7 +9,7 @@
 from opensourcetest.builtin.autoParamInjection import AutoInjection
 
 
-# 注册yaml文件对象
+# Register yaml file object
 class LoginPageElem(AutoInjection):
     def __init__(self):
         super(LoginPageElem, self).__init__('Login_page', 'Login_page')

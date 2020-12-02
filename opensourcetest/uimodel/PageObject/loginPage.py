@@ -129,6 +129,4 @@ class LoginPage(Base):
 
 
 if __name__ == "__main__":
-    home_page = LoginPage(webdriver.Chrome())
-    home_page.login_by_config_url()
-    print(home_page.find_button_login())
+    ...

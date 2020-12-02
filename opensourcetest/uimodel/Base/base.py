@@ -199,7 +199,7 @@ class Base:
             elem_text = elem[index].text
             logging.info(f"Get element group object, the value of index position {index} succeeded, the value is:{elem_text}")
         except Exception as e:
-            logging.error(f"获取元素组对象，索引位置{index}的值失败，失败信息为：{e}")
+            logging.error(f"Failed to get the value of index position {index} of element group object. The failure information is:{e}")
         return elem_text
 
     def get_placeholder(self, locator):

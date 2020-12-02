@@ -1,43 +1,42 @@
-2020-12-01 11:43:16 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC1
-2020-12-01 11:43:16 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginPageCase.py::TestLoginPageCase::test_DLZC1
-2020-12-01 11:43:16 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC7
-2020-12-01 11:43:16 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Register/test_registerPageCase.py::Test_RegisterPageCase::test_DLZC7
-2020-12-01 11:43:16 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
-2020-12-01 11:43:19 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
-2020-12-01 11:43:19 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
-2020-12-01 11:43:19 | WARNING      | autoParamInjection:__read_yaml:69 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
-2020-12-01 11:43:19 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
-2020-12-01 11:43:20 | INFO      | test_loginPageCase:test_DLZC1:19 - 用例编号编码：test_DLZC1
-2020-12-01 11:43:20 | INFO      | test_loginPageCase:test_DLZC1:20 - funtion_driver属性：<selenium.webdriver.chrome.webdriver.WebDriver (session="971510a47670c729720e1493329f8491")>
-2020-12-01 11:43:22 | INFO      | base:get_login_url_from_config:25 - config_info address:{'allure_environment': {'URL': 'https://github.com/chineseluo/opensourcetest', 'description': '阿木木的UI自动化测试框架', 'username': '848257135@qq.com', 'version': 'V0.2.0'}, 'test_info': {'test_URL': 'https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage'}}
-2020-12-01 11:43:23 | INFO      | locate:get_locator:22 - 元素定位方式为：NAME，元素对象值为：Username
-2020-12-01 11:43:23 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
-2020-12-01 11:43:23 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
-2020-12-01 11:43:23 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="971510a47670c729720e1493329f8491", element="9ae80226-14c7-42f1-92ee-c0e5fbf7a07b")>
-2020-12-01 11:43:23 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:邮箱/手机号码
-2020-12-01 11:43:23 | INFO      | assertMethod:assert_equal_screen_shot:16 - 正在进行元素断言：断言方式->邮箱/手机号码：是否等于->手机号码
-2020-12-01 11:43:23 | ERROR      | assertMethod:assert_equal_screen_shot:19 - 断言执行失败，错误信息为：
-2020-12-01 11:43:23 | INFO      | publicMethod:screen_picture:11 - Screenshot operation in progress!
-2020-12-01 11:43:23 | WARNING      | fileOperation:file_mkdir:15 - Report/picture The directory already exists and does not need to be created again.
-2020-12-01 11:43:24 | INFO      | publicMethod:screen_picture:20 - The screenshot is successful. The photo address is:Report/picture/2020-12-01-11_43_23.png
-2020-12-01 11:43:26 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:69 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
-2020-12-01 11:43:29 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
-2020-12-01 11:43:29 | WARNING      | autoParamInjection:__read_yaml:69 - Output Register_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Register_page\Register_page.yaml
-2020-12-01 11:43:29 | INFO      | autoParamInjection:__init__:30 - RegisterPageElem Yaml object injection in progress
-2020-12-01 11:43:31 | INFO      | base:get_login_url_from_config:25 - config_info address:{'allure_environment': {'URL': 'https://github.com/chineseluo/opensourcetest', 'description': '阿木木的UI自动化测试框架', 'username': '848257135@qq.com', 'version': 'V0.2.0'}, 'test_info': {'test_URL': 'https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage'}}
-2020-12-01 11:43:32 | INFO      | locate:get_locator:22 - 元素定位方式为：CLASS_NAME，元素对象值为：InputWarningA
-2020-12-01 11:43:32 | INFO      | base:find_element:74 - Output locator information:('class name', 'InputWarningA')
-2020-12-01 11:43:32 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:class name,value:InputWarningA
-2020-12-01 11:43:32 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="4356fc9afb2bd88414f5c837c2873818", element="66d2276c-ef0c-46fd-aad5-9be7d6219459")>
-2020-12-01 11:43:33 | INFO      | base:click_btn:161 - Element object click succeeded
-2020-12-01 11:43:33 | INFO      | locate:get_locator:22 - 元素定位方式为：NAME，元素对象值为：Username
-2020-12-01 11:43:33 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
-2020-12-01 11:43:33 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
-2020-12-01 11:43:33 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="4356fc9afb2bd88414f5c837c2873818", element="308daa82-ed5e-4224-a886-a8a2d766ad19")>
-2020-12-01 11:43:33 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:手机号码
-2020-12-01 11:43:33 | INFO      | assertMethod:assert_equal_screen_shot:16 - 正在进行元素断言：断言方式->手机号码：是否等于->手机号码
+2020-12-02 10:38:31 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC1
+2020-12-02 10:38:31 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginPageCase.py::TestLoginPageCase::test_DLZC1
+2020-12-02 10:38:31 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC7
+2020-12-02 10:38:31 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Register/test_registerPageCase.py::Test_RegisterPageCase::test_DLZC7
+2020-12-02 10:38:31 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
+2020-12-02 10:38:34 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-02 10:38:34 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-02 10:38:34 | WARNING      | autoParamInjection:__read_yaml:69 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
+2020-12-02 10:38:34 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
+2020-12-02 10:38:34 | INFO      | test_loginPageCase:test_DLZC1:19 - Case number code:test_DLZC1
+2020-12-02 10:38:36 | INFO      | base:get_login_url_from_config:25 - config_info address:{'allure_environment': {'URL': 'https://github.com/chineseluo/opensourcetest', 'description': '阿木木的UI自动化测试框架', 'username': '848257135@qq.com', 'version': 'V0.2.0'}, 'test_info': {'test_URL': 'https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage'}}
+2020-12-02 10:38:37 | INFO      | locate:get_locator:22 - The element positioning mode is：NAME,The element object value is:Username
+2020-12-02 10:38:37 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
+2020-12-02 10:38:37 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
+2020-12-02 10:38:38 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="6475c1c890ce0bb82002d6aceeeeca2d", element="8caed57e-36b0-4414-8745-b64b72639828")>
+2020-12-02 10:38:38 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:邮箱/手机号码
+2020-12-02 10:38:38 | INFO      | assertMethod:assert_equal_screen_shot:16 - Element assertion in progress:Is 邮箱/手机号码 equal to 手机号码?
+2020-12-02 10:38:38 | ERROR      | assertMethod:assert_equal_screen_shot:19 - Assertion execution failed with error message:
+2020-12-02 10:38:38 | INFO      | publicMethod:screen_picture:11 - Screenshot operation in progress!
+2020-12-02 10:38:38 | INFO      | fileOperation:file_mkdir:13 - Start creating file:Report/picture
+2020-12-02 10:38:38 | INFO      | publicMethod:screen_picture:20 - The screenshot is successful. The photo address is:Report/picture/2020-12-02-10_38_38.png
+2020-12-02 10:38:40 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:69 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
+2020-12-02 10:38:43 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:67 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:68 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-02 10:38:43 | WARNING      | autoParamInjection:__read_yaml:69 - Output Register_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Register_page\Register_page.yaml
+2020-12-02 10:38:43 | INFO      | autoParamInjection:__init__:30 - RegisterPageElem Yaml object injection in progress
+2020-12-02 10:38:46 | INFO      | base:get_login_url_from_config:25 - config_info address:{'allure_environment': {'URL': 'https://github.com/chineseluo/opensourcetest', 'description': '阿木木的UI自动化测试框架', 'username': '848257135@qq.com', 'version': 'V0.2.0'}, 'test_info': {'test_URL': 'https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage'}}
+2020-12-02 10:38:46 | INFO      | locate:get_locator:22 - The element positioning mode is：CLASS_NAME,The element object value is:InputWarningA
+2020-12-02 10:38:46 | INFO      | base:find_element:74 - Output locator information:('class name', 'InputWarningA')
+2020-12-02 10:38:46 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:class name,value:InputWarningA
+2020-12-02 10:38:47 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="c5b1d98f30f2d1ae73bb0a29636a58d4", element="fff066eb-a32d-4d71-b590-38c91143c061")>
+2020-12-02 10:38:47 | INFO      | base:click_btn:161 - Element object click succeeded
+2020-12-02 10:38:47 | INFO      | locate:get_locator:22 - The element positioning mode is：NAME,The element object value is:Username
+2020-12-02 10:38:47 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
+2020-12-02 10:38:47 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
+2020-12-02 10:38:47 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="c5b1d98f30f2d1ae73bb0a29636a58d4", element="6fe1357c-c128-4f28-9abf-f71adcea349c")>
+2020-12-02 10:38:47 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:手机号码
+2020-12-02 10:38:47 | INFO      | assertMethod:assert_equal_screen_shot:16 - Element assertion in progress:Is 手机号码 equal to 手机号码?

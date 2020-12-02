@@ -19,7 +19,7 @@ from selenium.webdriver.common.by import By
 def get_locator(page_elem_dict):
         method = page_elem_dict["data"]["method"]
         value = page_elem_dict["data"]["value"]
-        logging.info("元素定位方式为：{}，元素对象值为：{}".format(method, value))
+        logging.info(f"The element positioning mode is：{method},The element object value is:{value}")
         if method == "ID" and value is not None:
             elem_locator = (By.ID, value)
             return elem_locator

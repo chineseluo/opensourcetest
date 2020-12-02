@@ -9,7 +9,6 @@ from Base.base import Base
 from PageObject.yamlChoice import RegisterPageElem
 
 
-# 封装速涡手游加速器注册页面操作对象及各个元素及操作方法
 class RegisterPage(Base):
     def __init__(self, driver):
         super().__init__(driver)
