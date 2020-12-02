@@ -47,54 +47,52 @@ yaml格式说明：
 
 在Parameter模块下的yamlChoice.py文件中进行Login.yaml注册，继承AutoInjection，生成一个yaml文件对象，初始化传递参数规则举例：
 
-- 当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-  ![1](..\images\testcase\1.png)
+可以采用如下写法：
 
-  可以采用如下写法：
+~~~python
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 
-  ~~~python
-  from opensourcetest.builtin.autoParamInjection import AutoInjection
-  
-  
-  # Register yaml file object
-  class LoginPageElem(AutoInjection):
-      def __init__(self):
-          super(LoginPageElem, self).__init__('Login_page', 'Login_page')
-  
-  
-  class BuyPageElem(AutoInjection):
-      def __init__(self):
-          super(BuyPageElem, self).__init__('Buy_page', 'Buy_page')
-  ~~~
 
-- 当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+# Register yaml file object
+class LoginPageElem(AutoInjection):
+    def __init__(self):
+        super(LoginPageElem, self).__init__('Login_page', 'Login_page')
 
-  例如在yamlChoice.py中新添加一个类，Login，可以使用如下写法：
 
-  ~~~python
-  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
-  
-  
-  class Login(AutoInjection):
-      def __init__(self):
-          super(Login, self).__init__(self.__class__.__name__)
-  ~~~
+class BuyPageElem(AutoInjection):
+    def __init__(self):
+        super(BuyPageElem, self).__init__('Buy_page', 'Buy_page')
+~~~
 
-- 当你在Parameter文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-  ![2](../images/testcase/2.png)
+例如在yamlChoice.py中新添加一个类，Login，模块名为Login，yaml文件为Login.yaml，可以使用如下写法：
 
-  ~~~python
-  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
-  
-  
-  class Register(AutoInjection):
-      def __init__(self):
-          super(Register, self).__init__("Register", "Login")
-  ~~~
+~~~python
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 
-  
+
+class Login(AutoInjection):
+    def __init__(self):
+        super(Login, self).__init__(self.__class__.__name__)
+~~~
+
+当你在PageObject文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+
+例如在yamlChoice.py中新添加一个类，Register，模块名为Register，yaml文件为Login.yaml，可以使用如下写法：
+
+~~~python
+from opensourcetest.builtin.autoParamInjection import AutoInjection
+
+
+class Register(AutoInjection):
+    def __init__(self):
+        super(Register, self).__init__("Register", "Login")
+~~~
+
+
 
 ## 封装页面操作对象
 

@@ -26,13 +26,13 @@ yaml格式说明：
 
    - description：yaml文件说明
    - parameters：参数说明
-       - url：接口地址（不含host,host在conf.yml单独配置）
-       - desc：接口描述
-       - method：请求方法
-       - headers：请求头
-       - params：请求拼接参数
-       - data：data数据
-       - json：json数据
+     - url：接口地址（不含host,host在conf.yml单独配置）
+     - desc：接口描述
+     - method：请求方法
+     - headers：请求头
+     - params：请求拼接参数
+     - data：data数据
+     - json：json数据
 
 
 
@@ -42,55 +42,62 @@ yaml格式说明：
 
 在Parameter模块下的yamlChoice.py文件中进行Login.yaml注册，继承AutoInjection，生成一个yaml文件对象，初始化传递参数规则举例：
 
-- 当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-  ![1](..\images\testcase\1.png)
+![1](D:/项目/opensourcetest-0.1.0/docs/images/testcase/1.png)
 
-  可以采用如下写法：
+可以采用如下写法：
 
-  ~~~python
-  from opensourcetest.builtin.autoParamInjection import AutoInjection
-  
-  
-  class Login(AutoInjection):
-      def __init__(self):
-          super(Login, self).__init__("Login")
-  ~~~
+~~~python
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 
-- 当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-  例如在yamlChoice.py中新添加一个类，Login，可以使用如下写法：
+class Login(AutoInjection):
+    def __init__(self):
+        super(Login, self).__init__("Login")
+~~~
 
-  ~~~python
-  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
-  
-  
-  class Login(AutoInjection):
-      def __init__(self):
-          super(Login, self).__init__(self.__class__.__name__)
-  ~~~
+当你定义的类名和文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-- 当你在Parameter文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+例如在yamlChoice.py中新添加一个类，Login，可以使用如下写法：
 
-  ![2](../images/testcase/2.png)
+~~~python
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
+from opensourcetest.builtin.autoParamInjection import AutoInjection
 
-  ~~~python
-  from opensourcetest_test_test.builtin.autoParamInjection import AutoInjection
-  
-  
-  class Register(AutoInjection):
-      def __init__(self):
-          super(Register, self).__init__("Register", "Login")
-  ~~~
 
-  
+class Login(AutoInjection):
+    def __init__(self):
+        super(Login, self).__init__(self.__class__.__name__)
+~~~
+
+当你在Parameter文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
+
+![2](D:/项目/opensourcetest-0.1.0/docs/images/testcase/2.png)
+
+~~~python
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
+from opensourcetest.builtin.autoParamInjection import AutoInjection
+
+
+class Register(AutoInjection):
+    def __init__(self):
+        super(Register, self).__init__("Register", "Login")
+~~~
+
+
 
 ## 编写测试用例
 
 在TestCases下面创建一个test_login.py，导入Base.requestEngine.start_run_case方法，用于用例执行。获取接口对象方式，通过导入Parameter.yamlChoice中的接口yaml对象，可以通过desc定位到具体的接口，示例如下：
 
 ~~~python
-# coding:utf-8
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
 import pytest
 import allure
 from Base.requestEngine import start_run_case
