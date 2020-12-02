@@ -1,4 +1,4 @@
 cd ..
 cd ..
-python main.py firefox open local enable
+python run.py firefox open local
 pause

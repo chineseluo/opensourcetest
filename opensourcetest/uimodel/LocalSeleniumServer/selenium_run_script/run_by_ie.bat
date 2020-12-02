@@ -1,4 +1,4 @@
 cd ..
 cd ..
-python run.py ie open local enable
+python run.py ie open local
 pause
