@@ -44,7 +44,7 @@ yaml格式说明：
 
 当文件夹名和模块名一致时（不包括文件的yaml后缀），可以只传递一个参数。传递两个参数时候，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-![1](D:/项目/opensourcetest-0.1.0/docs/images/testcase/1.png)
+![1](../images/testcase/1.png)
 
 可以采用如下写法：
 
@@ -76,7 +76,7 @@ class Login(AutoInjection):
 
 当你在Parameter文件夹下，新建的文件夹名和其中的文件名（不包括文件的yaml后缀）不一致时，需要传递两个参数，第一个参数为文件夹名，第二个为文件名（不包括文件的yaml后缀）
 
-![2](D:/项目/opensourcetest-0.1.0/docs/images/testcase/2.png)
+![2](../images/testcase/2.png)
 
 ~~~python
 #!/user/bin/env python

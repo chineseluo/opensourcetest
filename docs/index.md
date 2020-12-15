@@ -2,7 +2,7 @@
 
 # [![pyversions](https://img.shields.io/badge/opensourcetest-v0.2.x-brightgreen)](https://pypi.org/project/opensourcetest/)[![pyversions](https://img.shields.io/badge/pypi-v0.2.x-orange)](https://pypi.org/project/opensourcetest-test-test/)[![pyversions](https://img.shields.io/badge/pytest-5.x-green)](https://docs.pytest.org)[![pyversions](https://img.shields.io/badge/requests-2.x-green)](http://docs.python-requests.org/en/master/ )[![pyversions](https://img.shields.io/badge/allure-2.x-green)](https://docs.qameta.io/allure/  )
 
-`OpenSourceTest`将为您创建更加自由的软件接口测试，不是为了简单而简单，而是为您提供更自由的扩展的，适用于不同功能场景的`UI`自动化或接口自动化测试框架。
+`OpenSourceTest`将为您创建更加自由的软件自动化测试，不是为了简单而简单，而是为您提供更自由的扩展的，适用于不同功能场景的`UI`自动化或接口自动化测试框架。
 
 ## 设计思想
 
