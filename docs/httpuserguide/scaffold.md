@@ -21,3 +21,7 @@ OST start_http_project [project_name]：创建接口自动化项目，[project_n
 ## 运行脚手架项目
 
 脚手架在创建项目后，会提供一个简单的demo给您，您可以执行run.py文件可以运行测试。
+
+## 项目结构
+
+![OST1](..\images\http\OST1.png)
