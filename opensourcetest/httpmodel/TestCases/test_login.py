@@ -13,8 +13,26 @@ class TestLogin:
     @allure.story("Test Login")
     @allure.title("test login")
     def test_login(self):
-        headers = {
-            "Transfer-Encoding": "chunked"
+        params = {"username": "zouzou", "password": "zouzou"}
+        result = start_run_case(Login, 0, ("status_code", 200, "GTE"), json=params)
+        auth = {
+            "Authorization": f'JWT {result["body"]["data"]["token"]}'
         }
-        result = start_run_case(Login, 0, [("encoding", "utf-8"), ("status_code", "200")])
+        logging.info(auth)
+
+    @allure.severity("blocker")
+    @allure.story("Test get")
+    @allure.title("test get")
+    def test_get(self, token):
+        params = {
+            "page": 1,
+            "size": 20
+        }
+        result = start_run_case(Login, "查询", session_connection=token, params=params)
         logging.info(result)
+
+    @allure.severity("blocker")
+    @allure.story("Test delete")
+    @allure.title("test delete")
+    def test_delete(self, token):
+        result = start_run_case(Login, "删除", session_connection=token, url_converter="58")

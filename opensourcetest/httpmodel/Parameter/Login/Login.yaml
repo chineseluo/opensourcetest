@@ -1,8 +1,8 @@
-description: 获取blog权限接口信息
+description: 登录模块接口
 parameters:
-  - url: /chineseluo/ajax/blogSubscription
-    desc: 校验
-    method: get
+  - url: /api/user/login
+    desc: "登录"
+    method: post
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     }
@@ -10,3 +10,22 @@ parameters:
     data: {}
     json: {}
 
+  - url: /api/manage/search/staff?id=$
+    desc: "查询"
+    method: post
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+    params: { }
+    data: { }
+    json: { }
+
+  - url: /api/manage/staff
+    desc: "删除"
+    method: delete
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+    params: { }
+    data: { }
+    json: { }

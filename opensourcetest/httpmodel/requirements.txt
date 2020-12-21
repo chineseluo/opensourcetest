@@ -1,7 +1,1 @@
-loguru==0.5.3
-requests==2.22.0
-pydantic==1.6.1
-allure_python_commons==2.8.19
-pytest==5.4.3
-jmespath==0.9.5
-PyYAML==5.3.1
+opensourcetest==0.2.2

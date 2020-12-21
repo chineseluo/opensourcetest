@@ -1,6 +1,6 @@
 server_info:
-  base_url: www.cnblogs.com
-  protocol: https
+  base_url: 47.108.151.187:8081
+  protocol: http
   username: xxxxxxxx
   password: xxxxxxxx
   verify: True

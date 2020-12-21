@@ -26,7 +26,6 @@ class BaseRequest:
     get / post / delete / put in yaml by providing a public method
     """
 
-
     @staticmethod
     def __get(url, params=None, jmespath_rule=None, **kwargs):
         if jmespath_rule:

@@ -13,6 +13,8 @@
 """
 import logging
 from typing import Text
+
+
 class AssertChecker:
 
     @staticmethod
@@ -78,5 +80,6 @@ class AssertChecker:
             try:
                 assert False
             except AssertionError:
-                logging.error(f"Assert CONTAIN<contain> Fail,Expected Value：{except_value},Response Data：{response_value}")
+                logging.error(
+                    f"Assert CONTAIN<contain> Fail,Expected Value：{except_value},Response Data：{response_value}")
                 raise AssertionError
