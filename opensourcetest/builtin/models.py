@@ -38,6 +38,17 @@ class MethodEnum(Text, Enum):
     PATCH = "PATCH"
 
 
+class CheckerMethodEnum(Text, Enum):
+    """OST Checker Method"""
+    GT = "GT"
+    GTE = "GTE"
+    LT = "LT"
+    LTE = "LTE"
+    NE = "NE"
+    EQ = "EQ"
+    CONTAIN = "CONTAIN"
+
+
 class OSTReqArgv(BaseModel):
     """OST Request httpmodel"""
     method: MethodEnum = MethodEnum.GET
@@ -93,3 +104,10 @@ class OSTReqRespData(BaseModel):
     """OST Response Model"""
     request: OSTReqData
     response: OSTRespData
+
+
+class Checker(BaseModel):
+    """OST Checker"""
+    CheckerResource: OSTRespData
+    CheckerCondition: Union[Text, int]
+    CheckerMethod: CheckerMethodEnum = CheckerMethodEnum.EQ

@@ -14,12 +14,34 @@
 import logging
 import jmespath
 from typing import List, Tuple, Text, Dict
-from opensourcetest.builtin.exceptions import CheckerTypeError
+from opensourcetest.builtin.exceptions import CheckerTypeError, CheckerArgvError
+from opensourcetest.builtin.models import CheckerMethodEnum
+from opensourcetest.builtin.assertChecker import AssertChecker
+
+
+def ost_assertion(extract_resp, assert_item):
+    if assert_item[2].upper() == CheckerMethodEnum.EQ:
+        AssertChecker.assert_eq(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.GT:
+        AssertChecker.assert_gt(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.GTE:
+        AssertChecker.assert_gte(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.LT:
+        AssertChecker.assert_lt(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.LTE:
+        AssertChecker.assert_lte(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.NE:
+        AssertChecker.assert_ne(extract_resp, assert_item[1])
+    elif assert_item[2].upper() == CheckerMethodEnum.CONTAIN:
+        AssertChecker.assert_contain(extract_resp, assert_item[1])
+    else:
+        logging.error("The assertion judged that the condition parameter was passed in error!")
+        raise CheckerArgvError
 
 
 def check_assertion(res, checker):
     """
-    The data is extracted according to the objects passed in by the checker. The checker may be a nested list or tuple
+    The data is extracted according to the objects passed in by the checker. The checker may be a nested list or tuple, add gt gte lt lte ne eq in
     :param res:
     :param checker:
     :return:
@@ -31,21 +53,23 @@ def check_assertion(res, checker):
         for assert_item in checker:
             extract_resp = jmespath.search(assert_item[0], res.dict())
             if assert_item[1] is not None:
-                try:
-                    assert Text(extract_resp) == Text(assert_item[1])
-                except AssertionError:
-                    logging.error(f"Assert Fail,Expected Value：{assert_item[1]},Response Data：{extract_resp}")
-                    raise AssertionError
+                if len(assert_item) == 2:
+                    AssertChecker.assert_eq(extract_resp, assert_item[1])
+                elif len(assert_item) == 3:
+                    ost_assertion(extract_resp, assert_item)
+                else:
+                    logging.warning("You passed too many unrecognized parameters!")
             else:
                 logging.error(f"Assert Fail,Get Assert Object Fail：{assert_item}")
                 raise AssertionError
     elif isinstance(checker[0], Text):
         extract_resp = jmespath.search(checker[0], res.dict())
-        try:
-            assert extract_resp == checker[1]
-        except AssertionError:
-            logging.error(f"Assert Fail,Expected Value：{checker[1]}，response data：{extract_resp}")
-            raise AssertionError
+        if len(checker) == 2:
+            AssertChecker.assert_eq(extract_resp, checker[1])
+        elif len(checker) == 3:
+            ost_assertion(extract_resp, checker)
+        else:
+            logging.warning("You passed too many unrecognized parameters!")
     else:
         logging.error(f"Please enter the correct checker parameters, only supported list or tuple，The error parameter "
                       f"is：{checker}")

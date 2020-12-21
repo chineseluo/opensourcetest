@@ -15,3 +15,7 @@
 
 class CheckerTypeError(Exception):
     ...
+
+
+class CheckerArgvError(Exception):
+    ...
