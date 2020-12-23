@@ -13,8 +13,7 @@
 """
 import logging
 from loguru import logger
-from selenium.webdriver.common.by import By
-from opensourcetest.builtin.models import UiLocateMethodEnum
+from opensourcetest.builtin.models import UiLocateMethodEnum, OSTUiBaseBy
 
 
 def get_locator(page_elem_dict):
@@ -22,29 +21,29 @@ def get_locator(page_elem_dict):
         value = page_elem_dict["data"]["value"]
         logging.info(f"The element positioning mode is：{method},The element object value is:{value}")
         if method == UiLocateMethodEnum.ID and value is not None:
-            elem_locator = (By.ID, value)
+            elem_locator = (OSTUiBaseBy.ID, value)
             return elem_locator
         elif method == UiLocateMethodEnum.XPATH and value is not None:
-            elem_locator = (By.XPATH, value)
+            elem_locator = (OSTUiBaseBy.XPATH, value)
             return elem_locator
         elif method == UiLocateMethodEnum.LINK_TEXT and value is not None:
-            elem_locator = (By.LINK_TEXT, value)
+            elem_locator = (OSTUiBaseBy.LINK_TEXT, value)
             return elem_locator
         elif method == UiLocateMethodEnum.PARTIAL_LINK_TEXT and value is not None:
-            elem_locator = (By.PARTIAL_LINK_TEXT, value)
+            elem_locator = (OSTUiBaseBy.PARTIAL_LINK_TEXT, value)
             return elem_locator
         elif method == UiLocateMethodEnum.NAME and value is not None:
-            elem_locator = (By.NAME, value)
+            elem_locator = (OSTUiBaseBy.NAME, value)
             return elem_locator
         elif method == UiLocateMethodEnum.TAG_NAME and value is not None:
-            elem_locator = (By.TAG_NAME, value)
+            elem_locator = (OSTUiBaseBy.TAG_NAME, value)
             return elem_locator
         elif method == UiLocateMethodEnum.CLASS_NAME and value is not None:
-            elem_locator = (By.CLASS_NAME, value)
+            elem_locator = (OSTUiBaseBy.CLASS_NAME, value)
             logger.error(elem_locator)
             return elem_locator
         elif method == UiLocateMethodEnum.CSS_SELECTOR and value is not None:
-            elem_locator = (By.CSS_SELECTOR, value)
+            elem_locator = (OSTUiBaseBy.CSS_SELECTOR, value)
             return elem_locator
         else:
             logging.error("This element positioning method is abnormal, positioning element value is abnormal, "

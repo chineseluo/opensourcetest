@@ -15,6 +15,8 @@ from enum import Enum
 from pydantic import BaseModel, HttpUrl, Field, PyObject
 from opensourcetest.builtin.autoParamInjection import AutoInjection
 from typing import Any, Dict, Text, Union, Callable, List, Tuple, Optional
+from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy
 
 Name = Text
 Url = Text
@@ -61,8 +63,28 @@ class UiLocateMethodEnum(Text, Enum):
     CSS_SELECTOR = "CSS_SELECTOR"
 
 
+class OSTUiBaseBy(BaseModel):
+    """OST UI Base By"""
+    ID = By.ID
+    XPATH = By.XPATH
+    LINK_TEXT = By.LINK_TEXT
+    PARTIAL_LINK_TEXT = By.PARTIAL_LINK_TEXT
+    NAME = By.NAME
+    TAG_NAME = By.TAG_NAME
+    CLASS_NAME = By.CLASS_NAME
+    CSS_SELECTOR = By.CSS_SELECTOR
+
+
 class AppUiLocateMethodEnum(Text, Enum):
     """OST APP Locate Method"""
+    ID = "ID"
+    XPATH = "XPATH"
+    LINK_TEXT = "LINK_TEXT"
+    PARTIAL_LINK_TEXT = "PARTIAL_LINK_TEXT"
+    NAME = "NAME"
+    TAG_NAME = "TAG_NAME"
+    CLASS_NAME = "CLASS_NAME"
+    CSS_SELECTOR = "CSS_SELECTOR"
     IOS_UIAUTOMATION = "IOS_UIAUTOMATION"
     IOS_PREDICATE = "IOS_PREDICATE"
     IOS_CLASS_CHAIN = "IOS_CLASS_CHAIN"
@@ -72,6 +94,27 @@ class AppUiLocateMethodEnum(Text, Enum):
     ACCESSIBILITY_ID = "ACCESSIBILITY_ID"
     IMAGE = "IMAGE"
     CUSTOM = "CUSTOM"
+
+
+class OSTAppBaseBy(BaseModel):
+    """OST App Base By"""
+    ID = By.ID
+    XPATH = By.XPATH
+    LINK_TEXT = By.LINK_TEXT
+    PARTIAL_LINK_TEXT = By.PARTIAL_LINK_TEXT
+    NAME = By.NAME
+    TAG_NAME = By.TAG_NAME
+    CLASS_NAME = By.CLASS_NAME
+    CSS_SELECTOR = By.CSS_SELECTOR
+    IOS_UIAUTOMATION = MobileBy.IOS_UIAUTOMATION
+    IOS_PREDICATE = MobileBy.IOS_PREDICATE
+    IOS_CLASS_CHAIN = MobileBy.IOS_CLASS_CHAIN
+    ANDROID_UIAUTOMATOR = MobileBy.ANDROID_UIAUTOMATOR
+    ANDROID_VIEWTAG = MobileBy.ANDROID_VIEWTAG
+    WINDOWS_UI_AUTOMATION = MobileBy.WINDOWS_UI_AUTOMATION
+    ACCESSIBILITY_ID = MobileBy.ACCESSIBILITY_ID
+    IMAGE = MobileBy.IMAGE
+    CUSTOM = MobileBy.CUSTOM
 
 
 class OSTReqArgv(BaseModel):

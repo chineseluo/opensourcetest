@@ -34,9 +34,7 @@ def ost_ui_runner(browser, browser_opt, type_driver):
     # 使用pytest.main
     pytest.main(run_args)
     # 生成allure报告，需要系统执行命令--clean会清楚以前写入environment.json的配置
-    cmd = 'allure generate ./Report/{}/allure-result -o ./Report/{}/allure-report --clean'.format(
-        browser.replace(" ", "_"),
-        browser.replace(" ", "_"))
+    cmd = f'allure generate ./Report/{browser.replace(" ", "_")}/allure-result -o ./Report/{browser.replace(" ", "_")}/allure-report --clean'
     logger.info("命令行执行cmd:{}".format(cmd))
     try:
         os.system(cmd)

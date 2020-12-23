@@ -1,5 +1,0 @@
-allure_environment:
-  URL: https://github.com/chineseluo/app_auto_frame_v1
-  description: test description
-  username: 848257135@qq.com
-  version: V0.12.0
