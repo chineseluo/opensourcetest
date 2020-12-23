@@ -39,6 +39,16 @@ def init_ui_scaffold_parser(subparsers):
     return sub_ui_scaffold_parser
 
 
+def init_app_scaffold_parser(subparsers):
+    sub_app_scaffold_parser = subparsers.add_parser(
+        "start_app_project", help="Create a new app project with template structure."
+    )
+    sub_app_scaffold_parser.add_argument(
+        "project_name", type=str, nargs="?", help="Specify new app project name."
+    )
+    return sub_app_scaffold_parser
+
+
 def init_docs_scaffold_parser(subparsers):
     sub_docs_scaffold_parser = subparsers.add_parser(
         "onlinedocs", help="Welcome to the online documentation:http://docs.opensourcetest.cn"
@@ -53,6 +63,7 @@ def main():
     subparsers = parser.add_subparsers(help="OpenSourceTest sub-command help")
     sub_http_scaffold_parser = init_http_scaffold_parser(subparsers)
     sub_ui_scaffold_parser = init_ui_scaffold_parser(subparsers)
+    sub_app_scaffold_parser = init_app_scaffold_parser(subparsers)
     sub_docs_scaffold_parser = init_docs_scaffold_parser(subparsers)
     ost_argv = sys.argv
     print(ost_argv)
@@ -73,6 +84,8 @@ def main():
             sub_http_scaffold_parser.print_help()
         elif ost_argv[1] == "start_ui_project":
             sub_ui_scaffold_parser.print_help()
+        elif ost_argv[1] == "start_app_project":
+            sub_app_scaffold_parser.print_help()
         elif ost_argv[1] == "onlinedocs":
             sub_docs_scaffold_parser.print_help()
             logger.info("Welcome to the online documentation:http://docs.opensourcetest.cn")
@@ -89,6 +102,9 @@ def main():
         create_scaffold(sys.argv[1], sys.argv[2])
         sys.exit(0)
     elif len(sys.argv) == 3 and sys.argv[1] == "start_ui_project":
+        create_scaffold(sys.argv[1], sys.argv[2])
+        sys.exit(0)
+    elif len(sys.argv) == 3 and sys.argv[1] == "start_app_project":
         create_scaffold(sys.argv[1], sys.argv[2])
         sys.exit(0)
 

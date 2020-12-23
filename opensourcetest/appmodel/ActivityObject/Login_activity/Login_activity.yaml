@@ -1,0 +1,32 @@
+﻿#封装需要操作的元素对象
+desc: "登录页面元素操作对象"
+parameters:
+  - elem_name: "phone_number"
+    desc: "请输入手机号"
+    data: {
+      method: "ANDROID_UIAUTOMATOR",
+      value: 'new UiSelector().text("请输入手机号")'
+    }
+
+  - elem_name: "code"
+    desc: "请输入验证码"
+    data: {
+      method: "ANDROID_UIAUTOMATOR",
+      value: 'new UiSelector().text("请输入验证码")'
+    }
+
+  - elem_name: "login_btn"
+    desc: "登录按钮"
+    data: {
+      method: "ANDROID_UIAUTOMATOR",
+      value: 'new UiSelector().text("登录")'
+    }
+
+  - elem_name: "message_id"
+    desc: "消息弹框信息"
+    data: {
+      method: "ID",
+      value: "android:id/message"
+    }
+
+

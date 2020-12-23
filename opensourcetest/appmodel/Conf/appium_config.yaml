@@ -1,0 +1,12 @@
+﻿appium_config:
+  #配置appium启动参数
+  appium_start_cmd: "appium"
+  remote_URL: "http://127.0.0.1:4723/wd/hub"
+  platformName: "Android"
+  deviceName: "127.0.0.1:62001"
+  platformVersion: "5.1.1"
+  appPackage: "cn.com.smartfleet.app.admin"
+  appActivity: "cn.com.smartfleet.app.admin.MainActivity"
+  unicodeKeyboard: True
+  resetKeyboard: True
+

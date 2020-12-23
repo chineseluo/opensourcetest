@@ -1,0 +1,7 @@
+allure_python_commons==2.8.13
+xlrd==1.2.0
+pytest==5.4.1
+selenium==3.141.0
+Appium_Python_Client==1.0.2
+docker_py==1.10.6
+PyYAML==5.3.1

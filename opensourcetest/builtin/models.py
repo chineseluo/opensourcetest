@@ -49,6 +49,31 @@ class CheckerMethodEnum(Text, Enum):
     CONTAIN = "CONTAIN"
 
 
+class UiLocateMethodEnum(Text, Enum):
+    """OST UI Locate Method"""
+    ID = "ID"
+    XPATH = "XPATH"
+    LINK_TEXT = "LINK_TEXT"
+    PARTIAL_LINK_TEXT = "PARTIAL_LINK_TEXT"
+    NAME = "NAME"
+    TAG_NAME = "TAG_NAME"
+    CLASS_NAME = "CLASS_NAME"
+    CSS_SELECTOR = "CSS_SELECTOR"
+
+
+class AppUiLocateMethodEnum(Text, Enum):
+    """OST APP Locate Method"""
+    IOS_UIAUTOMATION = "IOS_UIAUTOMATION"
+    IOS_PREDICATE = "IOS_PREDICATE"
+    IOS_CLASS_CHAIN = "IOS_CLASS_CHAIN"
+    ANDROID_UIAUTOMATOR = "ANDROID_UIAUTOMATOR"
+    ANDROID_VIEWTAG = "ANDROID_VIEWTAG"
+    WINDOWS_UI_AUTOMATION = "WINDOWS_UI_AUTOMATION"
+    ACCESSIBILITY_ID = "ACCESSIBILITY_ID"
+    IMAGE = "IMAGE"
+    CUSTOM = "CUSTOM"
+
+
 class OSTReqArgv(BaseModel):
     """OST Request httpmodel"""
     method: MethodEnum = MethodEnum.GET

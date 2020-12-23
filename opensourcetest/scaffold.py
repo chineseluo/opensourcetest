@@ -48,6 +48,8 @@ def create_scaffold(model_type, project_name):
         source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "uimodel")
     elif model_type == "start_http_project":
         source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "httpmodel")
+    elif model_type == "start_app_project":
+        source_path = os.path.join(os.path.abspath(__file__).split("scaffold.py")[0], "appmodel")
     else:
         logger.error("Please input the correct type of template")
     create_folder(project_name)
