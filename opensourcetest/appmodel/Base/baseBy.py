@@ -1,16 +1,5 @@
 #!/user/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-------------------------------------
-@Project : app_auto_frame
-@Time    : 2020/6/8 14:42
-@Auth    : chineseluo
-@Email   : 848257135@qq.com
-@File    : BaseBy.py
-@IDE     : PyCharm
-------------------------------------
-"""
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.mobileby import MobileBy
 

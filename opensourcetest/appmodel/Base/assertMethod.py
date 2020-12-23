@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 # !/user/bin/env python
-# @Time    : 2020/6/1 16:45
-# @Author  : chineseluo
-# @Email   : l848257135@qq.com
-# @File    : assertMethod.py
-# @Software: PyCharm
 import logging
 from Common.publicMethod import PubMethod
 

@@ -1,16 +1,11 @@
 # !/user/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/5/12 21:11
-# @Author  : chineseluo
-# @Email   : 848257135@qq.com
-# @File    : run.py
-# @Software: PyCharm
 from Base.base import Base
 from selenium import webdriver
 from ActivityObject.elemParams import LoginActivityElem
 
 
-# 封装车联网app登录页面操作对象操作方法
+# 封装app登录页面操作对象操作方法
 class LoginActivity(Base):
     def __init__(self, driver):
         # 初始化页面元素对象，即yaml文件对象
