@@ -16,7 +16,7 @@ import inspect
 import logging
 from typing import Text, Dict
 from opensourcetest.common.yamlOperation import YamlFileOption
-from opensourcetest.builtin.locate import get_locator
+from opensourcetest.builtin.locate import get_ui_locator, get_locator
 
 
 class AutoInjection:
@@ -42,12 +42,15 @@ class AutoInjection:
                 yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]),
                                          args[0], args[0] + ".yaml")
             else:
-                if os.path.dirname(inspect.getfile(self.__class__)).find("Parameter") == -1:
-                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "uimodel/PageObject",
-                                             args[0],
-                                             args[0] + ".yaml")
-                else:
+                if os.path.dirname(inspect.getfile(self.__class__)).find("Parameter") != -1:
                     yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "httpmodel/Parameter",
+                                             args[0], args[0] + ".yaml")
+
+                elif os.path.dirname(inspect.getfile(self.__class__)).find("ActivityObject") != -1:
+                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "appmodel/Parameter",
+                                             args[0], args[0] + ".yaml")
+                else:
+                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "uimodel/PageObject",
                                              args[0], args[0] + ".yaml")
                 logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
                 logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
@@ -58,11 +61,14 @@ class AutoInjection:
                 yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]),
                                          args[0], args[1] + ".yaml")
             else:
-                if os.path.dirname(inspect.getfile(self.__class__)).find("Parameter") == -1:
-                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "uimodel/PageObject",
-                                             args[0], args[1] + ".yaml")
-                else:
+                if os.path.dirname(inspect.getfile(self.__class__)).find("Parameter") != -1:
                     yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "httpmodel/Parameter",
+                                             args[0], args[1] + ".yaml")
+                elif os.path.dirname(inspect.getfile(self.__class__)).find("ActivityObject") != -1:
+                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "appmodel/Parameter",
+                                             args[0], args[0] + ".yaml")
+                else:
+                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "uimodel/PageObject",
                                              args[0], args[1] + ".yaml")
                 logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
                 logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")

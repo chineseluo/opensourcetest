@@ -9,18 +9,19 @@ import pytest
 import logging
 from appium import webdriver
 from Common.publicMethod import PubMethod
+from opensourcetest.builtin.ostDriver import ost_driver, ost_option, ost_collection_modifyitems
 
 appium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "appium_config.yaml")
 appium_config = PubMethod.read_yaml(appium_config_path)["appium_config"]
 
 
-# 定义钩子函数hook进行测试用例name和_nodeid输出
 def pytest_collection_modifyitems(items):
-    for item in items:
-        item.name = item.name.encode("utf-8").decode("unicode_escape")
-        logging.info(item.name)
-        item._nodeid = item._nodeid.encode("utf-8").decode("unicode_escape")
-        logging.info(item._nodeid)
+    """
+    定义钩子函数hook进行测试用例name和_nodeid输出
+    @param items:
+    @return:
+    """
+    ost_collection_modifyitems(items)
 
 
 # 定义钩子函数hook实现ios和android系统测试切换

@@ -18,7 +18,7 @@ from typing import Text
 class AssertChecker:
 
     @staticmethod
-    def assert_eq(response_value, except_value):
+    def assert_eq(response_value: Text, except_value: Text):
         logging.info(f"Assert EQ<equal>,Expected Value：{except_value},Response Data：{response_value}")
         try:
             assert Text(response_value) == Text(except_value)

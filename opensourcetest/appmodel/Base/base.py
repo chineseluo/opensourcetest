@@ -5,59 +5,6 @@ import logging
 from appium.webdriver.extensions.search_context import AndroidSearchContext
 
 
-def get_locator(activity_elem_class, elem_name):
-    """
-
-    @param activity_elem_class:传入页面元素对象
-    @param elem_name:传入自定义的元素名称
-    @return:
-    """
-    activity_obj_elem = activity_elem_class()
-    elems_info = activity_obj_elem.info
-    for item in elems_info:
-        if item.info["elem_name"] == elem_name:
-            elem_locator = ("By.{}".format(item["data"]["method"]), item["data"]["value"])
-            method = item["data"]["method"]
-            value = item["data"]["value"]
-            logging.info("元素名称为：{}，元素定位方式为：{}，元素对象值为：{}".format(elem_name, method, value))
-            if method == "ID" and value is not None:
-                return elem_locator
-            elif method == "XPATH" and value is not None:
-                return elem_locator
-            elif method == "LINK_TEXT" and value is not None:
-                return elem_locator
-            elif method == "PARTIAL_LINK_TEXT" and value is not None:
-                return elem_locator
-            elif method == "NAME" and value is not None:
-                return elem_locator
-            elif method == "TAG_NAME" and value is not None:
-                return elem_locator
-            elif method == "CLASS_NAME" and value is not None:
-                return elem_locator
-            elif method == "CSS_SELECTOR" and value is not None:
-                return elem_locator
-            elif method == "IOS_UIAUTOMATION" and value is not None:
-                return elem_locator
-            elif method == "IOS_PREDICATE" and value is not None:
-                return elem_locator
-            elif method == "IOS_CLASS_CHAIN" and value is not None:
-                return elem_locator
-            elif method == "ANDROID_UIAUTOMATOR" and value is not None:
-                return elem_locator
-            elif method == "ANDROID_VIEWTAG" and value is not None:
-                return elem_locator
-            elif method == "WINDOWS_UI_AUTOMATION" and value is not None:
-                return elem_locator
-            elif method == "ACCESSIBILITY_ID" and value is not None:
-                return elem_locator
-            elif method == "IMAGE" and value is not None:
-                return elem_locator
-            elif method == "CUSTOM" and value is not None:
-                return elem_locator
-            else:
-                logging.error("元素名称：{}，此元素定位方式异常，定位元素值异常，请检查！！！".format(elem_name))
-
-
 # Base层封装的是元素的操作方法
 class Base:
     def __init__(self, driver):
