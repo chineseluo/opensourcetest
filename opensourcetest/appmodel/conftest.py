@@ -4,11 +4,11 @@ import os
 import pytest
 import logging
 from appium import webdriver
-from Common.publicMethod import PubMethod
+from Common.fileOperation import FileOption
 from opensourcetest.builtin.ostDriver import ost_driver, ost_option, ost_collection_modifyitems
 
 appium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "config.yaml")
-appium_config = PubMethod.read_yaml(appium_config_path)["appium_config"]
+appium_config = FileOption.read_yaml(appium_config_path)["appium_config"]
 
 
 def pytest_collection_modifyitems(items):

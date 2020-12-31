@@ -65,7 +65,7 @@ class AutoInjection:
                     yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "httpmodel/Parameter",
                                              args[0], args[1] + ".yaml")
                 elif os.path.dirname(inspect.getfile(self.__class__)).find("ActivityObject") != -1:
-                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "appmodel/Parameter",
+                    yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "appmodel/ActivityObject",
                                              args[0], args[0] + ".yaml")
                 else:
                     yaml_path = os.path.join(os.path.dirname(__file__).split("builtin")[0], "uimodel/PageObject",
@@ -88,6 +88,10 @@ class AutoInjection:
                     if Text(item["elem_name"]) == params_mark:
                         param_dict = item
                         return param_dict
+                if os.path.dirname(inspect.getfile(self.__class__)).find("ActivityObject") != -1:
+                    if Text(item["elem_name"]) == params_mark:
+                        param_dict = item
+                        return param_dict
             if not param_dict:
                 logging.error(f"Failed to get interface parameters from yaml file by desc. Please check the "
                               f"corresponding relationship of yaml file. The error parameter is：{params_mark}")
@@ -103,7 +107,7 @@ class AutoInjection:
 
     def get_elem_locator(self, params_mark):
         param_dict = self.get_param_by_yaml(params_mark)
-        locator = get_ui_locator(param_dict)
+        locator = get_locator(param_dict)
         return locator
 
 

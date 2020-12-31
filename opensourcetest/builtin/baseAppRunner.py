@@ -20,11 +20,14 @@ root_dir = os.path.dirname(__file__)
 
 
 def ost_app_runner(mobile_system):
-    report_widgets_dir = os.path.abspath("./Report/allure-results")
+    result_dir = os.path.abspath(f"./Report/{mobile_system}/allure-result")
     # 使用pytest.main
-    pytest.main()
+    allure_path_args = ['--alluredir', result_dir, '--clean-alluredir']
+    test_args = ['-s', '-q', f'--mobile_system={mobile_system}']
+    run_args = test_args + allure_path_args
+    pytest.main(run_args)
     # 生成allure报告，需要系统执行命令--clean会清楚以前写入environment.json的配置
-    cmd = f'allure generate ./Report/{mobile_system.replace(" ", "_")} -o ./Report/{mobile_system.replace(" ", "_")}/allure-results --clean'
+    cmd = f'allure generate ./Report/{mobile_system}/allure-result -o ./Report/{mobile_system}/allure-report --clean'
     logging.info("命令行执行cmd:{}".format(cmd))
     try:
         os.system(cmd)

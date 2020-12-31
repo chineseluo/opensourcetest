@@ -1,58 +1,62 @@
-2020-06-22 10:26:51 INFO test_D1
-2020-06-22 10:26:51 INFO TestCases/Login/test_loginActivityCase.py::TestLoginPageCase::test_D1
-2020-06-22 10:26:51 DEBUG POST http://127.0.0.1:4723/wd/hub/session {"capabilities": {"firstMatch": [{"platformName": "Android", "appium:deviceName": "127.0.0.1:62001", "appium:platformVersion": "5.1.1", "appium:appPackage": "cn.com.smartfleet.app.admin", "appium:appActivity": "cn.com.smartfleet.app.admin.MainActivity", "appium:unicodeKeyboard": true, "appium:resetKeyboard": true}]}, "desiredCapabilities": {"platformName": "Android", "deviceName": "127.0.0.1:62001", "platformVersion": "5.1.1", "appPackage": "cn.com.smartfleet.app.admin", "appActivity": "cn.com.smartfleet.app.admin.MainActivity", "unicodeKeyboard": true, "resetKeyboard": true}}
-2020-06-22 10:26:51 DEBUG Starting new HTTP connection (1): 127.0.0.1:4723
-2020-06-22 10:27:05 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session HTTP/1.1" 200 998
-2020-06-22 10:27:05 DEBUG Finished Request
-2020-06-22 10:27:06 INFO 用例编号编码：test_D1
-2020-06-22 10:27:06 INFO 元素名称为：phone_number，元素定位方式为：ANDROID_UIAUTOMATOR，元素对象值为：new UiSelector().text("请输入手机号")
-2020-06-22 10:27:06 INFO 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入手机号")')
-2020-06-22 10:27:06 INFO 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入手机号")
-2020-06-22 10:27:06 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "-android uiautomator", "value": "new UiSelector().text(\"\u8bf7\u8f93\u5165\u624b\u673a\u53f7\")"}
-2020-06-22 10:27:06 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 404 823
-2020-06-22 10:27:06 DEBUG Finished Request
-2020-06-22 10:27:06 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "-android uiautomator", "value": "new UiSelector().text(\"\u8bf7\u8f93\u5165\u624b\u673a\u53f7\")"}
-2020-06-22 10:27:07 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 404 823
-2020-06-22 10:27:07 DEBUG Finished Request
-2020-06-22 10:27:07 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "-android uiautomator", "value": "new UiSelector().text(\"\u8bf7\u8f93\u5165\u624b\u673a\u53f7\")"}
-2020-06-22 10:27:07 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 200 137
-2020-06-22 10:27:07 DEBUG Finished Request
-2020-06-22 10:27:07 INFO 元素对象为：<appium.webdriver.webelement.WebElement (session="de10280e-975b-409b-9796-7ef895c6aa4f", element="76c41152-a1c7-4182-ab72-c43bf762edf2")>
-2020-06-22 10:27:07 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/76c41152-a1c7-4182-ab72-c43bf762edf2/value {"text": "18383398524", "value": ["1", "8", "3", "8", "3", "3", "9", "8", "5", "2", "4"], "id": "76c41152-a1c7-4182-ab72-c43bf762edf2"}
-2020-06-22 10:27:08 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/76c41152-a1c7-4182-ab72-c43bf762edf2/value HTTP/1.1" 200 14
-2020-06-22 10:27:08 DEBUG Finished Request
-2020-06-22 10:27:08 INFO 元素对象输入值成功，值为：18383398524
-2020-06-22 10:27:08 INFO 元素名称为：code，元素定位方式为：ANDROID_UIAUTOMATOR，元素对象值为：new UiSelector().text("请输入验证码")
-2020-06-22 10:27:08 INFO 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入验证码")')
-2020-06-22 10:27:08 INFO 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入验证码")
-2020-06-22 10:27:08 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "-android uiautomator", "value": "new UiSelector().text(\"\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801\")"}
-2020-06-22 10:27:08 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 200 137
-2020-06-22 10:27:08 DEBUG Finished Request
-2020-06-22 10:27:08 INFO 元素对象为：<appium.webdriver.webelement.WebElement (session="de10280e-975b-409b-9796-7ef895c6aa4f", element="c5308563-3223-4df7-af59-2ec19cdb0baa")>
-2020-06-22 10:27:08 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/c5308563-3223-4df7-af59-2ec19cdb0baa/value {"text": "123456", "value": ["1", "2", "3", "4", "5", "6"], "id": "c5308563-3223-4df7-af59-2ec19cdb0baa"}
-2020-06-22 10:27:09 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/c5308563-3223-4df7-af59-2ec19cdb0baa/value HTTP/1.1" 200 14
-2020-06-22 10:27:09 DEBUG Finished Request
-2020-06-22 10:27:09 INFO 元素对象输入值成功，值为：123456
-2020-06-22 10:27:09 INFO 元素名称为：login_btn，元素定位方式为：ANDROID_UIAUTOMATOR，元素对象值为：new UiSelector().text("登录")
-2020-06-22 10:27:09 INFO 输出定位器信息：('-android uiautomator', 'new UiSelector().text("登录")')
-2020-06-22 10:27:09 INFO 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("登录")
-2020-06-22 10:27:09 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "-android uiautomator", "value": "new UiSelector().text(\"\u767b\u5f55\")"}
-2020-06-22 10:27:09 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 200 137
-2020-06-22 10:27:09 DEBUG Finished Request
-2020-06-22 10:27:09 INFO 元素对象为：<appium.webdriver.webelement.WebElement (session="de10280e-975b-409b-9796-7ef895c6aa4f", element="b38ccc97-25d6-44bf-8b7a-332de6f41aa2")>
-2020-06-22 10:27:09 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/b38ccc97-25d6-44bf-8b7a-332de6f41aa2/click {"id": "b38ccc97-25d6-44bf-8b7a-332de6f41aa2"}
-2020-06-22 10:27:11 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/b38ccc97-25d6-44bf-8b7a-332de6f41aa2/click HTTP/1.1" 200 14
-2020-06-22 10:27:11 DEBUG Finished Request
-2020-06-22 10:27:11 INFO 元素对象点击成功
-2020-06-22 10:27:11 INFO 元素名称为：message_id，元素定位方式为：ID，元素对象值为：android:id/message
-2020-06-22 10:27:11 INFO 输出定位器信息：('id', 'android:id/message')
-2020-06-22 10:27:11 INFO 正在定位元素信息：定位方式->id,value值->android:id/message
-2020-06-22 10:27:11 DEBUG POST http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element {"using": "id", "value": "android:id/message"}
-2020-06-22 10:27:11 DEBUG http://127.0.0.1:4723 "POST /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element HTTP/1.1" 200 137
-2020-06-22 10:27:11 DEBUG Finished Request
-2020-06-22 10:27:11 INFO 元素对象为：<appium.webdriver.webelement.WebElement (session="de10280e-975b-409b-9796-7ef895c6aa4f", element="2e04d6c5-16a7-4254-bf9f-d6cda81fd2f6")>
-2020-06-22 10:27:11 DEBUG GET http://127.0.0.1:4723/wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/2e04d6c5-16a7-4254-bf9f-d6cda81fd2f6/text {"id": "2e04d6c5-16a7-4254-bf9f-d6cda81fd2f6"}
-2020-06-22 10:27:11 DEBUG http://127.0.0.1:4723 "GET /wd/hub/session/de10280e-975b-409b-9796-7ef895c6aa4f/element/2e04d6c5-16a7-4254-bf9f-d6cda81fd2f6/text HTTP/1.1" 200 78
-2020-06-22 10:27:11 DEBUG Finished Request
-2020-06-22 10:27:11 INFO 元素text值：用户不存在
-2020-06-22 10:27:11 INFO 正在进行元素断言：断言方式->用户不存在：是否等于->用户不存在
+2020-12-31 17:31:44 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_d1
+2020-12-31 17:31:44 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginActivityCase.py::TestLoginPageCase::test_d1
+2020-12-31 17:31:44 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_d2
+2020-12-31 17:31:44 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginActivityCase.py::TestLoginPageCase::test_d2
+2020-12-31 17:32:02 | WARNING      | autoParamInjection:__read_yaml:73 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\appmodel\ActivityObject\yamlChoice.py
+2020-12-31 17:32:02 | WARNING      | autoParamInjection:__read_yaml:74 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-31 17:32:02 | WARNING      | autoParamInjection:__read_yaml:75 - Output Login_activity yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\appmodel/ActivityObject\Login_activity\Login_activity.yaml
+2020-12-31 17:32:02 | INFO      | autoParamInjection:__init__:30 - LoginActivityElem Yaml object injection in progress
+2020-12-31 17:32:02 | INFO      | test_loginActivityCase:test_d1:20 - 用例编号编码：test_d1
+2020-12-31 17:32:02 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("请输入手机号")
+2020-12-31 17:32:02 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入手机号")')
+2020-12-31 17:32:02 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入手机号")
+2020-12-31 17:32:03 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="96b0b951-d1c0-4d7c-924e-57f2a40f46cb", element="26457a8f-9d71-4817-9d56-be18536740f1")>
+2020-12-31 17:32:04 | INFO      | base:send_key:68 - 元素对象输入值成功，值为：18383398333
+2020-12-31 17:32:04 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("请输入验证码")
+2020-12-31 17:32:04 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入验证码")')
+2020-12-31 17:32:04 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入验证码")
+2020-12-31 17:32:04 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="96b0b951-d1c0-4d7c-924e-57f2a40f46cb", element="1ac1dd0a-72ee-4eec-9248-4e53ee0415e6")>
+2020-12-31 17:32:05 | INFO      | base:send_key:68 - 元素对象输入值成功，值为：123456
+2020-12-31 17:32:05 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("登录")
+2020-12-31 17:32:05 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("登录")')
+2020-12-31 17:32:05 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("登录")
+2020-12-31 17:32:05 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="96b0b951-d1c0-4d7c-924e-57f2a40f46cb", element="806da08b-7330-43f4-a58f-d2c5da1d8108")>
+2020-12-31 17:32:06 | INFO      | base:click_btn:80 - 元素对象点击成功
+2020-12-31 17:32:06 | INFO      | locate:get_locator:55 - The element positioning mode is：ID,The element object value is:android:id/message
+2020-12-31 17:32:06 | INFO      | base:find_element:16 - 输出定位器信息：('id', 'android:id/message')
+2020-12-31 17:32:06 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->id,value值->android:id/message
+2020-12-31 17:32:06 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="96b0b951-d1c0-4d7c-924e-57f2a40f46cb", element="ba3792f8-061c-4a72-8e18-3407ef19be96")>
+2020-12-31 17:32:06 | INFO      | base:get_text:93 - 元素text值：用户不存在
+2020-12-31 17:32:06 | INFO      | assertScreenShot:assert_equal_screen_shot:16 - Element assertion in progress:Is 用户不存在 equal to 用户不存在?
+2020-12-31 17:32:06 | INFO      | conftest:function_driver:39 - driver.quit:Clean up driver process！！！
+2020-12-31 17:32:26 | WARNING      | autoParamInjection:__read_yaml:73 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\appmodel\ActivityObject\yamlChoice.py
+2020-12-31 17:32:26 | WARNING      | autoParamInjection:__read_yaml:74 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-31 17:32:26 | WARNING      | autoParamInjection:__read_yaml:75 - Output Login_activity yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\appmodel/ActivityObject\Login_activity\Login_activity.yaml
+2020-12-31 17:32:26 | INFO      | autoParamInjection:__init__:30 - LoginActivityElem Yaml object injection in progress
+2020-12-31 17:32:26 | INFO      | test_loginActivityCase:test_d2:34 - 用例编号编码：test_d2
+2020-12-31 17:32:26 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("请输入手机号")
+2020-12-31 17:32:26 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入手机号")')
+2020-12-31 17:32:26 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入手机号")
+2020-12-31 17:32:27 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="8473c09a-452a-4d21-be47-7a82e85c818e", element="f68a21ef-a28b-4c5f-b111-933f86f4c56d")>
+2020-12-31 17:32:28 | INFO      | base:send_key:68 - 元素对象输入值成功，值为：18383398333
+2020-12-31 17:32:28 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("请输入验证码")
+2020-12-31 17:32:28 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("请输入验证码")')
+2020-12-31 17:32:28 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("请输入验证码")
+2020-12-31 17:32:29 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="8473c09a-452a-4d21-be47-7a82e85c818e", element="8eed6c35-88ed-41a7-833b-eb698da16a1e")>
+2020-12-31 17:32:29 | INFO      | base:send_key:68 - 元素对象输入值成功，值为：123456
+2020-12-31 17:32:29 | INFO      | locate:get_locator:55 - The element positioning mode is：ANDROID_UIAUTOMATOR,The element object value is:new UiSelector().text("登录")
+2020-12-31 17:32:29 | INFO      | base:find_element:16 - 输出定位器信息：('-android uiautomator', 'new UiSelector().text("登录")')
+2020-12-31 17:32:29 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->-android uiautomator,value值->new UiSelector().text("登录")
+2020-12-31 17:32:30 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="8473c09a-452a-4d21-be47-7a82e85c818e", element="f81b0f16-5816-43f0-98e0-12a2344b4d53")>
+2020-12-31 17:32:30 | INFO      | base:click_btn:80 - 元素对象点击成功
+2020-12-31 17:32:30 | INFO      | locate:get_locator:55 - The element positioning mode is：ID,The element object value is:android:id/message
+2020-12-31 17:32:30 | INFO      | base:find_element:16 - 输出定位器信息：('id', 'android:id/message')
+2020-12-31 17:32:30 | INFO      | base:find_element:24 - 正在定位元素信息：定位方式->id,value值->android:id/message
+2020-12-31 17:32:31 | INFO      | base:find_element:28 - 元素对象为：<appium.webdriver.webelement.WebElement (session="8473c09a-452a-4d21-be47-7a82e85c818e", element="ecf7aaef-0d8f-4668-a20e-5428d62f980f")>
+2020-12-31 17:32:31 | INFO      | base:get_text:93 - 元素text值：用户不存在
+2020-12-31 17:32:31 | INFO      | assertScreenShot:assert_equal_screen_shot:16 - Element assertion in progress:Is 用户不存在 equal to 用户存在?
+2020-12-31 17:32:31 | ERROR      | assertScreenShot:assert_equal_screen_shot:19 - Assertion execution failed with error message:
+2020-12-31 17:32:31 | INFO      | pictureOperation:screen_picture:21 - Screenshot operation in progress!
+2020-12-31 17:32:31 | WARNING      | fileOperation:file_mkdir:15 - Report/picture The directory already exists and does not need to be created again.
+2020-12-31 17:32:31 | INFO      | pictureOperation:screen_picture:30 - The screenshot is successful. The photo address is:Report/picture/2020-12-31-17_32_31.png
+2020-12-31 17:32:31 | INFO      | conftest:function_driver:39 - driver.quit:Clean up driver process！！！

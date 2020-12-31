@@ -18,7 +18,7 @@ class TestLoginPageCase:
     @allure.title("执行测试用例用于登录模块")
     def test_d1(self, login_activity_class_load, function_driver):
         logging.info("用例编号编码：{}".format(inspect.stack()[0][3]))
-        login_activity_class_load.input_phone("18383398524")
+        login_activity_class_load.input_phone("18383398333")
         login_activity_class_load.input_code("123456")
         login_activity_class_load.click_login_btn()
         message_value = login_activity_class_load.get_message_value()
@@ -32,7 +32,7 @@ class TestLoginPageCase:
     @allure.title("执行测试用例用于登录模块")
     def test_d2(self, login_activity_class_load, function_driver):
         logging.info("用例编号编码：{}".format(inspect.stack()[0][3]))
-        login_activity_class_load.input_phone("18383398524")
+        login_activity_class_load.input_phone("18383398333")
         login_activity_class_load.input_code("123456")
         login_activity_class_load.click_login_btn()
         message_value = login_activity_class_load.get_message_value()

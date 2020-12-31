@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from Base.base import Base
 from selenium import webdriver
-from ActivityObject.elemParams import LoginActivityElem
+from ActivityObject.yamlChoice import LoginActivityElem
 
 
 # 封装app登录页面操作对象操作方法
@@ -14,19 +14,19 @@ class LoginActivity(Base):
         super().__init__(driver)
 
     def input_phone(self, value):
-        elem = self.elem_locator.get_locator("phone_number")
+        elem = self.elem_locator.get_elem_locator("phone_number")
         super().send_key(elem, value)
 
     def input_code(self, value):
-        elem = self.elem_locator.get_locator("code")
+        elem = self.elem_locator.get_elem_locator("code")
         super().send_key(elem, value)
 
     def click_login_btn(self):
-        elem = self.elem_locator.get_locator("login_btn")
+        elem = self.elem_locator.get_elem_locator("login_btn")
         super().click_btn(elem)
 
     def get_message_value(self):
-        elem = self.elem_locator.get_locator("message_id")
+        elem = self.elem_locator.get_elem_locator("message_id")
         return super().get_text(elem)
 
 
