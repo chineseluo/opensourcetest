@@ -5,8 +5,8 @@
 ------------------------------------
 @Project : opensourcetest
 @Time    : 2020/12/30 17:28
-@Auth    : luozhongwen
-@Email   : luozw@inhand.com.cn
+@Auth    : chineseluo
+@Email   : 848257135@qq.com
 @File    : pictureOperation.py
 @IDE     : PyCharm
 ------------------------------------
