@@ -13,7 +13,6 @@
 """
 from enum import Enum
 from pydantic import BaseModel, HttpUrl, Field, PyObject
-from opensourcetest.builtin.autoParamInjection import AutoInjection
 from typing import Any, Dict, Text, Union, Callable, List, Tuple, Optional
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.mobileby import MobileBy
@@ -63,7 +62,7 @@ class UiLocateMethodEnum(Text, Enum):
     CSS_SELECTOR = "CSS_SELECTOR"
 
 
-class OSTUiBaseBy(BaseModel):
+class OSTUiBaseBy(Enum):
     """OST UI Base By"""
     ID = By.ID
     XPATH = By.XPATH
@@ -96,7 +95,7 @@ class AppUiLocateMethodEnum(Text, Enum):
     CUSTOM = "CUSTOM"
 
 
-class OSTAppBaseBy(BaseModel):
+class OSTAppBaseBy(Enum):
     """OST App Base By"""
     ID = By.ID
     XPATH = By.XPATH

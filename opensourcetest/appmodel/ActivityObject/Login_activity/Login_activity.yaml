@@ -1,5 +1,5 @@
 ﻿#封装需要操作的元素对象
-desc: "登录页面元素操作对象"
+description: "登录页面元素操作对象"
 parameters:
   - elem_name: "phone_number"
     desc: "请输入手机号"

@@ -1,11 +1,41 @@
-2020-12-02 16:41:43 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC1
-2020-12-02 16:41:43 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginPageCase.py::TestLoginPageCase::test_DLZC1
-2020-12-02 16:41:43 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC7
-2020-12-02 16:41:43 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Register/test_registerPageCase.py::Test_RegisterPageCase::test_DLZC7
-2020-12-02 16:41:43 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
-2020-12-02 16:41:44 | INFO      | remote_connection:__init__:116 - Could not connect to port 4444 on host 127.0.0.1
-2020-12-02 16:41:44 | INFO      | remote_connection:__init__:135 - Could not get IP address for host: 127.0.0.1
-2020-12-02 16:41:46 | WARNING      | connectionpool:urlopen:751 - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000189CEF6C460>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。')': /wd/hub/session
-2020-12-02 16:41:48 | WARNING      | connectionpool:urlopen:751 - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000189CEF6C5E0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。')': /wd/hub/session
-2020-12-02 16:41:50 | WARNING      | connectionpool:urlopen:751 - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000189CEF6C760>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。')': /wd/hub/session
-2020-12-02 16:41:52 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
+2020-12-31 16:12:37 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC1
+2020-12-31 16:12:37 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Login/test_loginPageCase.py::TestLoginPageCase::test_DLZC1
+2020-12-31 16:12:37 | INFO      | ostDriver:ost_collection_modifyitems:35 - test_DLZC7
+2020-12-31 16:12:37 | INFO      | ostDriver:ost_collection_modifyitems:37 - TestCases/Register/test_registerPageCase.py::Test_RegisterPageCase::test_DLZC7
+2020-12-31 16:12:37 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
+2020-12-31 16:12:40 | WARNING      | autoParamInjection:__read_yaml:73 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-31 16:12:40 | WARNING      | autoParamInjection:__read_yaml:74 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-31 16:12:40 | WARNING      | autoParamInjection:__read_yaml:75 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
+2020-12-31 16:12:40 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
+2020-12-31 16:12:40 | INFO      | test_loginPageCase:test_DLZC1:21 - Case number code:test_DLZC1
+2020-12-31 16:12:42 | INFO      | base:get_login_url_from_config:25 - https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage
+2020-12-31 16:12:43 | INFO      | locate:get_ui_locator:22 - The element positioning mode is：NAME,The element object value is:Username
+2020-12-31 16:12:43 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
+2020-12-31 16:12:43 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
+2020-12-31 16:12:44 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="b850396eef8e1a860f02854f4a25e4c6", element="a2ecc72a-89b4-4454-99bb-a196421b2c16")>
+2020-12-31 16:12:44 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:邮箱/手机号码
+2020-12-31 16:12:44 | INFO      | assertScreenShot:assert_equal_screen_shot:16 - Element assertion in progress:Is 邮箱/手机号码 equal to 手机号码?
+2020-12-31 16:12:44 | ERROR      | assertScreenShot:assert_equal_screen_shot:19 - Assertion execution failed with error message:
+2020-12-31 16:12:44 | INFO      | pictureOperation:screen_picture:21 - Screenshot operation in progress!
+2020-12-31 16:12:44 | INFO      | pictureOperation:screen_picture:30 - The screenshot is successful. The photo address is:Report/picture/2020-12-31-16_12_44.png
+2020-12-31 16:12:46 | INFO      | ostDriver:ost_driver:63 - Get command line parameters:chrome
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:73 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:74 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:75 - Output Login_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Login_page\Login_page.yaml
+2020-12-31 16:12:49 | INFO      | autoParamInjection:__init__:30 - LoginPageElem Yaml object injection in progress
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:73 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\uimodel\PageObject\yamlChoice.py
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:74 - Use the yaml path configured by mode in OST framework to retrieve
+2020-12-31 16:12:49 | WARNING      | autoParamInjection:__read_yaml:75 - Output Register_page yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\uimodel/PageObject\Register_page\Register_page.yaml
+2020-12-31 16:12:49 | INFO      | autoParamInjection:__init__:30 - RegisterPageElem Yaml object injection in progress
+2020-12-31 16:12:51 | INFO      | base:get_login_url_from_config:25 - https://getsuwo.com/?n=fastCat.fcFrontSnail.NewFront.NewFront.PCLoginPage
+2020-12-31 16:12:52 | INFO      | locate:get_ui_locator:22 - The element positioning mode is：CLASS_NAME,The element object value is:InputWarningA
+2020-12-31 16:12:52 | INFO      | base:find_element:74 - Output locator information:('class name', 'InputWarningA')
+2020-12-31 16:12:52 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:class name,value:InputWarningA
+2020-12-31 16:12:52 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="93b1552ce6cc8fd3b0967f30b6f0e9f0", element="9b21c463-55bd-4133-8e97-3d2f5676f7b1")>
+2020-12-31 16:12:52 | INFO      | base:click_btn:161 - Element object click succeeded
+2020-12-31 16:12:52 | INFO      | locate:get_ui_locator:22 - The element positioning mode is：NAME,The element object value is:Username
+2020-12-31 16:12:52 | INFO      | base:find_element:74 - Output locator information:('name', 'Username')
+2020-12-31 16:12:52 | INFO      | base:find_element:79 - find_element：Locating element information,The positioning mode is:name,value:Username
+2020-12-31 16:12:53 | INFO      | base:find_element:84 - Successfully located element, element object is:<selenium.webdriver.remote.webelement.WebElement (session="93b1552ce6cc8fd3b0967f30b6f0e9f0", element="99c6f7a6-916c-40e6-bcbd-6cf9902b8ffc")>
+2020-12-31 16:12:53 | INFO      | base:get_placeholder:214 - This element object get the placeholder successful,placeholder values:手机号码
+2020-12-31 16:12:53 | INFO      | assertScreenShot:assert_equal_screen_shot:16 - Element assertion in progress:Is 手机号码 equal to 手机号码?

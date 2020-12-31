@@ -4,6 +4,7 @@ import pytest
 import allure
 import inspect
 import logging
+import time
 from Base.assertMethod import AssertMethod
 
 

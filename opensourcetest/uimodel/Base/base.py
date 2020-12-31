@@ -22,7 +22,7 @@ def get_login_url_from_config():
     @return: 配置文件URL
     """
     config_info = YamlFileOption().read_yaml(conf_path)
-    logging.info("config_info address:{}".format(config_info))
+    logging.info(config_info["test_info"]["test_URL"])
     return config_info["test_info"]["test_URL"]
 
 

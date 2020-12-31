@@ -1,9 +1,5 @@
+# !/user/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/5/27 9:15
-# @Author  : chineseluo
-# @Email   : 848257135@qq.com
-# @File    : conftest.py
-# @Software: PyCharm
 import os
 import pytest
 import logging
@@ -11,15 +7,13 @@ from appium import webdriver
 from Common.publicMethod import PubMethod
 from opensourcetest.builtin.ostDriver import ost_driver, ost_option, ost_collection_modifyitems
 
-appium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "appium_config.yaml")
+appium_config_path = os.path.join(os.path.dirname(__file__), "Conf", "config.yaml")
 appium_config = PubMethod.read_yaml(appium_config_path)["appium_config"]
 
 
 def pytest_collection_modifyitems(items):
     """
     定义钩子函数hook进行测试用例name和_nodeid输出
-    @param items:
-    @return:
     """
     ost_collection_modifyitems(items)
 
@@ -42,9 +36,9 @@ def function_driver(request):
     }
     driver = webdriver.Remote(appium_config["remote_URL"], desired_caps)
     yield driver
-    logging.info("driver.quit:清理driver进程！！！")
+    logging.info("driver.quit:Clean up driver process！！！")
     driver.quit()
 
 
 if __name__ == '__main__':
-    print(appium_config)
+    ...

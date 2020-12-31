@@ -27,3 +27,4 @@ class RegisterPageElem(AutoInjection):
 
 if __name__ == '__main__':
     login_page = LoginPageElem()
+    print(login_page.get_elem_locator(1))

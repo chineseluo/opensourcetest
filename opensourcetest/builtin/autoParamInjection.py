@@ -103,7 +103,7 @@ class AutoInjection:
 
     def get_elem_locator(self, params_mark):
         param_dict = self.get_param_by_yaml(params_mark)
-        locator = get_locator(param_dict)
+        locator = get_ui_locator(param_dict)
         return locator
 
 
