@@ -25,7 +25,7 @@ def log_output(ost_model, ost_type):
     msg = f"\n================== {ost_type} details ==================\n"
     for key, value in ost_model.dict().items():
         if isinstance(value, dict):
-            value = json.dumps(value, indent=4)
+            value = json.dumps(value, indent=4, ensure_ascii=False)
         msg += "{:<8} : {}\n".format(key, value)
     logging.info(msg)
 
