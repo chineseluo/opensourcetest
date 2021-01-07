@@ -43,6 +43,12 @@ class TestCli(unittest.TestCase):
             main()
         self.assertEqual(cm.exception.code, 0)
 
+    def test_show_create_app_project(self):
+        sys.argv = ["OST", "start_app_project"]
+        with self.assertRaises(SystemExit) as cm:
+            main()
+        self.assertEqual(cm.exception.code, 0)
+
     def test_show_online_docs_address(self):
         sys.argv = ["OST", "onlinedocs"]
         with self.assertRaises(SystemExit) as cm:

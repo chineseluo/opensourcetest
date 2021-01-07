@@ -11,8 +11,8 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
 from opensourcetest.common.yamlOperation import YamlFileOption
 
-root_path = os.path.abspath(os.path.dirname(__file__)).split('Base')[0]
-conf_path = os.path.join(root_path, "Conf/config.yaml")
+ROOT_PATH = os.path.abspath(os.path.dirname(__file__)).split('Base')[0]
+CONF_PATH = os.path.join(ROOT_PATH, "Conf/config.yaml")
 
 
 # Base layer encapsulates the operation method of elements
@@ -21,7 +21,7 @@ def get_login_url_from_config():
 
     @return: 配置文件URL
     """
-    config_info = YamlFileOption().read_yaml(conf_path)
+    config_info = YamlFileOption().read_yaml(CONF_PATH)
     logging.info(config_info["test_info"]["test_URL"])
     return config_info["test_info"]["test_URL"]
 
@@ -31,7 +31,7 @@ def get_login_account_from_config():
     从config.yaml中获取管理员的登录信息
     @return:
     """
-    config_info = YamlFileOption().read_yaml(conf_path)
+    config_info = YamlFileOption().read_yaml(CONF_PATH)
     return config_info["test_info"]["admin_name"], config_info["test_info"]["password"]
 
 

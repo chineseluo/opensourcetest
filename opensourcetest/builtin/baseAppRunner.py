@@ -16,7 +16,7 @@ import sys
 import logging
 import pytest
 
-root_dir = os.path.dirname(__file__)
+ROOT_DIR = os.path.dirname(__file__)
 
 
 def ost_app_runner(mobile_system):
@@ -39,10 +39,10 @@ def ost_app_runner(mobile_system):
 
 # 命令行参数调用
 def ost_app_cmd_runner():
-    global root_dir
+    global ROOT_DIR
     input_mobile_system = sys.argv
     if len(input_mobile_system) > 1:
-        root_dir = root_dir.replace("\\", "/")
+        ROOT_DIR = ROOT_DIR.replace("\\", "/")
         if input_mobile_system[1] == "android":
             ost_app_runner("android")
         elif input_mobile_system[1] == "ios":
