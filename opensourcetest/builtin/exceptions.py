@@ -19,3 +19,31 @@ class CheckerTypeError(Exception):
 
 class CheckerArgvError(Exception):
     ...
+
+
+class AssertEqError(Exception):
+    ...
+
+
+class AssertGtERROR(Exception):
+    ...
+
+
+class AssertGteError(Exception):
+    ...
+
+
+class AssertLtError(Exception):
+    ...
+
+
+class AssertLteError(Exception):
+    ...
+
+
+class AssertNeError(Exception):
+    ...
+
+
+class AssertContainError(Exception):
+    ...

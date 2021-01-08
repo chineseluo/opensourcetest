@@ -11,7 +11,7 @@ import logging
 import pytest
 from loguru import logger
 
-root_dir = os.path.dirname(__file__)
+ROOT_DIR = os.path.dirname(__file__)
 
 
 # 运行命令参数配置
@@ -47,10 +47,10 @@ def ost_ui_runner(browser, browser_opt, type_driver):
 
 # 命令行参数运行
 def ost_ui_cmd_runner():
-    global root_dir
+    global ROOT_DIR
     input_browser = sys.argv
     if len(input_browser) > 1:
-        root_dir = root_dir.replace("\\", "/")
+        ROOT_DIR = ROOT_DIR.replace("\\", "/")
         if input_browser[1] == "chrome":
             ost_ui_runner(input_browser[1], input_browser[2], input_browser[3])
             return input_browser[1]

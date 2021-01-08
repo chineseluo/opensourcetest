@@ -17,8 +17,8 @@ import logging
 
 def log_output(ost_model, ost_type):
     """
-    Only used in console for request response httpmodel log output beautification
-    :param ost_model: OST request or response httpmodel
+    Only used in console for request response OST http model log output beautification
+    :param ost_model: OST request or response OST http model
     :param ost_type:OST type(request or response)
     :return:
     """

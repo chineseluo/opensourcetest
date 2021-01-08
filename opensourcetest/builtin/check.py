@@ -21,19 +21,19 @@ from opensourcetest.builtin.assertChecker import AssertChecker
 
 def ost_assertion(extract_resp, assert_item):
     if assert_item[2].upper() == CheckerMethodEnum.EQ:
-        AssertChecker.assert_eq(extract_resp, assert_item[1])
+        AssertChecker().assert_eq(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.GT:
-        AssertChecker.assert_gt(extract_resp, assert_item[1])
+        AssertChecker().assert_gt(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.GTE:
-        AssertChecker.assert_gte(extract_resp, assert_item[1])
+        AssertChecker().assert_gte(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.LT:
-        AssertChecker.assert_lt(extract_resp, assert_item[1])
+        AssertChecker().assert_lt(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.LTE:
-        AssertChecker.assert_lte(extract_resp, assert_item[1])
+        AssertChecker().assert_lte(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.NE:
-        AssertChecker.assert_ne(extract_resp, assert_item[1])
+        AssertChecker().assert_ne(extract_resp, assert_item[1])
     elif assert_item[2].upper() == CheckerMethodEnum.CONTAIN:
-        AssertChecker.assert_contain(extract_resp, assert_item[1])
+        AssertChecker().assert_contain(extract_resp, assert_item[1])
     else:
         logging.error("The assertion judged that the condition parameter was passed in error!")
         raise CheckerArgvError

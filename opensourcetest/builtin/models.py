@@ -12,7 +12,7 @@
 ------------------------------------
 """
 from enum import Enum
-from pydantic import BaseModel, HttpUrl, Field, PyObject
+from pydantic import BaseModel, HttpUrl, Field
 from typing import Any, Dict, Text, Union, Callable, List, Tuple, Optional
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.mobileby import MobileBy
@@ -178,3 +178,9 @@ class Checker(BaseModel):
     CheckerResource: OSTRespData
     CheckerCondition: Union[Text, int]
     CheckerMethod: CheckerMethodEnum = CheckerMethodEnum.EQ
+
+
+class Locator(BaseModel):
+    """OST locator"""
+    method: OSTAppBaseBy
+    value: Text
