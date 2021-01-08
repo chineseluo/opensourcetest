@@ -33,7 +33,7 @@ class AssertChecker(AssertServer):
             assert int(response_value) > int(except_value)
         except AssertionError:
             logging.error(f"Assert GT<greater than> Fail,Expected Value：{except_value},Response Data：{response_value}")
-            raise AssertGtERROR
+            raise AssertGtError
 
     def assert_gte(self, response_value: int, except_value: int):
         logging.info(f"Assert GTE<gt equeal>,Expected Value：{except_value},Response Data：{response_value}")

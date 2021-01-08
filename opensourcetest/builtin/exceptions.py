@@ -25,7 +25,7 @@ class AssertEqError(Exception):
     ...
 
 
-class AssertGtERROR(Exception):
+class AssertGtError(Exception):
     ...
 
 

@@ -3,6 +3,7 @@
 import pytest
 import logging
 from opensourcetest.common.pictureOperation import screen_picture
+from opensourcetest.builtin.exceptions import *
 
 
 class AssertScreenShot:
@@ -18,7 +19,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertEqError
 
     @staticmethod
     def assert_gt_screen_shot(driver, expector):
@@ -31,7 +32,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertGtError
 
     @staticmethod
     def assert_gte_screen_shot(driver, expector):
@@ -44,7 +45,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertGteError
 
     @staticmethod
     def assert_lt_screen_shot(driver, expector):
@@ -57,10 +58,10 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertLtError
 
     @staticmethod
-    def assert_let_screen_shot(driver, expector):
+    def assert_lte_screen_shot(driver, expector):
         if not isinstance(expector, tuple):
             logging.error('Expector parameter type error, must pass ancestor type:expector=("xx","xx")')
         else:
@@ -70,7 +71,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertLteError
 
     @staticmethod
     def assert_contain_screen_shot(driver, expector):
@@ -83,7 +84,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertContainError
 
     @staticmethod
     def assert_true_screen_shot(driver, bool_value):
