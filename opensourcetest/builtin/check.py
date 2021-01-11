@@ -54,7 +54,7 @@ def check_assertion(res, checker):
             extract_resp = jmespath.search(assert_item[0], res.dict())
             if assert_item[1] is not None:
                 if len(assert_item) == 2:
-                    AssertChecker.assert_eq(extract_resp, assert_item[1])
+                    AssertChecker().assert_eq(extract_resp, assert_item[1])
                 elif len(assert_item) == 3:
                     ost_assertion(extract_resp, assert_item)
                 else:
@@ -65,7 +65,7 @@ def check_assertion(res, checker):
     elif isinstance(checker[0], Text):
         extract_resp = jmespath.search(checker[0], res.dict())
         if len(checker) == 2:
-            AssertChecker.assert_eq(extract_resp, checker[1])
+            AssertChecker().assert_eq(extract_resp, checker[1])
         elif len(checker) == 3:
             ost_assertion(extract_resp, checker)
         else:

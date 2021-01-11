@@ -9,6 +9,7 @@ from opensourcetest.builtin.assertChecker import AssertChecker
 from opensourcetest.builtin.assertScreenShot import AssertScreenShot
 from opensourcetest.builtin.autoParamInjection import AutoInjection
 from opensourcetest.builtin.ostDriver import ost_driver, ost_collection_modifyitems, ost_option
+from opensourcetest.common.yamlOperation import YamlFileOption
 
 __all__ = [
     "AssertChecker",
@@ -22,5 +23,6 @@ __all__ = [
     "ost_ui_runner",
     "ost_ui_cmd_runner",
     "ost_app_runner",
-    "ost_app_cmd_runner"
+    "ost_app_cmd_runner",
+    "YamlFileOption"
 ]

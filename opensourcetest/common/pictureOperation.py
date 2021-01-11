@@ -14,10 +14,11 @@
 import logging
 import time
 import allure
+from typing import Text
 from opensourcetest.common.fileOperation import FileOption
 
 
-def screen_picture(driver):
+def screen_picture(driver) -> Text:
     logging.info("Screenshot operation in progress!")
     picture_time = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
     file_path = "Report/picture"
