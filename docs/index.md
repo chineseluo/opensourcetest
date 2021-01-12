@@ -1,8 +1,8 @@
 # OpenSourceTest
 
-# [![pyversions](https://img.shields.io/badge/opensourcetest-v0.2.x-brightgreen)](https://pypi.org/project/opensourcetest/)[![pyversions](https://img.shields.io/badge/pypi-v0.2.x-orange)](https://pypi.org/project/opensourcetest-test-test/)[![pyversions](https://img.shields.io/badge/pytest-5.x-green)](https://docs.pytest.org)[![pyversions](https://img.shields.io/badge/requests-2.x-green)](http://docs.python-requests.org/en/master/ )[![pyversions](https://img.shields.io/badge/allure-2.x-green)](https://docs.qameta.io/allure/  )
+# [![pyversions](https://img.shields.io/badge/opensourcetest-v0.3.x-green)](https://pypi.org/project/opensourcetest/)[![pyversions](https://img.shields.io/badge/pypi-v0.3.x-orange)](https://pypi.org/project/opensourcetest-test-test/)[![pyversions](https://img.shields.io/badge/pytest-5.x-green)](https://docs.pytest.org)[![pyversions](https://img.shields.io/badge/requests-2.x-green)](http://docs.python-requests.org/en/master/ )[![pyversions](https://img.shields.io/badge/allure-2.x-green)](https://docs.qameta.io/allure/  )
 
-`OpenSourceTest`将为您创建更加自由的软件自动化测试，不是为了简单而简单，而是为您提供更自由的扩展的，适用于不同功能场景的`UI`自动化或接口自动化测试框架。
+`OpenSourceTest`将为您创建更加自由的软件自动化测试，不是为了简单而简单，而是为您提供更自由的可扩展的，适用于不同功能场景的`UI`自动化、APP自动化或接口自动化测试框架。
 
 ## 设计思想
 
@@ -25,6 +25,10 @@
 - 继承 [`requests`][requests]的所有强大功能
 - 以[`yaml`][yaml]格式定义接口，[`yaml`][yaml]对象自动注入
 - 使用[`jmespath`][jmespath]提取和验证[`json`][json]响应
+
+## 支持创建APP自动化框架
+
+- 以[`yaml`][yaml]格式定义`UI`元素对象，[`yaml`][yaml]对象自动注入
 
 ### 其他
 

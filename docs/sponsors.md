@@ -21,4 +21,6 @@
 - <font face = "宋体">笑笑笑嘻嘻（夜行者-自动化测试社区）</font>
 - <font face = "宋体">一个测试（夜行者-自动化测试社区）</font>
 - <font face = "宋体">Come-DQ（夜行者-自动化测试社区）</font>
+- <font face = "宋体">关飞（夜行者-自动化测试社区）</font>
+
 

@@ -4,51 +4,11 @@ app自动化测试框架：pytest+appium+allure
 
 ## 项目结构
 
-~~~ mermaid
-graph TD
-	subgraph 模块调用过程
-    登录页面testcase(登录页面testcase)-->|调用|登录页面对象
-    登录页面对象-->base层
-    注册页面testcase(注册页面testcase)-->|调用|注册页面对象
-	注册页面对象-->base层
-    购买页面testcase(购买页面testcase)-->|调用|购买页面对象
-	购买页面对象-->base层
-    client5(模块测试case)-->|调用|PageObject层
-    PageObject层-->|调用|base层((base层:基础方法))
-    end
-~~~
-
-
-
 整个框架主要分为三层：Base层、ActivityObject层、TestCase层，采用传统的互联网的垂直架构模式。
 
 - 元素公共操作方法封装存放在Base层
 - 页面元素操作存放在第二层ActivityObject层，后面如果页面元素变化，直接在第二层相应的Activity对象修改即可
 - 测试case存放在TestCases层，主要做断言等操作
-
-## 运行环境
-
-运行此项目前需要进行如下操作：
-
-1. 使用pycharm导入项目
-
-2. 打开pycharm的terminal，切换到 requirements.txt 所在的目录下，使用如下命令 ，就能在当前的 python 环境中导入所有需要的包：
-
-   ```
-   pip install -r requirements.txt
-   ```
-
-环境说明：
-
-- 开发工具：pycharm
-- python版本：python3.8
-- 测试case总入口：run.py
-- 浏览器：Chrome
-- webdriver请选择对应Chrome版本的driver，并且放入python的安装目录中
-
----
-
-**有任何使用问题请联系我：848257135@qq.com**
 
 ---
 
@@ -226,11 +186,6 @@ or进群下载：自动化测试-夜行者（816489363)
    ```python
    # !/user/bin/env python
    # -*- coding: utf-8 -*-
-   # @Time    : 2020/5/12 21:11
-   # @Author  : chineseluo
-   # @Email   : 848257135@qq.com
-   # @File    : run.py
-   # @Software: PyCharm
    from Base.base import Base
    from selenium import webdriver
    from ActivityObject.elemParams import LoginActivityElem
@@ -273,12 +228,8 @@ or进群下载：自动化测试-夜行者（816489363)
    conftest.py中指定需要加载的测试页面对象，使用scope级别为function
 
    ```python
+   # !/user/bin/env python
    # -*- coding: utf-8 -*-
-   # @Time    : 2020/5/12 22:53
-   # @Author  : chineseluo
-   # @Email   : 848257135@qq.com
-   # @File    : conftest.py
-   # @Software: PyCharm
    import pytest
    from ActivityObject.Login_activity.loginActivity import LoginActivity
    
@@ -288,18 +239,13 @@ or进群下载：自动化测试-夜行者（816489363)
        login_activity = LoginActivity(function_driver)
        yield login_activity
    ```
-
+   
    test_loginActivityCase.py中每个测试case需要调用页面模块conftest.py中的页面对象，以及全局配置conftest.py中function_driver，断言使用Base模块中的assert_method的AssertMethod，里面封装了断言方法，包含了allure断言失败截图等操作，根据不同的断言场景取用，或者自己再进行封装
-
+   
    ```python
-   # !/user/bin/env python
+# !/user/bin/env python
    # -*- coding: utf-8 -*-
-   # @Time    : 2020/5/12 21:11
-   # @Author  : chineseluo
-   # @Email   : 848257135@qq.com
-   # @File    : run.py
-   # @Software: PyCharm
-   import pytest
+import pytest
    import allure
    import inspect
    import logging
@@ -342,7 +288,7 @@ or进群下载：自动化测试-夜行者（816489363)
        pytest.main(["test_loginActivityCase.py"])
    
    ```
-
+   
 6. 执行用例
 
    执行用例可以通过两种常用的方法进行

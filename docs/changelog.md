@@ -43,3 +43,11 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 - 项目路径出现小写的“opensourcetest”开头的文件，运行时读取yaml会读取系统本身自带的login.yaml文件
 
+## V0.3.0（2020-12-31）
+
+- 新增APP模板创建功能
+- UI自动化底层优化
+
+## V0.3.1（2020-1-7）
+
+- 修复接口自动化框架中控制台显示json.dumps乱码问题

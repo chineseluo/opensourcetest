@@ -51,5 +51,12 @@ nav:
           - Ost Plugin: uiuserguide/ost_plugin.md
           - Run Testcase: uiuserguide/run_testcase.md
           - Testing Report: uiuserguide/testing_report.md
+    - APP User Guide(beta):
+          - Scaffold: appuserguide/scaffold.md
+          - Write Testcase: appuserguide/write_testcase.md
+          - Ost Source: appuserguide/ost_source.md
+          - Ost Plugin: appuserguide/ost_plugin.md
+          - Run Testcase: appuserguide/run_testcase.md
+          - Testing Report: appuserguide/testing_report.md
     - Sponsors: sponsors.md
     - Changelog: changelog.md

@@ -34,6 +34,8 @@ pip install -U git+https://github.com/chineseluo/opensourcetest.git@master
 - 5、OST start_ui_project [project_name]：创建ui自动化项目，[project_name]自定义
 - 6、OST start_http_project -h：查看创建接口项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
 - 7、OST start_http_project [project_name]：创建接口自动化项目，[project_name]自定义
+- 8、OST start_app_project [project_name]：创建app自动化项目，[project_name]自定义
+- 6、OST start_app_project -h：查看创建app自动化项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
 
 检查OpenSourceTest版本：
 
