@@ -27,8 +27,8 @@ def url_replace(url: Text, url_converter) -> Text:
     if isinstance(url_converter, (List, Tuple)):
         for item in url_converter:
             replace_url = re.sub("[$]", item, replace_url, count=1)
-    elif isinstance(url_converter, Text):
-        replace_url = url.replace("$", url_converter)
+    elif isinstance(Text(url_converter), Text):
+        replace_url = url.replace("$", Text(url_converter))
     else:
         logging.error(f"Please enter the correct checker parameters, only supported list or tuple,The error parameter "
                       f"is:{url_converter}")

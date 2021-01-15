@@ -72,14 +72,13 @@ class BaseRequest:
         """
         result = None
         if method == MethodEnum.GET:
-            result = self.__get(params=send_params, url=url, **kwargs)
+            result = self.__get(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         elif method == MethodEnum.POST:
-            result = self.__post(data=send_data, json=send_json, url=url,
-                                 **kwargs)
+            result = self.__post(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         elif method == MethodEnum.DELETE:
-            result = self.__delete(url=url, **kwargs)
+            result = self.__delete(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         elif method == MethodEnum.PUT:
-            result = self.__put(data=send_data, url=url, **kwargs)
+            result = self.__put(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
         ost_req = OSTReqData(
