@@ -51,3 +51,9 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 ## V0.3.1（2020-1-7）
 
 - 修复接口自动化框架中控制台显示json.dumps乱码问题
+
+## V0.3.2（2020-1-17）
+
+- 修复底层baseRequest中底层方法入参异常问题
+- 修复url_replace入参为int类型异常
+- 新增底层interface优化
