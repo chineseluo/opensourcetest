@@ -47,3 +47,11 @@ class AssertNeError(Exception):
 
 class AssertContainError(Exception):
     ...
+
+
+class AssertTrueError(Exception):
+    ...
+
+
+class AssertFalseError(Exception):
+    ...

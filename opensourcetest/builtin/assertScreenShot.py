@@ -97,7 +97,7 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertTrueError
 
     @staticmethod
     def assert_false_screen_shot(driver, bool_value):
@@ -110,4 +110,4 @@ class AssertScreenShot:
             except Exception as e:
                 logging.error(f"Assertion execution failed with error message:{e}")
                 picture_url = screen_picture(driver)
-                raise AssertionError
+                raise AssertFalseError
