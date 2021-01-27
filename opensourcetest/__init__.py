@@ -1,4 +1,4 @@
-__version__ = '0.3.2'
+__version__ = '0.3.3'
 __description__ = "We need more free software interface testing."
 
 from opensourcetest.builtin.ostHttp import ost_http_runner

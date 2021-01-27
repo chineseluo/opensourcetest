@@ -307,21 +307,21 @@ docker run -d -p 5900:5900 --link hub:hub selenium/node-chrome-debug
 
    
 
-2. 在PageObject模块下的elem_params.py文件中进行Login_page.yaml注册，生成一个yaml文件对象，初始化传递两个参数，一个是模块名，一个是yaml配置文件名
+2. 在PageObject模块下的yamlChoice.py文件中进行Login_page.yaml注册，生成一个yaml文件对象，初始化传递两个参数，一个是模块名，一个是yaml配置文件名
 
    ```yaml
    from opensourcetest.builtin.autoParamInjection import AutoInjection
    
    
    # Register yaml file object
-   class LoginPageElem(AutoInjection):
+   class LoginPage(AutoInjection):
        def __init__(self):
-           super(LoginPageElem, self).__init__('Login_page', 'Login_page')
+           super(LoginPage, self).__init__('Login_page', 'Login_page')
    
    
-   class BuyPageElem(AutoInjection):
+   class BuyPage(AutoInjection):
        def __init__(self):
-           super(BuyPageElem, self).__init__('Buy_page', 'Buy_page')
+           super(BuyPage, self).__init__('Buy_page', 'Buy_page')
    ```
 
 3. 在PageObject下Login_page模块创建一个login_page.py封装login页面操作元素，导入Login_page.yaml文件对象，初始化，然后获取yaml文件中封装的元素，底层通过传入locator定位器（元组），进行页面元素操作
@@ -331,7 +331,7 @@ docker run -d -p 5900:5900 --link hub:hub selenium/node-chrome-debug
    # -*- coding: utf-8 -*-
    from Base.base import Base
    from selenium import webdriver
-   from PageObject.elemParams import Login_page_elem
+   from PageObject.yamlChoice import Login_page_elem
    
    
    class LoginPage(Base):

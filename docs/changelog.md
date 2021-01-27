@@ -57,3 +57,9 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 - 修复底层baseRequest中底层方法入参异常问题
 - 修复url_replace入参为int类型异常
 - 新增底层interface优化
+
+## V0.3.3（2020-1-27）
+
+- 修复httpmodel、uimodel、appmodel中，pytest控制台命令执行失效问题
+- 修复httpmodel中verfiy=False时，控制台日志warning警告
+- 修复uimodel中PO对象注入重复，代码冗余问题
