@@ -26,7 +26,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
     params_obj = params_object()
     params_dict = params_obj.get_param_by_yaml(params_mark)
     req = BaseRequest()
-    logging.info(params_dict)
+    logging.info(f'Corresponding to yaml interface: {params_dict}')
     # Injection request data
     if session_connection:
         params_dict['headers'].update(session_connection)
@@ -52,7 +52,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
         headers=params_dict['headers'],
         **kwargs
     )
-    logging.info(ost_req_argv)
+    logging.debug(ost_req_argv)
 
     ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
                                     send_params=params_dict['params'], send_data=params_dict['data'],

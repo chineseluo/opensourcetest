@@ -63,3 +63,10 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 - 修复httpmodel、uimodel、appmodel中，pytest控制台命令执行失效问题
 - 修复httpmodel中verfiy=False时，控制台日志warning警告
 - 修复uimodel中PO对象注入重复，代码冗余问题
+- 优化控制台日志过多问题，修改日志级别，需要详细控制台日志信息，请将pytest.ini文件中的日志级别调整为debug
+
+**可选需求**
+
+- OST 日志国际化，提供中英文两种日志格式的输出，计划V0.4.0版本
+- OST 对于yaml参数做内层拼接，计划V0.4.0版本
+

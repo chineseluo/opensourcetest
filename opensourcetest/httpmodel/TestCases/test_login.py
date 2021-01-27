@@ -18,7 +18,6 @@ class TestLogin:
         auth = {
             "Authorization": f'JWT {result["body"]["data"]["token"]}'
         }
-        logging.info(auth)
 
     @allure.severity("blocker")
     @allure.story("Test get")
@@ -29,7 +28,6 @@ class TestLogin:
             "size": 20
         }
         result = start_run_case(Login, "查询", session_connection=token, params=params)
-        logging.info(result)
 
     @allure.severity("blocker")
     @allure.story("Test delete")
