@@ -12,12 +12,14 @@
 ------------------------------------
 """
 import os
+import jmespath
 import logging
-from typing import Text, Union
+from typing import Text, Union, Dict, List
 from opensourcetest.common.urlOperation import url_replace
 from opensourcetest.builtin.check import check_assertion
 from opensourcetest.builtin.models import OSTReqRespData, OSTReqArgv
 from opensourcetest.builtin.baseRequest import BaseRequest
+from opensourcetest.builtin.exceptions import JsonSplicingError
 
 
 def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, session_connection=None, params=None,
@@ -39,7 +41,26 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
     if data:
         params_dict['data'].update(data)
     if json:
-        params_dict['json'].update(json)
+        if isinstance(json, tuple):
+            if isinstance(json[0], tuple):
+                for item in json:
+                    interface_yaml_locator = f'params_dict[{json}]' + Text(item[0])
+                    if isinstance(item[1], Dict):
+                        eval(interface_yaml_locator).update(item[1])
+                    elif isinstance(item[1], List):
+                        eval(interface_yaml_locator).append(item[1])
+                    else:
+                        raise JsonSplicingError
+            elif isinstance(json[0], Text):
+                interface_yaml_locator = f'params_dict[{json}]'+Text(json[0])
+                if isinstance(json[1], Dict):
+                    eval(interface_yaml_locator).update(json[1])
+                elif isinstance(json[1], List):
+                    eval(interface_yaml_locator).append(json[1])
+                else:
+                    raise JsonSplicingError
+        else:
+            params_dict['json'].update(json)
     if files:
         params_dict['files'].update(files)
     # receive a request and response object

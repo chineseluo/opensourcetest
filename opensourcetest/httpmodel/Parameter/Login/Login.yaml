@@ -29,3 +29,32 @@ parameters:
     params: { }
     data: { }
     json: { }
+
+  - url: /aio2/gateway/api/v1/gateway/Query
+    desc: "查询"
+    method: post
+    headers: { }
+    params: { }
+    data: { }
+    json: {
+      "Verify": {
+        "ServiceID": "string",
+        "Token": "string",
+        "Type": 0,
+        "Pressure": 0,
+        "ReservedField1": "string",
+        "ReservedField2": "string",
+        "ReservedField3": "string"
+      },
+      "Code": "Q1015",
+      "currentpage": 0,
+      "pagesize": 0,
+      "Param": [
+        {
+          "Key": "string",
+          "Value": "string",
+          "Type": 0
+        }
+      ],
+      "Data": "string"
+    }
