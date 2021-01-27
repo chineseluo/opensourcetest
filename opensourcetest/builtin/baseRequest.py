@@ -15,6 +15,7 @@ import os
 import jmespath
 import requests
 import logging
+import urllib3
 from opensourcetest.common.consolelog import log_output
 from opensourcetest.builtin.models import OSTRespData, OSTReqData, OSTReqRespData, MethodEnum
 from opensourcetest.common.yamlOperation import YamlFileOption
@@ -70,6 +71,7 @@ class BaseRequest:
         :param kwargs:
         :return:
         """
+        urllib3.disable_warnings()
         result = None
         if method == MethodEnum.GET:
             result = self.__get(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
