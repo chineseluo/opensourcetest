@@ -1,1 +1,1 @@
-opensourcetest==0.3.3
+opensourcetest==0.3.4

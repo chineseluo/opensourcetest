@@ -18,6 +18,7 @@ class TestLogin:
         auth = {
             "Authorization": f'JWT {result["body"]["data"]["token"]}'
         }
+        logging.info(auth)
 
     @allure.severity("blocker")
     @allure.story("Test get")
@@ -27,10 +28,11 @@ class TestLogin:
             "page": 1,
             "size": 20
         }
-        result = start_run_case(Login, "查询", session_connection=token, params=params)
+        start_run_case(Login, "查询", session_connection=token, params=params)
 
     @allure.severity("blocker")
     @allure.story("Test delete")
     @allure.title("test delete")
     def test_delete(self, token):
-        result = start_run_case(Login, "删除", session_connection=token, url_converter="58")
+        start_run_case(Login, "删除", session_connection=token, url_converter="58")
+

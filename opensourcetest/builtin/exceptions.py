@@ -56,5 +56,6 @@ class AssertTrueError(Exception):
 class AssertFalseError(Exception):
     ...
 
+
 class JsonSplicingError(Exception):
     ...

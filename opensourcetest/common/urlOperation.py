@@ -13,7 +13,9 @@
 """
 import re
 import logging
+from loguru import logger
 from typing import Text, List, Tuple, Dict, Union
+from opensourcetest.builtin.exceptions import JsonSplicingError
 
 
 def url_replace(url: Text, url_converter) -> Text:
@@ -35,27 +37,33 @@ def url_replace(url: Text, url_converter) -> Text:
     return replace_url
 
 
-def ost_http_argv_update(param_type_custom: Union[List, Dict], ost_exception: Exception):
+def ost_http_argv_update(param_custom: Union[List, Dict], ost_yaml_param_type: Text, params_dict: List):
     """
     ost http yaml data splicing
-    :param param_type_custom:
-    :param ost_exception: ost custom exception
+    :param ost_yaml_param_type:
+    :param params_dict:
+    :param param_custom:
     :return:
     """
-    if isinstance(param_type_custom[0], tuple):
-        for item in param_type_custom:
-            interface_yaml_locator = 'params_dict' + Text(item[0])
-            if isinstance(item[1], Dict):
+    logging.debug("Start to splice JSON parameters.")
+    if isinstance(param_custom[0], tuple):
+        logging.debug("Start multi-layer JSON parameter splicing.")
+        for item in param_custom:
+            interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]' + Text(item[0])
+            if isinstance(eval(interface_yaml_locator), Dict):
                 eval(interface_yaml_locator).update(item[1])
-            elif isinstance(item[1], List):
+            elif isinstance(eval(interface_yaml_locator), List):
                 eval(interface_yaml_locator).append(item[1])
             else:
-                raise ost_exception
-    elif isinstance(param_type_custom[0], Text):
-        interface_yaml_locator = 'params_dict' + Text(param_type_custom[0])
-        if isinstance(param_type_custom[1], Dict):
-            eval(interface_yaml_locator).update(param_type_custom[1])
-        elif isinstance(param_type_custom[1], List):
-            eval(interface_yaml_locator).append(param_type_custom[1])
+                logging.error("Interface request JSON parameter internal assembly failed, please check!!!")
+                raise JsonSplicingError
+    elif isinstance(param_custom[0], Text):
+        logging.debug("Start single layer JSON parameter splicing.")
+        interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]' + Text(param_custom[0])
+        if isinstance(eval(interface_yaml_locator), Dict):
+            eval(interface_yaml_locator).update(param_custom[1])
+        elif isinstance(eval(interface_yaml_locator), List):
+            eval(interface_yaml_locator).append(param_custom[1])
         else:
-            raise ost_exception
+            logging.error("Interface request JSON parameter internal assembly failed, please check!!!")
+            raise JsonSplicingError

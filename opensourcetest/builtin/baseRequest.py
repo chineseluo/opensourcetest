@@ -92,7 +92,11 @@ class BaseRequest:
         )
         log_output(ost_req, "request")
         if result.headers["Content-Type"].find("json") != -1:
-            ost_rep_body = result.json()
+            try:
+                ost_rep_body = result.json()
+            except Exception as e:
+                logging.warning("Failed to parse data with JSON, switch to text parsing！")
+                ost_rep_body = result.text
         elif result.headers["Content-Type"].find("xml") != -1 \
                 or result.headers["Content-Type"].find("html") != -1 \
                 or result.headers["Content-Type"].find("text") != -1:
