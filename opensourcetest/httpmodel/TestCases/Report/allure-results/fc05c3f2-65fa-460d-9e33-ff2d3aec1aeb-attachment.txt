@@ -1,0 +1,3 @@
+2021-02-01 10:00:35 | WARNING      | autoParamInjection:__read_yaml:55 - output class file path：D:\TestScriptDir\opensourcetest\opensourcetest\httpmodel\Parameter\yamlChoice.py
+2021-02-01 10:00:35 | WARNING      | autoParamInjection:__read_yaml:56 - Use the yaml path configured by mode in OST framework to retrieve
+2021-02-01 10:00:35 | WARNING      | autoParamInjection:__read_yaml:57 - Output Login yaml file address: D:\TestScriptDir\opensourcetest\opensourcetest\httpmodel/Parameter\Login\Login.yaml

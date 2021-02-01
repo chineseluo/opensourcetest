@@ -70,3 +70,11 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 - OST 日志国际化，提供中英文两种日志格式的输出，计划V0.4.0版本
 - OST 对于yaml参数做内层拼接，计划V0.4.0版本
 
+## V0.3.4（2020-1-29）
+
+- OST 支持对于yaml参数做内层拼接
+
+## V0.3.5（2021-2-1）
+
+- OST修复对于yaml参数做内层拼接，内层和外层混合支持
+

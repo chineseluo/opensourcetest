@@ -1,6 +1,6 @@
 # 编写测试用例
 
-OpenSourceTest v0.2.0通过yaml元素对象注入的方式，整个框架分为三层，Base层、PageObject层、TestCase层，采用传统的互联网的垂直架构模式。
+OpenSourceTest v0.3.x通过yaml元素对象注入的方式，整个框架分为三层，Base层、PageObject层、TestCase层，采用传统的互联网的垂直架构模式。
 
 - 元素公共操作方法封装存放在Base层
 - 页面元素操作存放在第二层PageObject层，后面如果页面元素变化，直接在第二层相应的Page对象修改即可

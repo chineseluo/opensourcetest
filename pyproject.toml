@@ -8,7 +8,7 @@ authors = ["chineseluo <848257135@qq.com>"]
 
 homepage = "https://github.com/chineseluo/opensourcetest"
 repository = "https://github.com/chineseluo/opensourcetest"
-documentation = "https://docs.opensourcetest.org"
+documentation = "http://docs.opensourcetest.cn"
 
 keywords = ["HTTP", "http", "Http", "api","ui","UI", "automated testing", "interface", "test", "requests", "pytest", "allure", 'pytest-xdist']
 

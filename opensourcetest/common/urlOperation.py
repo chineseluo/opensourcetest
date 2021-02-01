@@ -45,19 +45,24 @@ def ost_http_argv_update(param_custom: Union[List, Dict], ost_yaml_param_type: T
     :param param_custom:
     :return:
     """
+
     logging.debug("Start to splice JSON parameters.")
-    if isinstance(param_custom[0], tuple):
+    if isinstance(param_custom[0], (Tuple, Dict)):
         logging.debug("Start multi-layer JSON parameter splicing.")
         for item in param_custom:
-            interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]' + Text(item[0])
-            if isinstance(eval(interface_yaml_locator), Dict):
-                eval(interface_yaml_locator).update(item[1])
-            elif isinstance(eval(interface_yaml_locator), List):
-                eval(interface_yaml_locator).append(item[1])
-            else:
-                logging.error("Interface request JSON parameter internal assembly failed, please check!!!")
-                raise JsonSplicingError
-    elif isinstance(param_custom[0], Text):
+            if isinstance(item, Tuple):
+                interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]' + Text(item[0])
+                if isinstance(eval(interface_yaml_locator), Dict):
+                    eval(interface_yaml_locator).update(item[1])
+                elif isinstance(eval(interface_yaml_locator), List):
+                    eval(interface_yaml_locator).append(item[1])
+                else:
+                    logging.error("Interface request JSON parameter internal assembly failed, please check!!!")
+                    raise JsonSplicingError
+            elif isinstance(item, Dict):
+                interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]'
+                eval(interface_yaml_locator).update(item)
+    elif isinstance(param_custom[0], Text) and isinstance(param_custom[1], (Dict, List)):
         logging.debug("Start single layer JSON parameter splicing.")
         interface_yaml_locator = f'params_dict["{ost_yaml_param_type}"]' + Text(param_custom[0])
         if isinstance(eval(interface_yaml_locator), Dict):

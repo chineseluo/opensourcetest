@@ -36,3 +36,4 @@ class TestLogin:
     def test_delete(self, token):
         start_run_case(Login, "删除", session_connection=token, url_converter="58")
 
+

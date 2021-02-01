@@ -1,6 +1,6 @@
 # 编写测试用例
 
-OpenSourceTest v0.2.0通过yaml接口对象注入的方式，整个框架分为三层，Base层、Parameter层、TestCase层，采用传统的互联网的垂直架构模式。
+OpenSourceTest v0.3.x通过yaml接口对象注入的方式，整个框架分为三层，Base层、Parameter层、TestCase层，采用传统的互联网的垂直架构模式。
 
 
 
