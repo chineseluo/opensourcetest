@@ -14,6 +14,7 @@
 import os
 import jmespath
 import logging
+from loguru import logger
 from typing import Text, Union, Dict, List
 from opensourcetest.common.urlOperation import url_replace
 from opensourcetest.builtin.check import check_assertion
@@ -42,7 +43,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
         params_dict['data'].update(data)
     if json:
         if isinstance(json, tuple):
-            ost_http_argv_update(json, "json",params_dict)
+            ost_http_argv_update(json, "json", params_dict)
         else:
             params_dict['json'].update(json)
     if files:

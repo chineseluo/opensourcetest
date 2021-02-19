@@ -13,6 +13,7 @@
 """
 import logging
 import jmespath
+from loguru import logger
 from typing import List, Tuple, Text, Dict
 from opensourcetest.builtin.exceptions import CheckerTypeError, CheckerArgvError
 from opensourcetest.builtin.models import CheckerMethodEnum
@@ -46,7 +47,7 @@ def check_assertion(res, checker):
     :param checker:
     :return:
     """
-    if isinstance(checker, (int, Dict)):
+    if isinstance(checker, (int, Dict, Text)):
         logging.error("Inspector parameter type error")
         raise CheckerTypeError
     if isinstance(checker[0], (List, Tuple)):
@@ -70,6 +71,7 @@ def check_assertion(res, checker):
             ost_assertion(extract_resp, checker)
         else:
             logging.warning("You passed too many unrecognized parameters!")
+            raise CheckerTypeError
     else:
         logging.error(f"Please enter the correct checker parameters, only supported list or tuple，The error parameter "
                       f"is：{checker}")

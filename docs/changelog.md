@@ -41,7 +41,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 **待修改项**
 
-- 项目路径出现小写的“opensourcetest”开头的文件，运行时读取yaml会读取系统本身自带的login.yaml文件
+- 项目路径出现小写的“opensourcetest”开头的文件，运行时读取yaml会读取系统本身自带的login.yaml文件（暂时不修改）
 
 ## V0.3.0（2020-12-31）
 
@@ -67,7 +67,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 **可选需求**
 
-- OST 日志国际化，提供中英文两种日志格式的输出，计划V0.4.0版本
+- OST 日志国际化，提供中英文两种日志格式的输出，计划V0.4.0版本（延期）
 - OST 对于yaml参数做内层拼接，计划V0.4.0版本
 
 ## V0.3.4（2020-1-29）

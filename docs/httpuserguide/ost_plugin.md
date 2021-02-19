@@ -13,5 +13,5 @@ requestEngine的start_run_case参数说明：
 - checker：断言器，支持列表和元组，或者元组列表嵌套的方式
 - session_connection：用于保持客户端与服务端的连接，传递token/cookie，或者其他header，以字典的形式传入
 - url_converter：url转换器，用于替换接口中的$符号，可以通过在yaml的具体某个接口中使用$代替url中的某些需要通过动态获取的参数，然后使用url_converter在脚本中进行替换，支持str/tuple/list（PS：替换的参数必须和yaml中该接口的$个数一一对应）
-
+- json：支持与yaml中的该json数据进行深层拼接，支持嵌套
 - 其他参数的传递通原始requests中的参数要求。

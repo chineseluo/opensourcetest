@@ -11,10 +11,11 @@
 @IDE     : PyCharm
 ------------------------------------
 """
+from loguru import logger
 
 
 class CheckerTypeError(Exception):
-    ...
+     ...
 
 
 class CheckerArgvError(Exception):

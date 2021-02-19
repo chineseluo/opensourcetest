@@ -25,9 +25,13 @@ class AutoInjection:
     """
 
     def __init__(self, *args):
-        self.interface_info = []
+        # self.interface_info = []
         self.__read_yaml(*args)
         logging.info(f"{self.__class__.__name__} Yaml object injection in progress")
+
+    @property
+    def interface_info(self):
+        return self._interface_info
 
     def __read_yaml(self, *args):
         """
@@ -55,7 +59,7 @@ class AutoInjection:
                 logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
                 logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
                 logging.warning(f"Output {args[0]} yaml file address: {yaml_path}")
-            self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
+            self._interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         elif len(args) == 2:
             if os.path.dirname(inspect.getfile(self.__class__)).find("opensourcetest") == -1:
                 yaml_path = os.path.join(os.path.dirname(inspect.getfile(self.__class__).split("yamlChoice.py")[0]),
@@ -73,7 +77,7 @@ class AutoInjection:
                 logging.warning(f"output class file path：{inspect.getfile(self.__class__)}")
                 logging.warning(f"Use the yaml path configured by mode in OST framework to retrieve")
                 logging.warning(f"Output {args[1]} yaml file address: {yaml_path}")
-            self.interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
+            self._interface_info = YamlFileOption().read_yaml(yaml_path)['parameters']
         else:
             logging.error("Parameter transfer error. Only two parameters can be received")
 

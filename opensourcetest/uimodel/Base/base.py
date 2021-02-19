@@ -26,15 +26,6 @@ def get_login_url_from_config():
     return config_info["test_info"]["test_URL"]
 
 
-def get_login_account_from_config():
-    """
-    从config.yaml中获取管理员的登录信息
-    @return:
-    """
-    config_info = YamlFileOption().read_yaml(CONF_PATH)
-    return config_info["test_info"]["admin_name"], config_info["test_info"]["password"]
-
-
 class Base:
     def __init__(self, driver):
         self.driver = driver
@@ -76,7 +67,8 @@ class Base:
             logging.error(f"find_element：locator Parameter type error,Must pass on the type of Tuple：locator=(By.XX,"
                           f"value),The error parameter is:{locator}")
         else:
-            logging.info(f"find_element：Locating element information,The positioning mode is:{locator[0]},value:{locator[1]}")
+            logging.info(
+                f"find_element：Locating element information,The positioning mode is:{locator[0]},value:{locator[1]}")
             try:
                 time.sleep(0.5)
                 elem = WebDriverWait(self.driver, self.timeout, self.poll_frequency).until(
@@ -97,7 +89,8 @@ class Base:
             logging.error(f"Find_element：locator Parameter type error,Must pass on the type of Tuple：locator=(By.XX,"
                           f"value),The error parameter is:{locator}")
         else:
-            logging.info(f"Find_element：Locating element information,The positioning mode is:{locator[0]},value:{locator[1]}")
+            logging.info(
+                f"Find_element：Locating element information,The positioning mode is:{locator[0]},value:{locator[1]}")
             try:
                 time.sleep(1)
                 elems = WebDriverWait(self.driver, self.timeout, self.poll_frequency).until(
@@ -183,7 +176,8 @@ class Base:
         try:
             for item in elems:
                 elems_text.append(item.text)
-            logging.info(f"The value of getting the list of element group objects was successful, and the value is:{elems_text}")
+            logging.info(
+                f"The value of getting the list of element group objects was successful, and the value is:{elems_text}")
         except Exception as e:
             logging.error(f"Failed to get the element group object. The failure information is::{e}")
         return elems_text
@@ -194,12 +188,15 @@ class Base:
         @param locator: 定位器
         @return: 返回定位对象组的第一个元素的值
         """
+        elem_text = None
         elem = self.find_elements(locator)
         try:
             elem_text = elem[index].text
-            logging.info(f"Get element group object, the value of index position {index} succeeded, the value is:{elem_text}")
+            logging.info(
+                f"Get element group object, the value of index position {index} succeeded, the value is:{elem_text}")
         except Exception as e:
-            logging.error(f"Failed to get the value of index position {index} of element group object. The failure information is:{e}")
+            logging.error(
+                f"Failed to get the value of index position {index} of element group object. The failure information is:{e}")
         return elem_text
 
     def get_placeholder(self, locator):
@@ -208,10 +205,12 @@ class Base:
         @param locator: 定位器
         @return: 返回placeholder属性值
         """
+        elem_placeholder_text = None
         elem = self.find_element(locator)
         try:
             elem_placeholder_text = elem.get_attribute("placeholder")
-            logging.info(f"This element object get the placeholder successful,placeholder values:{elem_placeholder_text}")
+            logging.info(
+                f"This element object get the placeholder successful,placeholder values:{elem_placeholder_text}")
         except Exception as e:
             logging.error(f"This element object get the placeholder failed,The error message is:{e}")
         return elem_placeholder_text
@@ -223,10 +222,12 @@ class Base:
         @param attribute_value: 需要获取的元素属性名称
         @return: 该元素属性值
         """
+        elem_attribute_text = None
         elem = self.find_element(locator)
         try:
             elem_attribute_text = elem.get_attribute(attribute_value)
-            logging.info(f"The element object get {attribute_value} successful,{attribute_value} values is:{elem_attribute_text}")
+            logging.info(
+                f"The element object get {attribute_value} successful,{attribute_value} values is:{elem_attribute_text}")
         except Exception as e:
             logging.error(f"This element object get the {attribute_value} failed,The error message is:{e}")
         return elem_attribute_text
