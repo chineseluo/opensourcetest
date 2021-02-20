@@ -22,17 +22,6 @@ def login_page_class_load(function_driver):
 
 
 @pytest.fixture(scope="function")
-def buy_page_class_load(function_driver):
-    """
-    注入购买页面对象
-    @param function_driver:
-    @return:
-    """
-    buy_page = Buy_page(function_driver)
-    yield buy_page
-
-
-@pytest.fixture(scope="function")
 def register_page_class_load(function_driver):
     """
     注入注册页面对象

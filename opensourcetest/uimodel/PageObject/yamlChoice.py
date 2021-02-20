@@ -15,11 +15,6 @@ class LoginPageElem(AutoInjection):
         super(LoginPageElem, self).__init__('Login_page', 'Login_page')
 
 
-class BuyPageElem(AutoInjection):
-    def __init__(self):
-        super(BuyPageElem, self).__init__('Buy_page', 'Buy_page')
-
-
 class RegisterPageElem(AutoInjection):
     def __init__(self):
         super(RegisterPageElem, self).__init__('Register_page', 'Register_page')
