@@ -28,7 +28,7 @@ def url_replace(url: Text, url_converter) -> Text:
     replace_url = url
     if isinstance(url_converter, (List, Tuple)):
         for item in url_converter:
-            replace_url = re.sub("[$]", item, replace_url, count=1)
+            replace_url = re.sub("[$]", Text(item), replace_url, count=1)
     elif isinstance(Text(url_converter), Text):
         replace_url = url.replace("$", Text(url_converter))
     else:
