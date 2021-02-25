@@ -83,6 +83,7 @@ class BaseRequest:
             result = self.__put(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
+        result.encoding = "gb2312"
         ost_req = OSTReqData(
             method=result.request.method,
             url=result.request.url,
