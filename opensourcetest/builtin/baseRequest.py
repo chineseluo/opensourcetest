@@ -83,7 +83,7 @@ class BaseRequest:
             result = self.__put(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
-        result.encoding = "gb2312"
+
         ost_req = OSTReqData(
             method=result.request.method,
             url=result.request.url,
@@ -101,6 +101,7 @@ class BaseRequest:
         elif result.headers["Content-Type"].find("xml") != -1 \
                 or result.headers["Content-Type"].find("html") != -1 \
                 or result.headers["Content-Type"].find("text") != -1:
+            result.encoding = "gb2312"
             ost_rep_body = result.text
         else:
             ost_rep_body = result.content
