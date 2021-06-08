@@ -78,3 +78,8 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 - OST修复对于yaml参数做内层拼接，内层和外层混合支持
 
+## V0.3.6（2021-5-21）
+
+- OST修复创建接口框架时的Report报告创建错位问题
+- OST修复allure报告log中文乱码
+

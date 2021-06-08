@@ -42,7 +42,7 @@ pip install -U opensourcetest
 OST -V
 ~~~
 
-![version010](.\images\installation\version010.png)
+![version010](./images/installation/version010.png)
 
 查看可用选项，请运行：
 

@@ -24,4 +24,4 @@ OST start_http_project [project_name]：创建接口自动化项目，[project_n
 
 ## 项目结构
 
-![OST1](..\images\http\OST1.png)
+![OST1](\images\http\OST1.png)
