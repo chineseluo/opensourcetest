@@ -59,9 +59,6 @@
 <img src="../../images/sponsors/wei.png" height="400" width="400" />
 
 
-**支付包赞赏收款码**
-
-<img src="../../images/sponsors/zhi.png" height="400" width="400" />
 
 ## **OpenSourceTest 社区**
 

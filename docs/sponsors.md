@@ -10,10 +10,6 @@
 <img src="../../images/sponsors/wei.png" height="400" width="400" />
 
 
-**支付包赞赏收款码**
-
-<img src="../../images/sponsors/zhi.png" height="400" width="400" />
-
 
 **打赏的胖友名单**
 
@@ -26,11 +22,12 @@
 - <font face = "宋体">小仙女（夜行者-自动化测试社区）</font>
 - <font face = "宋体">铁丝特（夜行者-自动化测试社区）</font>
 - <font face = "宋体">笨笨渣在努力（夜行者-自动化测试社区）</font>
-
 - <font face = "宋体">若湉（夜行者-自动化测试社区）</font>
 - <font face = "宋体">笑笑笑嘻嘻（夜行者-自动化测试社区）</font>
 - <font face = "宋体">一个测试（夜行者-自动化测试社区）</font>
-- <font face = "宋体">Come-DQ（夜行者-自动化测试社区）</font>
+- <font face = "宋体">Come-DQ</font>
 - <font face = "宋体">关飞（夜行者-自动化测试社区）</font>
+- <font face = "宋体">帅气的春哥</font>
+
 
 
