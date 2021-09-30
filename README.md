@@ -50,7 +50,7 @@
 
 ​	**感谢各位胖友对OpenSourceTest框架的打赏，您的打赏支持是我最大的迭代更新的动力，也希望opensourcetest可以在日常工作中帮助到您，QAQ**
 
-​	**成为打赏者[become a sponsor](sponsors.md)**
+​	**成为打赏者[become a sponsor](/docs/sponsors.md)**
 
 ​	**联系作者：[成都-阿木木](mailto:848257135@qq.com)**
 
