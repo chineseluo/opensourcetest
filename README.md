@@ -64,7 +64,7 @@
 
 欢迎测试小伙伴加群，讨论测试框架技术！
 
-<img src="/docs/images/community.jpg" height="400" width="600" />
+<img src="/docs/images/community.jpg"/>
 
 
 [json]: http://json.com/
