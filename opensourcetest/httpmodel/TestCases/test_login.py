@@ -12,8 +12,9 @@ class TestLogin:
     @allure.severity("blocker")
     @allure.story("Test Login")
     @allure.title("test login")
-    def test_login(self):
-        params = {"username": "zouzou", "password": "zouzou"}
+    @pytest.mark.parametrize("username,password", [("zouzou", "zouzou"), ("zouzou1", "zouzou1")])
+    def test_login(self, username, password):
+        params = {"username": username, "password": password}
         result = start_run_case(Login, 0, ("status_code", 200, "GTE"), json=params)
         auth = {
             "Authorization": f'JWT {result["body"]["data"]["token"]}'
@@ -35,6 +36,3 @@ class TestLogin:
     @allure.title("test delete")
     def test_delete(self, token):
         start_run_case(Login, "删除", session_connection=token, url_converter="58")
-
-
-

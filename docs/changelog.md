@@ -83,3 +83,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 - OST修复创建接口框架时的Report报告创建错位问题
 - OST修复allure报告log中文乱码
 
+## V0.3.7（2022-1-28）
+
+- OST修复json为list拼接问题
+

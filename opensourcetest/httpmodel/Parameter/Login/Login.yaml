@@ -9,6 +9,7 @@ parameters:
     params: {}
     data: {}
     json: {}
+    files: {}
 
   - url: /api/manage/search/staff?id=$
     desc: "查询"
@@ -16,9 +17,11 @@ parameters:
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     }
-    params: { }
-    data: { }
-    json: { }
+    params: {}
+    data: {}
+    json: {}
+    files: {}
+
 
   - url: /api/manage/staff
     desc: "删除"
@@ -26,6 +29,7 @@ parameters:
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     }
-    params: { }
-    data: { }
-    json: { }
+    params: {}
+    data: {}
+    json: {}
+    files: {}
