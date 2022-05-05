@@ -58,13 +58,14 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
         data=params_dict['data'],
         json=params_dict['json'],
         headers=params_dict['headers'],
+        files=params_dict['files'],
         **kwargs
     )
     logging.debug(ost_req_argv)
 
     ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
                                     send_params=params_dict['params'], send_data=params_dict['data'],
-                                    send_json=params_dict['json'], headers=params_dict['headers'], verify=verify,
+                                    send_json=params_dict['json'], headers=params_dict['headers'], files=params_dict['files'], verify=verify,
                                     **kwargs)
     if checker:
         # According to jmespath_rule and contrast value are used to judge, which needs to support multiple judgments
