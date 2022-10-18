@@ -12,6 +12,7 @@
 ------------------------------------
 """
 import os
+import json
 import jmespath
 import requests
 import logging
@@ -83,13 +84,14 @@ class BaseRequest:
             result = self.__put(url=url, params=send_params, data=send_data, json=send_json, **kwargs)
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
-
+        result.encoding = "utf-8"
+        body = json.loads(result.request.body) if isinstance(result.request.body, bytes) else result.request.body
         ost_req = OSTReqData(
             method=result.request.method,
             url=result.request.url,
             headers=result.request.headers,
             cookies=result.request._cookies,
-            body=result.request.body
+            body=body
         )
         log_output(ost_req, "request")
         if result.headers["Content-Type"].find("json") != -1:
