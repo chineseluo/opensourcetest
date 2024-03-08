@@ -40,7 +40,8 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
     if params:
         params_dict['params'].update(params)
     if data:
-        params_dict['data'].update(data)
+        if isinstance(data, Dict):
+            params_dict['data'].update(data)
     if json:
         if isinstance(json, tuple):
             ost_http_argv_update(json, "json", params_dict)
@@ -55,7 +56,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
         part_url=part_url,
         method=params_dict['method'].upper(),
         params=params_dict['params'],
-        data=params_dict['data'],
+        data=params_dict['data'] if isinstance(data, Dict) else data,
         json=params_dict['json'],
         headers=params_dict['headers'],
         files=params_dict['files'],
@@ -64,7 +65,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
     logging.debug(ost_req_argv)
 
     ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
-                                    send_params=params_dict['params'], send_data=params_dict['data'],
+                                    send_params=params_dict['params'],  send_data=params_dict['data'] if isinstance(data, Dict) else data,
                                     send_json=params_dict['json'], headers=params_dict['headers'], files=params_dict['files'], verify=verify,
                                     **kwargs)
     if checker:

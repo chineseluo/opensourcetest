@@ -87,3 +87,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 - OST修复json为list拼接问题
 
+## V0.3.11 (2024-3-8)
+
+- OST修复发送POST请求，请求体为payload会失败的问题
+- 支持动态修改baseUrl用于特殊场景的请求
