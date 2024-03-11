@@ -57,3 +57,8 @@ opensourcetest = "opensourcetest.cli:main"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+#[pypi]
+#  username = "__token__"
+#  password = "pypi-AgEIcHlwaS5vcmcCJDdhMjlkZmZmLWM4YTEtNDc5NS05OTQ3LWJlMTk2MjViMGI0OQACFlsxLFsib3BlbnNvdXJjZXRlc3QiXV0AAixbMixbIjdlM2ViZmY0LTRjNzAtNDQ1My1hMjA4LWQ2M2YwODNjOWFkNiJdXQAABiAvOFqjWcmx6h_uyo4ZuQOHC-0KXCaV7jnnwba4nYYVkQ"

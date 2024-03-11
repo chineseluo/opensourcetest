@@ -7,19 +7,19 @@ OpenSourceTest使用python开发，它支持在Python3.8+版本和大多数操�
 OpenSourceTest在PyPI官方仓库中，可以通过pip安装（推荐使用豆瓣源安装）
 
 ~~~bash
-pip install opensourcetest -i https://pypi.douban.com/simple
+pip3 install opensourcetest -i https://pypi.tuna.tsinghua.edu.cn/simple
 ~~~
 
 如果您想要使用最新版本，可以使用github存储库URL安装（不推荐）。
 
 ~~~bash
-pip install git+https://github.com/chineseluo/opensourcetest.git@master
+pip3 install git+https://github.com/chineseluo/opensourcetest.git@master
 ~~~
 
 如果您以前安装的OpenSourceTest过老，并且想要升级到最新版本，则可以使用-U选项。
 
 ~~~bash
-pip install -U opensourcetest
+pip3 install -U opensourcetest
 ~~~
 
 ## 检查安装
