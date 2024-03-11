@@ -15,7 +15,7 @@ VERIFY = conf_server_info["verify"]
 
 
 def start_run_case(params_object, params_mark: Union[Text, int], checker=None, session_connection=None, params=None,
-                   data=None, json=None, files=None, url_converter=None, **kwargs):
+                   data=None, json=None, files=None, url_converter=None, base_url=None, **kwargs):
     ost_req_resp = ost_http_runner(params_object, params_mark,  base_url=BASE_URL if not base_url else base_url, verify=VERIFY, checker=checker,
                                    session_connection=session_connection, params=params,
                                    data=data, json=json, files=files, url_converter=url_converter, **kwargs)
