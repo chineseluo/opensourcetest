@@ -4,7 +4,7 @@ OpenSourceTest完美兼容pytest本身，以及其第三方插件。这意味着
 
 # allure测试报告
 
-allure-pytest是OpenSourceTest的必选依赖项，不需要单独安装插件。
+本地任然需要配置jdk1.18，以及allure插件（配置方式类似jmeter，下载官方zip包，然后解压，然后在系统高级设置->环境变量->PATH中设置bin目录路径即可）。
 
 我们在pytest.ini文件中指定了alluredir的测试json文件生成地址
 

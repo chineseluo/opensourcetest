@@ -5,3 +5,6 @@ Report/
 Asset/*.xls
 Log/
 test_script.py
+TestCases/Report
+TestCases/*/Report
+TestCases/*/*/Report

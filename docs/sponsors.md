@@ -7,8 +7,8 @@
 
 **微信赞赏收款码**
 
-<img src="../../images/sponsors/wei.png" height="400" width="400" />
-
+[//]: # (<img src="../../images/sponsors/wei.png" height="400" width="400" />)
+![wei](./images/sponsors/wei.png)
 
 
 **打赏的胖友名单**

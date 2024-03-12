@@ -4,3 +4,6 @@ Report/*
 .pytest_cache
 .idea
 .idea/*
+TestCases/Report
+TestCases/*/Report
+TestCases/*/*/Report

@@ -56,15 +56,14 @@
 
 **微信赞赏收款码**
 
-<img src="../../images/sponsors/wei.png" height="400" width="400" />
-
+![wei](./images/sponsors/wei.png)
 
 
 ## **OpenSourceTest 社区**
 
 欢迎测试小伙伴加群，讨论测试框架技术！
 
-<img src="../../images/community.jpg" height="400" width="400" />
+![community](./images/community.jpg)
 
 
 [json]: http://json.com/

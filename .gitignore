@@ -12,4 +12,5 @@ opensourcetest/uimodel/.pytest_cache
 opensourcetest/uimodel/Report
 opensourcetest/appmodel/.pytest_cache
 opensourcetest/appmodel/Report
-dist
+dist/*
+site/*

@@ -91,3 +91,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 - OST修复发送POST请求，请求体为payload会失败的问题
 - 支持动态修改baseUrl用于特殊场景的请求
+
+## V0.3.12 (2024-3-9)
+
+- OST增加http框架中start_run_case相关文档说明

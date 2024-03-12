@@ -20,6 +20,7 @@ parameters:
     params: {}
     data: {}
     json: {}
+    files: {}
 ~~~
 
 yaml格式说明：

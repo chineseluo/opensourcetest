@@ -10,7 +10,7 @@ OST -h：查看OpenSourceTest帮助说明（使用时：[-h|-H|--help|--Help]等
 
 ## 创建新项目
 
-OST在创建项目的过程中，您只需要指定项目名称即可。
+OST在创建项目的过程中，您只需要指定项目名称即可（警告：请勿在创建项目的路径中出现opensourcetest，会创建失败）。
 
 OST start_ui_project -h：查看创建UI自动化项目时的帮助说明（使用时：[-h|-H|--help|--Help]等价）
 
