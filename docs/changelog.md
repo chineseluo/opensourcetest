@@ -95,3 +95,9 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 ## V0.3.12 (2024-3-9)
 
 - OST增加http框架中start_run_case相关文档说明
+
+
+## V0.3.13 (2024-3-14)
+
+- OST修复http中run.py文件对于pytest.main()缺少返回状态码判断问题，会导致测试用例集无论成功或者失败，都不会导致jenkins运行失败，影响任务检查
+- OST新增dockerfile支持OST运行于docker镜像中，需要自行编译dockerfile即可，内置了java/python3.8/allure
