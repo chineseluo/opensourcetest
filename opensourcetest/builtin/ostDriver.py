@@ -67,9 +67,9 @@ def ost_driver(request):
         if browser_opt == "open":
             if browser == "chrome":
                 # Skip non secure HTTPS security verification
-                chrome_options = CO()
-                chrome_options.add_argument("--ignore-certificate-errors")
-                driver = webdriver.Chrome(chrome_options=chrome_options)
+                options = CO()
+                options.add_argument("--ignore-certificate-errors")
+                driver = webdriver.Chrome(options=options)
             elif browser == "firefox":
                 # Skip non secure HTTPS security verification
                 profile = FP()
@@ -83,11 +83,11 @@ def ost_driver(request):
         else:
             if browser == "chrome":
                 # Do not open the browser window, run the test code in the background
-                chrome_options = CO()
-                chrome_options.add_argument('--headless')
+                options = CO()
+                options.add_argument('--headless')
                 # Skip non secure HTTPS security verification
-                chrome_options.add_argument('--ignore-certificate-errors')
-                driver = webdriver.Chrome(chrome_options=chrome_options)
+                options.add_argument('--ignore-certificate-errors')
+                driver = webdriver.Chrome(options=options)
             elif browser == "firefox":
                 # Do not open the browser window, run the test code in the background
                 firefox_options = FO()
