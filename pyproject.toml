@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opensourcetest"
-version = "0.3.13"
+version = "0.3.14"
 description = "We need more free software interface testing."
 license = "Apache-2.0"
 readme = "README.md"
@@ -40,7 +40,7 @@ pydantic = "^1.4"
 allure-pytest = "2.12.0"
 allure-python-commons= "2.12.0"
 
-selenium = "^3.141.0"
+selenium = "^4.18.0"
 docker = "^4.4.0"
 Appium-Python-Client = "^1.0.2"
 [tool.poetry.dev-dependencies]
