@@ -16,6 +16,7 @@ from pydantic import BaseModel, HttpUrl, Field
 from typing import Any, Dict, Text, Union, Callable, List, Tuple, Optional
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.mobileby import MobileBy
+from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 Name = Text
 Url = Text
@@ -120,9 +121,9 @@ class OSTReqArgv(BaseModel):
     """OST Request httpmodel"""
     method: MethodEnum = MethodEnum.GET
     part_url: Url
-    params: Dict[Text, Text] = {}
+    params: Dict[Text, Any] = {}
     req_json: Union[Dict, List, Text] = Field(None, alias="json")
-    req_data: Union[Text, Dict[Text, Any]] = Field(None, alias="data")
+    req_data: Any = Field(None, alias="data")
     headers: Headers = {}
     cookies: Cookies = {}
     upload: Dict = Field({}, alias="files")
@@ -154,7 +155,7 @@ class OSTReqData(BaseModel):
     url: Url
     headers: Headers = {}
     cookies: Cookies = {}
-    body: Union[Text, bytes, Dict, List, None] = {}
+    body: Union[Text, bytes, Dict, List, None, Any] = {}
 
 
 class OSTRespData(BaseModel):
@@ -184,3 +185,21 @@ class Locator(BaseModel):
     """OST locator"""
     method: OSTAppBaseBy
     value: Text
+
+
+class OSTUiBrowser(Text, Enum):
+    CHROME = "CHROME"
+    FIREFOX = "FIREFOX"
+    IE = "IE"
+
+
+class OSTUiBrowserOpt(Text, Enum):
+    OPEN = "OPEN"
+    CLOSE = "CLOSE"
+
+
+class OSTUiTypeDriver(Text, Enum):
+    LOCAL = "LOCAL"
+    REMOTE = "REMOTE"
+
+

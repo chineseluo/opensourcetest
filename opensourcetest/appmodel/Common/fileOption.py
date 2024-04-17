@@ -6,6 +6,7 @@
 # @File    : run.py
 # @Software: PyCharm
 import os
+import logging
 
 
 class File_option:
@@ -14,5 +15,5 @@ class File_option:
         if not os.path.exists(filepath):
             os.mkdir(filepath)
         else:
-            print("{}目录已存在，不需要再次创建".format(filepath))
+            logging.info(f"{filepath}目录已存在，不需要再次创建")
 

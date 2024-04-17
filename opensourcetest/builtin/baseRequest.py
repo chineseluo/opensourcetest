@@ -85,7 +85,11 @@ class BaseRequest:
         else:
             logging.error(f"Please pass the correct request method parameters! The current error parameter is:{method}")
         result.encoding = "utf-8"
-        body = json.loads(result.request.body) if isinstance(result.request.body, bytes) else result.request.body
+        try:
+            body = json.loads(result.request.body) if  isinstance(result.request.body, bytes) else result.request.body
+        except Exception as e:
+            body = result.request.body
+            logging.warning(f"解析body失败：{body}")
         ost_req = OSTReqData(
             method=result.request.method,
             url=result.request.url,
@@ -105,8 +109,12 @@ class BaseRequest:
                 or result.headers["Content-Type"].find("html") != -1 \
                 or result.headers["Content-Type"].find("text") != -1:
             result.encoding = "gb2312"
-            ost_rep_body = result.text
+            try:
+                ost_rep_body = json.loads(result.text)
+            except Exception as e:
+                ost_rep_body = result.text
         else:
+
             ost_rep_body = result.content
         ost_resp = OSTRespData(
             status_code=result.status_code,

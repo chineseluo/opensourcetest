@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opensourcetest"
-version = "0.3.14"
+version = "0.3.20"
 description = "We need more free software interface testing."
 license = "Apache-2.0"
 readme = "README.md"
@@ -23,15 +23,16 @@ classifiers = [
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "License :: OSI Approved :: Apache Software License"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
 pytest = "^5.2"
 pytest-html = "^2.1.1"
 loguru = "^0.5.3"
-requests = "^2.22.0"
+requests = "^2.24.0"
 PyYAML = "^5.1.2"
 mkdocs = "^1.1.2"
 mkdocs-material = "^6.0.2"
@@ -39,14 +40,14 @@ jmespath = "^0.9.5"
 pydantic = "^1.4"
 allure-pytest = "2.12.0"
 allure-python-commons= "2.12.0"
-
-selenium = "^4.18.0"
+requests_toolbelt="1.0.0"
+selenium = "4.18.*"
 docker = "^4.4.0"
-Appium-Python-Client = "^1.0.2"
+Appium-Python-Client = "2.11.*"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 loguru = "0.5.3"
-requests = "2.24.0"
+requests = "2.31.0"
 PyYAML = "5.3.1"
 
 [tool.poetry.scripts]
@@ -60,7 +61,3 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 
-#[pypi]
-#  username = "__token__"
-#  password = "pypi-AgEIcHlwaS5vcmcCJDdhMjlkZmZmLWM4YTEtNDc5NS05OTQ3LWJlMTk2MjViMGI0OQACFlsxLFsib3BlbnNvdXJjZXRlc3QiXV0AAixbMixbIjdlM2ViZmY0LTRjNzAtNDQ1My1hMjA4LWQ2M2YwODNjOWFkNiJdXQAABiAvOFqjWcmx6h_uyo4ZuQOHC-0KXCaV7jnnwba4nYYVkQ"
-#  poetry publish -u __token__ -p pypi-AgEIcHlwaS5vcmcCJDdhMjlkZmZmLWM4YTEtNDc5NS05OTQ3LWJlMTk2MjViMGI0OQACFlsxLFsib3BlbnNvdXJjZXRlc3QiXV0AAixbMixbIjdlM2ViZmY0LTRjNzAtNDQ1My1hMjA4LWQ2M2YwODNjOWFkNiJdXQAABiAvOFqjWcmx6h_uyo4ZuQOHC-0KXCaV7jnnwba4nYYVkQ

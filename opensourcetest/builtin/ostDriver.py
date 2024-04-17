@@ -22,6 +22,7 @@ from selenium.webdriver.chrome.options import Options as CO
 from selenium.webdriver.firefox.options import Options as FO
 from selenium.webdriver.ie.options import Options as IEO
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile as FP
+from opensourcetest.builtin.models import OSTUiBrowserOpt, OSTUiBrowser, OSTUiTypeDriver
 
 
 def ost_collection_modifyitems(items):
@@ -63,32 +64,32 @@ def ost_driver(request):
     logging.info(f'Get command line parameters:{request.config.getoption("--browser")}')
     type_driver = request.config.getoption("--type_driver")
     # Determine whether it is distributed locally or remotely
-    if type_driver == "local":
-        if browser_opt == "open":
-            if browser == "chrome":
+    if type_driver.upper() == OSTUiTypeDriver.LOCAL:
+        if browser_opt.upper() == OSTUiBrowserOpt.OPEN:
+            if browser.upper() == OSTUiBrowser.CHROME:
                 # Skip non secure HTTPS security verification
                 options = CO()
                 options.add_argument("--ignore-certificate-errors")
                 driver = webdriver.Chrome(options=options)
-            elif browser == "firefox":
+            elif browser.upper() == OSTUiBrowser.FIREFOX:
                 # Skip non secure HTTPS security verification
                 profile = FP()
                 profile.accept_untrusted_certs = True
                 driver = webdriver.Firefox(firefox_profile=profile)
-            elif browser == "ie":
+            elif browser.upper() == OSTUiBrowser.IE:
                 # Skip non secure HTTPS security verification
                 driver = webdriver.Ie()
             else:
                 logging.info(f"Bad browser parameters:{browser}")
         else:
-            if browser == "chrome":
+            if browser.upper() == OSTUiBrowser.CHROME:
                 # Do not open the browser window, run the test code in the background
                 options = CO()
                 options.add_argument('--headless')
                 # Skip non secure HTTPS security verification
                 options.add_argument('--ignore-certificate-errors')
                 driver = webdriver.Chrome(options=options)
-            elif browser == "firefox":
+            elif browser.upper() == OSTUiBrowser.FIREFOX:
                 # Do not open the browser window, run the test code in the background
                 firefox_options = FO()
                 firefox_options.add_argument('--headless')
@@ -96,7 +97,7 @@ def ost_driver(request):
                 profile = FP()
                 profile.accept_untrusted_certs = True
                 driver = webdriver.Firefox(firefox_options=firefox_options, firefox_profile=profile)
-            elif browser == "ie":
+            elif browser.upper() == OSTUiBrowser.IE:
                 # Do not open the browser window, run the test code in the background
                 ie_options = IEO()
                 ie_options.add_argument('--headless')
@@ -105,13 +106,14 @@ def ost_driver(request):
             else:
                 logging.info(f"Received incorrect browser parameters:{browser}")
         return driver
-    elif type_driver == "remote":
+    elif type_driver.upper() == OSTUiTypeDriver.REMOTE:
         # Read selenium distributed configuration file
         selenium_config_path = os.path.join(os.getcwd(), "Conf", "config.yaml")
         selenium_config = FileOption.read_yaml(selenium_config_path)
-        driver = Remote(command_executor=selenium_config["selenium_config"]["selenium_hub_url"],
-                        desired_capabilities={'platform': 'ANY', 'browserName': browser, 'version': '',
-                                              'javascriptEnabled': True})
+        co = CO()
+        co.page_load_strategy = "normal"
+        driver = Remote(command_executor=selenium_config["selenium_config"]["selenium_hub_url"],options=co)
+
         return driver
     else:
         logging.error(f"driver parameter transfer error, please check the parameter:{type_driver}")

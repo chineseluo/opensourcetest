@@ -10,6 +10,7 @@ import sys
 import logging
 import pytest
 from loguru import logger
+from opensourcetest.builtin.models import OSTUiBrowserOpt, OSTUiBrowser, OSTUiTypeDriver
 
 ROOT_DIR = os.path.dirname(__file__)
 
@@ -23,23 +24,23 @@ def ost_ui_runner(browser, browser_opt, type_driver):
     @return:
     """
     # 测试结果文件存放目录
-    result_dir = os.path.abspath("./Report/{}/allure-result".format(browser))
+    result_dir = os.path.abspath(f"./Report/{browser}/allure-result")
     # 测试报告文件存放目录
-    report_dir = os.path.abspath("./Report/{}/allure-report".format(browser))
+    report_dir = os.path.abspath(f"./Report/{browser}/allure-report")
     allure_path_args = ['--alluredir', result_dir, '--clean-alluredir']
-    test_args = ['-s', '-q', '--browser={}'.format(browser), '--browser_opt={}'.format(browser_opt),
-                 '--type_driver={}'.format(type_driver)]
+    test_args = ['-s', '-q', f'--browser={browser}', f'--browser_opt={browser_opt}',
+                 f'--type_driver={type_driver}']
     # 拼接运行参数
     run_args = test_args + allure_path_args
     # 使用pytest.main
     pytest.main(run_args)
     # 生成allure报告，需要系统执行命令--clean会清楚以前写入environment.json的配置
     cmd = f'allure generate ./Report/{browser.replace(" ", "_")}/allure-result -o ./Report/{browser.replace(" ", "_")}/allure-report --clean'
-    logger.info("命令行执行cmd:{}".format(cmd))
+    logger.info(f"命令行执行cmd:{cmd}")
     try:
         os.system(cmd)
     except Exception as e:
-        logging.error('命令【{}】执行失败！'.format(cmd))
+        logging.error(f'命令【{cmd}】执行失败！')
         sys.exit()
     # 打印url，方便直接访问
     return browser
@@ -51,13 +52,13 @@ def ost_ui_cmd_runner():
     input_browser = sys.argv
     if len(input_browser) > 1:
         ROOT_DIR = ROOT_DIR.replace("\\", "/")
-        if input_browser[1] == "chrome":
+        if input_browser[1].upper() == OSTUiBrowser.CHROME:
             ost_ui_runner(input_browser[1], input_browser[2], input_browser[3])
             return input_browser[1]
-        elif input_browser[1] == "firefox":
+        elif input_browser[1].upper() == OSTUiBrowser.CHROME:
             ost_ui_runner(input_browser[1], input_browser[2], input_browser[3])
             return input_browser[1]
-        elif input_browser[1] == "ie":
+        elif input_browser[1].upper() == OSTUiBrowser.IE:
             ost_ui_runner("ie", input_browser[2], input_browser[3])
             return input_browser[1]
         else:

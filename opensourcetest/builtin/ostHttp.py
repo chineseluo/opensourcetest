@@ -24,7 +24,7 @@ from opensourcetest.common.urlOperation import ost_http_argv_update
 
 
 def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, session_connection=None, params=None,
-                   data=None, json=None, files=None, url_converter=None, base_url=None, verify=None, **kwargs) -> OSTReqRespData:
+                   data=None, json=None, files=None, url_converter=None,url_quote_save=None, base_url=None, verify=None, **kwargs) -> OSTReqRespData:
     # Inject yaml request object
     params_obj = params_object()
     params_dict = params_obj.get_param_by_yaml(params_mark)
@@ -65,7 +65,7 @@ def ost_http_runner(params_object, params_mark: Union[Text, int], checker=None, 
     logging.debug(ost_req_argv)
 
     ost_req_resp = req.send_request(url=base_url + part_url, method=params_dict['method'].upper(),
-                                    send_params=params_dict['params'],  send_data=params_dict['data'] if isinstance(data, Dict) else data,
+                                    send_params=params_dict["params"] if not url_quote_save else urllib.parse.urlencode(params_dict["params"], quote_via=urllib.parse.quote, safe=f"{url_quote_save}"),  send_data=params_dict['data'] if isinstance(data, Dict) else data,
                                     send_json=params_dict['json'], headers=params_dict['headers'], files=params_dict['files'], verify=verify,
                                     **kwargs)
     if checker:
