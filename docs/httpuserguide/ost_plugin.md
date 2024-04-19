@@ -13,6 +13,8 @@ OpenSourceTest内置插件用于处理OST中的请求，断言检查，yaml文�
 - checker：断言器，支持列表和元组，或者元组列表嵌套的方式
 - session_connection：用于保持客户端与服务端的连接，传递token/cookie，或者其他header，以字典的形式传入
 - url_converter：url转换器，用于替换接口中的$符号，可以通过在yaml的具体某个接口中使用$代替url中的某些需要通过动态获取的参数，然后使用url_converter在脚本中进行替换，支持str/tuple/list（PS：替换的参数必须和yaml中该接口的$个数一一对应）
+- url_quote_save=None 主要用于适配不同RPC协议，对URL中的某些字符进行特殊处理
+- ost_timeout=None,ost_poll_frequency=None 增加根据断言重试，如果该接口设置有checker/ost_timeout/ost_poll_frequency，将根据checker进行接口返回信息匹配，要么匹配成功，要么超时退出
 - json：支持与yaml中的该json数据进行深层拼接，支持嵌套
 - 其他参数的传递通原始requests中的参数要求。
 
@@ -123,7 +125,8 @@ def start_run_case(params_object, params_mark: Union[Text, int], checker=None, s
                    data=None, json=None, files=None, url_converter=None, base_url=None, **kwargs):
     ost_req_resp = ost_http_runner(params_object, params_mark,  base_url=BASE_URL if not base_url else base_url, verify=VERIFY, checker=checker,
                                    session_connection=session_connection, params=params,
-                                   data=data, json=json, files=files, url_converter=url_converter, **kwargs)
+                                   data=data, json=json, files=files, url_converter=url_converter,url_quote_save=None, ost_timeout=None,
+                   ost_poll_frequency=None, **kwargs)
     return ost_req_resp.response.dict()
 ~~~
 
@@ -158,3 +161,11 @@ class TestLogin:
 
 
 ~~~
+
+#### ost_timeout=None,ost_poll_frequency=None补充说明
+- ost_timeout表示超时时间，ost_poll_frequency表示重试间隔，默认为None，例子：ost_timeout=80, ost_poll_frequency=10 表示这个接口将会重试断言8次，间隔10s，如果执行时间超过80s，断言超时，直接失败，和UI自动化的WebDriverWait().until()一样，可以看成是UI自动化中的隐式等待
+- 必须要设置了checker断言器才生效
+
+
+#### url_quote_save=None补充说明
+- url_quote_save表示启用RFC2396协议标准对url进行编码，默认为None,使用W3C进行编码，例子：url_quote_save=":"，表示URL中:原样输出，不进行处理，与urllib中的quote_save一致
