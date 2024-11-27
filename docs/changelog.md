@@ -101,3 +101,7 @@ from opensourcetest.builtin.ostHttp import ost_http_runner
 
 - OST修复http中run.py文件对于pytest.main()缺少返回状态码判断问题，会导致测试用例集无论成功或者失败，都不会导致jenkins运行失败，影响任务检查
 - OST新增dockerfile支持OST运行于docker镜像中，需要自行编译dockerfile即可，内置了java/python3.8/allure
+
+## V0.3.24 (2024-11-27)
+
+- OST在http的requestEngine中，增加对于响应结果进行jmespath提取的方式，使用jmespath库的语法，传递jmespath_rule参数即可，默认为None，不启用
